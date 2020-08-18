@@ -211,7 +211,7 @@
         <!-- END NOTIFICATIONS LIST -->
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14 font-heading d-lg-inline-block d-none m-l-20">
-          <span class="semi-bold">{{user.first_name}}</span> <span class="text-color">{{user.last_name}}</span>
+          <span class="semi-bold">{{user.first_name}}</span> <span class="text-color">{{" " + user.last_name}}</span>
         </div>
         <div class="dropdown pull-right d-lg-block d-none" dropdown>
           <button class="profile-dropdown-toggle" type="button" dropdownToggle id="profileDropdown"
@@ -222,7 +222,7 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" *dropdownMenu role="menu">
-            <a href="#" class="dropdown-item"><span>Signed in as <br /><b>David Aunsberg</b></span></a>
+            <a href="#" class="dropdown-item"><span>Signed in as <br /><b>{{user.first_name}} {{" " + user.last_name}}</b></span></a>
             <div class="dropdown-divider"></div>
             <a routerLink="profile" class="dropdown-item">Your Profile</a>
           <!--  <a href="#" class="dropdown-item">Your Activity</a>
@@ -254,7 +254,7 @@
         <div class=" container-fluid container-fixed-lg footer">
           <div class="copyright sm-text-center">
             <p class="small no-margin pull-left sm-pull-reset">
-              <span class="hint-text">Copyright &copy; 2017</span>&nbsp;<span class="font-montserrat">REVOX</span>.
+              <span class="hint-text">Copyright &copy; 2017</span>&nbsp;<span class="font-montserrat">Apovallo</span>.
               <span class="hint-text">All rights
                 reserved.</span> <span class="sm-block"><a class="m-l-10 m-r-10" href="javascript:void(0)">Terms of
                   use</a> <span class="muted">|</span> <a class="m-l-10" href="javascript:void(0)">Privacy
@@ -262,7 +262,7 @@
             </p>
 
             <p class="small no-margin pull-right sm-pull-reset">
-              Hand-crafted <span class="hint-text">&amp; made with Love</span>
+               <span class="hint-text"></span>
             </p>
 
             <div class="clearfix">

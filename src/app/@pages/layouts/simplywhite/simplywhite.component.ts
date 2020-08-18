@@ -17,14 +17,14 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
     {
       label: 'Home',
       details: '12 New Updates',
-      routerLink: 'simplywhitelayout',
+      routerLink: 'pent',
       iconType: 'fi',
       iconName: 'shield'
     },
     {
       label: 'Transactions',
       details: '234 New Emails',
-      routerLink: 'email/light/list',
+      routerLink: 'transactions',
       iconType: 'fi',
       iconName: 'mail'
     },

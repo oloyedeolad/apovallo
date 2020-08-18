@@ -14,6 +14,8 @@ import {
 import {LoginComponent} from './@pages/layouts/simplywhite/login/login.component';
 import {RegisterPageComponent} from './@pages/layouts/session/register/register.component';
 import {ProfileComponent} from './@pages/layouts/simplywhite/profile/profile.component';
+import {TransactionsComponent} from './@pages/layouts/simplywhite/transactions/transactions.component';
+import {PentComponent} from './@pages/layouts/simplywhite/pent/pent.component';
 
 
 
@@ -53,7 +55,10 @@ export const AppRoutes: Routes = [
     },
     component: SimplyWhiteLayout,
     children: [
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
+      {path: 'transactions', component: TransactionsComponent},
+      {path: '', component: PentComponent},
+      {path: 'pent', component: PentComponent}
     ]
   },
   {

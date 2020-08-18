@@ -1,0 +1,83 @@
+<!-- START JUMBOTRON -->
+<div data-pages="parallax">
+    <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
+        <div class="inner">
+            <!-- START BREADCRUMB -->
+            <ol class="breadcrumb sm-p-b-5">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid p-l-25 p-r-25 p-t-0 p-b-25 sm-padding-10 sm-gutter">
+    <!-- START ROW -->
+    <div class="row">
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START WIDGET -->
+            <!-- START ITEM -->
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
+                           Source="Pages" Timestamp="Jul 24">
+                <ng-template #CustomBody>
+                    <h5 class='no-margin'>Apple Inc.</h5>
+                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
+                    <h3 class="m-b-0">111.25
+                        <span class="text-success">
+              <i class="fa fa-sort-up small tex"></i> 0.15</span>
+                    </h3>
+                </ng-template>
+            </pgcardsocial>
+            <!-- END ITEM -->
+            <!-- END WIDGET -->
+            <!-- START WIDGET -->
+
+            <!--<weekly-sales-widget></weekly-sales-widget>-->
+            <!-- END WIDGET -->
+            <!-- START WIDGET -->
+            <!--<quick-stats-widget></quick-stats-widget>-->
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START ITEM -->
+
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
+                           Source="John Smith" Timestamp="Apr 24">
+                <ng-template #CustomBody>
+                    <h5 class='no-margin'>Apple Inc.</h5>
+                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
+                    <h3 class="m-b-0">111.25
+                        <span class="text-success">
+              <i class="fa fa-sort-up small text-success"></i> 0.15</span>
+                    </h3>
+                </ng-template>
+            </pgcardsocial>
+        </div>
+
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START ITEM -->
+
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"
+                          Source="John Smith" Timestamp="Apr 24">
+                <ng-template #CustomBody>
+                    <h5 class='no-margin'>Apple Inc.</h5>
+                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
+                    <h3 class="m-b-0">111.25
+                        <span class="text-success">
+              <i class="fa fa-sort-up small text-success"></i> 0.15</span>
+                    </h3>
+                </ng-template>
+            </pgcardsocial>
+        </div>
+       <!-- <div class="col-lg-4 m-b-10 d-flex">
+            &lt;!&ndash; START WIDGET &ndash;&gt;
+            &lt;!&ndash;<table-widget></table-widget>&ndash;&gt;
+            &lt;!&ndash; END WIDGET &ndash;&gt;
+        </div>-->
+    </div>
+
+</div>
+<!-- END CONTAINER FLUID -->
