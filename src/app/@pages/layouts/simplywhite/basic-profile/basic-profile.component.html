@@ -1,0 +1,93 @@
+<div class="register-container mt-1 pt-1 full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+
+        <img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">
+        <h4>Pages makes it easy to enjoy what matters the most in your life</h4>
+        <p>
+            Create or Update Your profile
+        </p>
+        <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="createProfile(registerForm.value)">
+            <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Address</label>
+                        <input type="text" placeholder="No 9 Washinton avenue" class="form-control" id="address" name="address" [(ngModel)]="address"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>City</label>
+                        <input type="text" placeholder="Los Angeles" class="form-control" id="city" name="city" [(ngModel)]="city"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="userName.invalid && (userName.dirty || userName.touched)">
+                        <label>Country</label>
+                        <input type="text" placeholder="United States" class="form-control" id="country" name="country" [(ngModel)]="country"  #userName="ngModel" required>
+                    </div>
+                    <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" >
+                        <label  *ngIf="userName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                    <label>Gender</label>
+                    <pg-select style="width: 100%;" [(ngModel)]="selectedOption" id="gender" name="gender" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
+                               ShowSearch>
+                        <pg-option *ngFor="let option of options" Label="{{option}}"  [Value]="option">
+                        </pg-option>
+                    </pg-select>
+                    <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
+                        <label  *ngIf="gender.errors.required" class="error" >This field is required.</label>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="+1 785 343 3432" class="form-control" id="phone" name="phone" [(ngModel)]="phone"  #email="ngModel" required>
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+                        <label  *ngIf="email.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row m-t-10">
+                <div class="col-lg-6">
+                    <p><small>I agree to the <a href="javascript:void(0)" class="text-info">Pages Terms</a> and <a href="javascript:void(0)" class="text-info">Privacy</a>.</small></p>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <a href="javascript:void(0)" class="text-info small">Help? Contact Support</a>
+                </div>
+            </div>-->
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" [class.disabled]="registerForm.invalid">{{ buttonText}}</button>
+        </form>
+
+    </div>
+</div>
+<!--
+<div class=" full-width">
+    <div class="register-container mt-2 m-b-10 clearfix">
+        <div class="m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix d-flex-md-up">
+            <div class="col-md-2 no-padding d-flex align-items-center">
+                <img src="assets/img/demo/pages_icon.png" alt="" class="" pgRetina src1x="assets/img/demo/pages_icon.png" src2x="assets/img/demo/pages_icon_2x.png" width="60" height="60">
+            </div>
+            <div class="col-md-9 no-padding d-flex align-items-center">
+                <p class="hinted-text small inline sm-p-t-10">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>
+            </div>
+        </div>
+    </div>
+</div>
+-->

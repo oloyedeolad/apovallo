@@ -1,0 +1,45 @@
+<pg-container>
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-borderless">
+                <pg-tabset tabAnimation="slide-left" Type="simple" ShowPagination="true">
+                    <pg-tab>
+                        <ng-template #TabHeading>
+                            Basic Profile
+                        </ng-template>
+                        <div class="row column-seperation">
+                            <div class="col-lg-6">
+                                <app-basic-profile></app-basic-profile>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3 class="semi-bold">great tabs</h3>
+                                <p>Native boostrap tabs customized to Pages look and feel, simply changing class name you can change color as well as its animations</p>
+                            </div>
+                        </div>
+                    </pg-tab>
+                    <pg-tab>
+                        <ng-template #TabHeading>
+                            Update Password
+                        </ng-template>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <app-user-password></app-user-password>
+                            </div>
+                            <div class="col-lg-4"></div>
+                        </div>
+                    </pg-tab>
+                    <pg-tab>
+                        <ng-template #TabHeading>
+                            User Detail Update
+                        </ng-template>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <app-user-detail></app-user-detail>
+                            </div>
+                        </div>
+                    </pg-tab>
+                </pg-tabset>
+            </div>
+        </div>
+    </div>
+</pg-container>
