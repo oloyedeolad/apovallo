@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(credentials).subscribe(() => {
           const user: IUser = this.$localStorage.retrieve('user');
           console.log(user);
-          this.router.navigate(['simplywhite']);
+          this.router.navigate(['dashboard']);
         },
         error => {this.toast.error('Wrong username or password');
 

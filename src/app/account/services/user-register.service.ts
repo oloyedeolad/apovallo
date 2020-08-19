@@ -7,6 +7,7 @@ import {map} from 'rxjs/operators';
 import {IUser} from '../model/user.model';
 import {createRequestOption} from '../../util/request-util';
 import {ILogin} from '../model/login.model';
+import {IUserActivation} from '../../@pages/layouts/simplywhite/user-activation/user-activation.model';
 
 
 type EntityResponseType = HttpResponse<IUser>;
@@ -16,13 +17,20 @@ type EntityArrayResponseType = HttpResponse<IUser[]>;
 @Injectable({ providedIn: 'root' })
 export class UserService {
   public resourceUrl = SERVER_API_URL + 'account/register/';
+  public resourceUrl2 = SERVER_API_URL + 'account/updatepass/';
 
   constructor(protected http: HttpClient) {}
 
-  create(notification: IUserProfile): Observable<EntityResponseType> {
+  create(notification: IUser): Observable<EntityResponseType> {
     return this.http
-      .post<IUserProfile>(this.resourceUrl, notification, { observe: 'response' })
+      .post<IUser>(this.resourceUrl, notification, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
+  activate(notification: IUserActivation, id: number): Observable<EntityResponseType> {
+    return this.http
+        .patch<IUserActivation>(`${this.resourceUrl}${id}/`, notification, { observe: 'response' })
+        .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
   update(notification: IUser, id: number): Observable<EntityResponseType> {
@@ -31,9 +39,9 @@ export class UserService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  updatePassword(notification: ILogin, id: number): Observable<EntityResponseType> {
+  updatePassword(notification: ILogin): Observable<EntityResponseType> {
     return this.http
-        .patch<ILogin>(`${this.resourceUrl}${id}/`, notification, { observe: 'response' })
+        .patch<ILogin>(this.resourceUrl2, notification, { observe: 'response' })
         .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

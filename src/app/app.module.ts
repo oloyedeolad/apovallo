@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule} from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 // Routing
@@ -72,6 +72,8 @@ import { UserPasswordComponent } from './@pages/layouts/simplywhite/user-passwor
 import { TransactionsComponent } from './@pages/layouts/simplywhite/transactions/transactions.component';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import { PentComponent } from './@pages/layouts/simplywhite/pent/pent.component';
+import { UserActivationComponent } from './@pages/layouts/simplywhite/user-activation/user-activation.component';
+import {AuthInterceptor} from './interceptor/auth.interceptor';
 
 
 
@@ -110,6 +112,7 @@ export class AppHammerConfig extends HammerGestureConfig  {
     UserPasswordComponent,
     TransactionsComponent,
     PentComponent,
+    UserActivationComponent,
   ],
     imports: [
         BrowserModule,
@@ -148,6 +151,11 @@ export class AppHammerConfig extends HammerGestureConfig  {
   providers: [QuickviewService, pagesToggleService, {
     provide: PERFECT_SCROLLBAR_CONFIG,
     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+  },
+  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
   },
   {
     provide: HAMMER_GESTURE_CONFIG,

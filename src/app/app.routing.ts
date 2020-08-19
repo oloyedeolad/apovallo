@@ -16,6 +16,7 @@ import {RegisterPageComponent} from './@pages/layouts/session/register/register.
 import {ProfileComponent} from './@pages/layouts/simplywhite/profile/profile.component';
 import {TransactionsComponent} from './@pages/layouts/simplywhite/transactions/transactions.component';
 import {PentComponent} from './@pages/layouts/simplywhite/pent/pent.component';
+import {UserActivationComponent} from './@pages/layouts/simplywhite/user-activation/user-activation.component';
 
 
 
@@ -35,21 +36,11 @@ export const AppRoutes: Routes = [
     component: RegisterPageComponent
   },
   {
-    path: 'casual',
-    data: {
-        breadcrumb: 'Home'
-    },
-    component: CasualLayout
+    path: 'account/activate/:activation_key/:user',
+    component: UserActivationComponent
   },
   {
-    path: 'executive',
-    data: {
-        breadcrumb: 'Home'
-    },
-    component: ExecutiveLayout
-  },
-  {
-    path: 'simplywhite',
+    path: 'dashboard',
     data: {
         breadcrumb: 'Home'
     },

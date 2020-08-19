@@ -25,12 +25,14 @@ export class UserPasswordComponent implements OnInit {
   }
 
   changePassword(formP: any) {
-    console.log(formP);
     const login: ILogin = {
-      password: formP.confirmTxtpassword,
-      oldPassword: formP.txtpassword
+      password: formP.txtpassword,
+      oldPassword: formP.oldpassword,
+      username: this.user.username
     };
-    this.userRegisterService.update(login, this.user.id).subscribe((res) => {
+
+    console.log(login);
+    this.userRegisterService.updatePassword(login).subscribe((res) => {
       this.toast.success('Your update was successful', 'Successful');
     }, () => {
       this.toast.error('Your update failed');

@@ -23,15 +23,15 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {}
 
   register(register: any) {
-    console.log(register);
     const user: IUser = {
-      username: register.userName,
-      password: register.password,
-      email: register.email,
-      first_name: register.first_name,
-      last_name: register.last_name
+      username: register.txtusername,
+      password: register.txtpassword,
+      email: register.txtemail,
+      first_name: register.txtfname,
+      last_name: register.txtlname
     };
-    this.userRegisterService.create(register).subscribe((res) => {
+    console.log(user);
+    this.userRegisterService.create(user).subscribe((res) => {
       this.onSaveSuccess();
     }, (error) => {
       console.log(error);
@@ -42,7 +42,7 @@ export class RegisterPageComponent implements OnInit {
   protected onSaveSuccess(): void {
    /* this.isSaving = false;
     this.isRegistered = true;*/
-    this.toast.success('Registration successful, proceed to activate');
+    this.toast.success('Registration successful, please check your email to activate');
     this.router.navigate(['']);
   }
 

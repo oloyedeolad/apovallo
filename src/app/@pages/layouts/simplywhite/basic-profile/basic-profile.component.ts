@@ -26,8 +26,9 @@ export class BasicProfileComponent implements OnInit {
     this.user = $localStorage.retrieve('user');
     this.basicProfileService.findByPatientId(this.user.id).subscribe((res) => {
       this.basicProfile = res.body;
+      console.log(this.basicProfile);
       this.address  = this.basicProfile.address;
-      this.phone = this.basicProfile.address;
+      this.phone = this.basicProfile.phone;
       this.gender = this.basicProfile.gender;
       this.city = this.basicProfile.city;
       this.country = this.basicProfile.country;
@@ -49,7 +50,8 @@ export class BasicProfileComponent implements OnInit {
       phone: profile.phone,
       gender: profile.gender,
       city: profile.city,
-      country: profile.country
+      country: profile.country,
+      user: this.user.id
     };
     if (this.basicProfile.id != null) {
       basicProfile.id =  this.basicProfile.id;
@@ -76,6 +78,6 @@ export class BasicProfileComponent implements OnInit {
 
   protected onSaveError(): void {
     /*this.isSaving = false;*/
-    this.toast.error('Registration failed, ensure you have not registered before');
+    this.toast.error('Operation failed, could be your network');
   }
 }

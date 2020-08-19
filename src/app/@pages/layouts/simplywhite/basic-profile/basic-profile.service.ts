@@ -47,7 +47,7 @@ export class BasicProfileService {
 
     findByPatientId(id: number): Observable<EntityResponseType> {
         return this.http
-            .get<IBasicProfile>(`${this.resourceUrl}${id}/patient/`, { observe: 'response' })
+            .get<IBasicProfile>(`${this.resourceUrl}${id}/user/`, { observe: 'response' })
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
     }
 

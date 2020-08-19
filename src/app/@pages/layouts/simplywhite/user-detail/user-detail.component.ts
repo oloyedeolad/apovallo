@@ -24,7 +24,7 @@ export class UserDetailComponent implements OnInit {
     this.user = $localStorage.retrieve('user');
     this.txtfname = this.user.first_name;
     this.txtlname = this.user.last_name;
-    this.txtemail = this.user.first_name;
+    this.txtemail = this.user.email;
     this.txtusername =  this.user.username;
   }
 
