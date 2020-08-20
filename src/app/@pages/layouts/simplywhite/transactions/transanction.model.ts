@@ -53,3 +53,16 @@ export class MetaData implements IMetaData {
     ) {
     }
 }
+
+export interface IPaymentRequest {
+    amount: number;
+    currency: string;
+}
+
+export class PaymentRequest implements IPaymentRequest {
+    constructor(
+        public amount: number,
+        public currency: string
+    ) {
+    }
+}

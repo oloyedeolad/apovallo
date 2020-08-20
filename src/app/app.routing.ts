@@ -17,6 +17,7 @@ import {ProfileComponent} from './@pages/layouts/simplywhite/profile/profile.com
 import {TransactionsComponent} from './@pages/layouts/simplywhite/transactions/transactions.component';
 import {PentComponent} from './@pages/layouts/simplywhite/pent/pent.component';
 import {UserActivationComponent} from './@pages/layouts/simplywhite/user-activation/user-activation.component';
+import {TransferComponent} from './@pages/layouts/simplywhite/transfer/transfer.component';
 
 
 
@@ -49,7 +50,8 @@ export const AppRoutes: Routes = [
       {path: 'profile', component: ProfileComponent},
       {path: 'transactions', component: TransactionsComponent},
       {path: '', component: PentComponent},
-      {path: 'pent', component: PentComponent}
+      {path: 'pent', component: PentComponent},
+      {path: 'pent/transfer', component: TransferComponent}
     ]
   },
   {

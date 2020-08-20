@@ -1,0 +1,135 @@
+<div class="register-container mt-1 pt-1 full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+
+        <img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">
+        <h4>We make moving your money very easy, you dont have to worry</h4>
+        <p>
+            We accept various types of cards: Debit, Credit, Amex, Visa, and others.
+        </p>
+        <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="sendTransaction(registerForm.value)">
+            <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Amount</label>
+                        <input type="text" placeholder="Amount" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Last Names</label>
+                        <input type="text" placeholder="Smith" class="form-control" id="to_name" name="to_name" [(ngModel)]="to_name"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>First Name</label>
+                        <input type="text" placeholder="John" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Last Names</label>
+                        <input type="text" placeholder="Smith" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Name of Bank</label>
+                        <input type="text" placeholder="Name of Bank" class="form-control" id="to_bank" name="to_bank" [(ngModel)]="to_bank"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Account Number</label>
+                        <input type="text" placeholder="Account Number" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                        <label>Originating Country</label>
+                        <pg-select style="width: 100%;" [(ngModel)]="source_country" id="source_country" name="source_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
+                                   ShowSearch>
+                            <pg-option *ngFor="let option of optionsSource" Label="{{option}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
+                            <label  *ngIf="gender.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                        <label>Destination Country</label>
+                        <pg-select style="width: 100%;" [(ngModel)]="destination_country" id="destination_country" name="destination_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
+                                   ShowSearch>
+                            <pg-option *ngFor="let option of optionsDestination" Label="{{option}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
+                            <label  *ngIf="gender.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                        <label>Receivers Email</label>
+                        <input type="email" placeholder="We will send loging details to you" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #email="ngModel" required>
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+                        <label  *ngIf="email.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div pgFormGroupDefault class="form-group form-group-default" >
+                    <label>Credit Card Details</label>
+                    <ngx-stripe-card
+                            [options]="cardOptions"
+                            [elementsOptions]="elementsOptions"
+                    ></ngx-stripe-card>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" [class.disabled]="registerForm.invalid">Make Payment</button>
+        </form>
+
+    </div>
+</div>
+
+
+

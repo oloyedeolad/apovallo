@@ -13,7 +13,8 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
 // Layouts
-import { CondensedComponent, BlankComponent, RootLayout, CorporateLayout, SimplyWhiteLayout, ExecutiveLayout, CasualLayout } from './@pages/layouts';
+import { CondensedComponent, BlankComponent, RootLayout, CorporateLayout,
+    SimplyWhiteLayout, ExecutiveLayout, CasualLayout } from './@pages/layouts';
 // Layout Service - Required
 import { pagesToggleService } from './@pages/services/toggler.service';
 
@@ -75,6 +76,10 @@ import { PentComponent } from './@pages/layouts/simplywhite/pent/pent.component'
 import { UserActivationComponent } from './@pages/layouts/simplywhite/user-activation/user-activation.component';
 import {AuthInterceptor} from './interceptor/auth.interceptor';
 
+import { SimplywhiteComponent } from './@page/layouts/simplywhite/simplywhite.component';
+import { TransferComponent } from './@pages/layouts/simplywhite/transfer/transfer.component';
+import {NgxStripeModule} from 'ngx-stripe';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -113,6 +118,8 @@ export class AppHammerConfig extends HammerGestureConfig  {
     TransactionsComponent,
     PentComponent,
     UserActivationComponent,
+    SimplywhiteComponent,
+    TransferComponent,
   ],
     imports: [
         BrowserModule,
@@ -122,6 +129,7 @@ export class AppHammerConfig extends HammerGestureConfig  {
         HttpModule,
         HttpClientModule,
         SharedModule,
+        NgxStripeModule.forRoot('pk_test_DINLqziBvdcWlwy5w2WeF2Wh'),
         ProgressModule,
         pgListViewModule,
         pgCardModule,
@@ -146,7 +154,7 @@ export class AppHammerConfig extends HammerGestureConfig  {
         ReactiveFormsModule,
         pgSelectfx,
         pgSelectModule,
-        NgxDatatableModule
+        NgxDatatableModule,
     ],
   providers: [QuickviewService, pagesToggleService, {
     provide: PERFECT_SCROLLBAR_CONFIG,
