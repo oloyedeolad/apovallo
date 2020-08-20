@@ -1,6 +1,6 @@
 export interface ITransaction {
     id?: number;
-    user?: number;
+    user?: string;
     amount?: number;
     amount_recieved?: number;
     pay_ref?: string;
@@ -43,6 +43,7 @@ export class Transanction implements ITransaction {
         public from_country?: string,
         public rate?: number,
         public total?: number,
+        public user?: string,
         public to_account_number?: string,
     ) {
     }

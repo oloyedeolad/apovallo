@@ -20,7 +20,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
                         <label>Currency</label>
-                        <input readonly type="text" placeholder="Smith" value="{{ currency}}" class="form-control" id="currency" name="currency" [(ngModel)]="currency"  #LName="ngModel" required>
+                        <input readonly type="text" placeholder="usd" value="{{ currency}}" class="form-control" id="currency" name="currency" [(ngModel)]="currency"  #LName="ngModel" required>
                     </div>
                     <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
                         <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
@@ -96,9 +96,9 @@
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
                         <label>Originating Country</label>
-                        <pg-select style="width: 100%;" [(ngModel)]="source_country" onChange="changeSource(value)" id="source_country" name="source_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="source_country" (ngModelChange)="changeSource($event)" id="source_country" name="source_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
                                    ShowSearch>
-                            <pg-option *ngFor="let option of optionsSource" Label="{{option.name}}"  [Value]="option.name">
+                            <pg-option *ngFor="let option of optionsSource" Label="{{option.name}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
@@ -113,7 +113,7 @@
                         <label>Destination Country</label>
                         <pg-select style="width: 100%;" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
                                    ShowSearch>
-                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option.name">
+                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >

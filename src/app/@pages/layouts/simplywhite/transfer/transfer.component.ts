@@ -44,8 +44,8 @@ export class TransferComponent implements OnInit {
   amount: number;
   rate: number;
   currency: string;
-  source_country: string;
-  destination_country: string;
+  source_country: ICountry;
+  destination_country: ICountry;
   optionsSource: ICountry [] = [];
   optionsDestination: ICountry[] = [];
   user: IUser;
@@ -58,6 +58,7 @@ export class TransferComponent implements OnInit {
   constructor(private toaster: ToastrService, private transactionService: TransactionService,
               private $localStorage: LocalStorageService, private stripeService: StripeService) {
     this.user = this.$localStorage.retrieve('user');
+    console.log(this.user);
     this.rates = $localStorage.retrieve('rates');
     this.rates.forEach((exchangeRate) => {
       this.optionsSource.push(exchangeRate.source_country);
@@ -73,12 +74,12 @@ export class TransferComponent implements OnInit {
       to_name: form.to_firstname + ' ' + form.to_lastname,
       to_email: form.to_email,
       to_account_number: form.to_account_number,
-      to_country: form.destination_country,
+      to_country: form.destination_country.name,
       to_bank: form.to_bank,
       to_phone: form.to_phone,
-      user: this.user.id,
-      from_country: form.source_country,
-      rate: form.race,
+      user: this.user.username,
+      from_country: form.source_country.name,
+      rate: form.rate,
       total: form.total,
       amount: form.amount
     };
@@ -116,6 +117,7 @@ export class TransferComponent implements OnInit {
       }, (error1) => {
             console.log(error1);
       }, () => {
+            console.log(this.tnx);
         this.transactionService.create(this.tnx).subscribe((final_result) => {
           console.log(final_result);
           this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successfule');
@@ -130,14 +132,23 @@ export class TransferComponent implements OnInit {
 
   changeSource(evnt) {
     console.log('am here now');
-    this.currency = evnt.target.value;
+    this.source_country = evnt;
+    this.currency = evnt.currency;
     console.log(this.currency);
   }
   changeDestination(evet) {
     // tslint:disable-next-line:max-line-length
-    console.log('am here now');
-    const prate: IExchangeRate = this.rates.filter((rate) =>  rate.destination_country.name === evet.target.value && rate.source_country.name === this.source_country)[0];
-    this.rate = prate.rate;
+    // console.log(evet);
+    console.log(this.rates);
+    const pet = this.source_country.name;
+    const prate: IExchangeRate [] = this.rates.filter((rate)  => {
+       return  rate.destination_country.name === evet.name;
+    });
+    const finalRate: IExchangeRate [] = prate.filter((pot) => {
+      return pot.source_country.name === this.source_country.name;
+    });
+    console.log(finalRate);
+    this.rate = finalRate[0].rate;
     console.log(this.rate);
   }
 }

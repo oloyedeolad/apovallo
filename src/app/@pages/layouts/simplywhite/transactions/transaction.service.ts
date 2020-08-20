@@ -13,7 +13,7 @@ type EntityArrayResponseType = HttpResponse<ITransaction[]>;
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
-    public resourceUrl = SERVER_API_URL + 'finance/transaction/';
+    public resourceUrl = SERVER_API_URL + 'finance/tnx/';
     public resourceUrl2 = SERVER_API_URL + 'finance/paymentintent/';
 
     constructor(protected http: HttpClient) {}
