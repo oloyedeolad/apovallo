@@ -13,8 +13,10 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
 // Layouts
-import { CondensedComponent, BlankComponent, RootLayout, CorporateLayout,
-    SimplyWhiteLayout, ExecutiveLayout, CasualLayout } from './@pages/layouts';
+import {
+    CondensedComponent, BlankComponent, RootLayout, CorporateLayout,
+    SimplyWhiteLayout, ExecutiveLayout, CasualLayout, DemoComponent
+} from './@pages/layouts';
 // Layout Service - Required
 import { pagesToggleService } from './@pages/services/toggler.service';
 
@@ -108,6 +110,7 @@ export class AppHammerConfig extends HammerGestureConfig  {
     SidebarComponent, QuickviewComponent, SearchOverlayComponent, HeaderComponent, HorizontalMenuComponent,
     BlankComponent,
     RootLayout,
+      DemoComponent,
     BlankCorporateComponent,
     BlankSimplywhiteComponent,
     BlankCasualComponent,

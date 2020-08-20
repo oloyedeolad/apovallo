@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -47,7 +47,7 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -55,7 +55,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
+              "buildOptimizer": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
