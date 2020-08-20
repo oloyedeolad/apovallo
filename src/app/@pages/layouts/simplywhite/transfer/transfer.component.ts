@@ -34,10 +34,12 @@ export class TransferComponent implements OnInit {
   };
 
   to_account_number: string;
-  to_name: string;
+  to_firstname: string;
+  to_lastname: string;
   to_email: string;
   to_phone: string;
   to_bank: string;
+  total: number;
   amount: number;
   rate: number;
   currency: string;

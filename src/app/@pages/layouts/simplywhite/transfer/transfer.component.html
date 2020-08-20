@@ -19,8 +19,8 @@
                 </div>
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
-                        <label>Last Names</label>
-                        <input type="text" placeholder="Smith" class="form-control" id="to_name" name="to_name" [(ngModel)]="to_name"  #LName="ngModel" required>
+                        <label>Currency</label>
+                        <input type="text" placeholder="Smith" class="form-control" id="currency" name="currency" [(ngModel)]="currency"  #LName="ngModel" required>
                     </div>
                     <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
                         <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
@@ -31,7 +31,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
                         <label>First Name</label>
-                        <input type="text" placeholder="John" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #fName="ngModel" required >
+                        <input type="text" placeholder="John" class="form-control" id="to_firstname" name="to_firstname" [(ngModel)]="to_firstname"  #fName="ngModel" required >
                     </div>
                     <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
                         <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
@@ -40,7 +40,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
                         <label>Last Names</label>
-                        <input type="text" placeholder="Smith" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #LName="ngModel" required>
+                        <input type="text" placeholder="Smith" class="form-control" id="to_lastname" name="to_lastname" [(ngModel)]="to_lastname"  #LName="ngModel" required>
                     </div>
                     <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
                         <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
@@ -71,8 +71,30 @@
 
 
             <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Receiver's Phone</label>
+                        <input type="text" placeholder="Name of Bank" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Receiver's Email</label>
+                        <input type="text" placeholder="Account Number" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
                         <label>Originating Country</label>
                         <pg-select style="width: 100%;" [(ngModel)]="source_country" id="source_country" name="source_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
                                    ShowSearch>
@@ -87,7 +109,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
                         <label>Destination Country</label>
                         <pg-select style="width: 100%;" [(ngModel)]="destination_country" id="destination_country" name="destination_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
                                    ShowSearch>
@@ -101,16 +123,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
-                        <label>Receivers Email</label>
-                        <input type="email" placeholder="We will send loging details to you" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #email="ngModel" required>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Current Exchange Rate</label>
+                        <input type="text" placeholder="Current Exchange Rate" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #fName="ngModel" required >
                     </div>
-                    <div *ngIf="email.invalid && (email.dirty || email.touched)" >
-                        <label  *ngIf="email.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Destination Total</label>
+                        <input type="text" placeholder="Destination Total" class="form-control" id="total" name="total" [(ngModel)]="total"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
             </div>
+
 
 
 
