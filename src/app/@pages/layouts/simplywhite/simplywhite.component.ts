@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import {IUser} from '../../../account/model/user.model';
 import {LoginService} from '../../../account/services/login.service';
+import {ExchangeRateService} from './transactions/exchange_rate.service';
+import {IExchangeRate} from './transactions/country.model';
 
 @Component({
   selector: 'simplywhite-layout',
@@ -37,9 +39,12 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
   ];
   user: IUser;
   constructor(public toggler: pagesToggleService, protected loginService: LoginService,  router: Router,
-              private routed: Router, private $localStorage: LocalStorageService) {
+              private routed: Router, private $localStorage: LocalStorageService,
+              private exchangeRateService: ExchangeRateService) {
    super(toggler, router);
     this.user = $localStorage.retrieve('user');
+    this.loadCountries();
+
   }
   ngOnInit() {
     this.changeLayout('menu-pin');
@@ -50,5 +55,12 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
   logOut() {
     this.loginService.logout();
     this.routed.navigate(['']);
+  }
+
+  loadCountries() {
+    this.exchangeRateService.query().subscribe((res) => {
+      const rates: IExchangeRate[] = res.body;
+      this.$localStorage.store('rates', rates);
+    });
   }
 }
