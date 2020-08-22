@@ -81,6 +81,11 @@ import {AuthInterceptor} from './interceptor/auth.interceptor';
 import { SimplywhiteComponent } from './@page/layouts/simplywhite/simplywhite.component';
 import { TransferComponent } from './@pages/layouts/simplywhite/transfer/transfer.component';
 import {NgxStripeModule} from 'ngx-stripe';
+import { TnxSuccessfulComponent } from './@pages/layouts/simplywhite/tnx-successful/tnx-successful.component';
+import { TnxFailedComponent } from './@pages/layouts/simplywhite/tnx-failed/tnx-failed.component';
+import { TnxPendingComponent } from './@pages/layouts/simplywhite/tnx-pending/tnx-pending.component';
+import { TnxDetalsComponent } from './@pages/layouts/simplywhite/tnx-detals/tnx-detals.component';
+import {AuthExpiredInterceptor} from './interceptor/auth-expired.interceptor';
 
 
 
@@ -123,6 +128,10 @@ export class AppHammerConfig extends HammerGestureConfig  {
     UserActivationComponent,
     SimplywhiteComponent,
     TransferComponent,
+    TnxSuccessfulComponent,
+    TnxFailedComponent,
+    TnxPendingComponent,
+    TnxDetalsComponent,
   ],
     imports: [
         BrowserModule,
@@ -168,6 +177,11 @@ export class AppHammerConfig extends HammerGestureConfig  {
       useClass: AuthInterceptor,
       multi: true
   },
+      {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthExpiredInterceptor,
+          multi: true
+      },
   {
     provide: HAMMER_GESTURE_CONFIG,
     useClass: AppHammerConfig

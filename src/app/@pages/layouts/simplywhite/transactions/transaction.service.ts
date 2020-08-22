@@ -38,7 +38,7 @@ export class TransactionService {
 
     find(id: number): Observable<EntityResponseType> {
         return this.http
-            .get<ITransaction>(`${this.resourceUrl}${id}`, { observe: 'response' })
+            .get<ITransaction>(`${this.resourceUrl}${id}/`, { observe: 'response' })
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
     }
 
@@ -53,15 +53,15 @@ export class TransactionService {
         return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
-    findByUserId(id: number): Observable<EntityResponseType> {
+    findByUserId(id: string): Observable<EntityArrayResponseType> {
         return this.http
-            .get<ITransaction>(`${this.resourceUrl}${id}/patient/`, { observe: 'response' })
-            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+            .get<ITransaction[]>(`${this.resourceUrl}byuser/${id}/my`, { observe: 'response' })
+            .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 
-    findTotalBasedStatus(status: string): Observable<EntityArrayResponseType> {
+    findByStatus(status: string, user: string): Observable<EntityArrayResponseType> {
         return this.http
-            .get<ITransaction[]>(`${this.resourceUrl}${status}`, {  observe: 'response' })
+            .get<ITransaction[]>(`${this.resourceUrl}${status}/${user}/`, {  observe: 'response' })
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 

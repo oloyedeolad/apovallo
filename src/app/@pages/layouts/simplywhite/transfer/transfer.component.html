@@ -1,70 +1,66 @@
 <div class="register-container mt-1 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
 
-        <img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">
+        <!--<img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">-->
         <h4>We make moving your money very easy, you dont have to worry</h4>
         <!--<p>
             We accept various types of cards: Debit, Credit, Amex, Visa, and others.
         </p>-->
-        <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="sendTransaction(registerForm.value)">
+        <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm" (ngSubmit)="sendTransaction(transferForm)">
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
                         <label>Amount</label>
-                        <input type="text" placeholder="Amount" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #fName="ngModel" required >
+                        <input type="text" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
                     </div>
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
-                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
+                        <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
-                        <label>Currency</label>
-                        <input readonly type="text" placeholder="usd" value="{{ currency}}" class="form-control" id="currency" name="currency" [(ngModel)]="currency"  #LName="ngModel" required>
-                    </div>
-                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
-                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
-                    </div>
+                        <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
+                            <label>Currency</label>
+                            <pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource($event)" id="currency" name="currency" #useCurrency= "ngModel" [PlaceHolder]="" AllowClear
+                                       ShowSearch required>
+                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency}}"  [Value]="option">
+                                </pg-option>
+                            </pg-select>
+                            <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
+                                <label  *ngIf="useCurrency.errors.required" class="error" >This field is required.</label>
+                            </div>
+                        </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
+         <div class="row">
+                <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
-                        <label>First Name</label>
+                        <label>Name</label>
                         <input type="text" placeholder="John" class="form-control" id="to_firstname" name="to_firstname" [(ngModel)]="to_firstname"  #fName="ngModel" required >
                     </div>
                     <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
                         <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
-                        <label>Last Names</label>
-                        <input type="text" placeholder="Smith" class="form-control" id="to_lastname" name="to_lastname" [(ngModel)]="to_lastname"  #LName="ngModel" required>
-                    </div>
-                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
-                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
-                    </div>
-                </div>
+
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <label>Name of Bank</label>
-                        <input type="text" placeholder="Name of Bank" class="form-control" id="to_bank" name="to_bank" [(ngModel)]="to_bank"  #fName="ngModel" required >
+                        <input type="text" placeholder="" class="form-control" id="to_bank" name="to_bank" [(ngModel)]="to_bank"  #toBank="ngModel" required >
                     </div>
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
-                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
+                        <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
                         <label>Account Number</label>
-                        <input type="text" placeholder="Account Number" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #LName="ngModel" required>
+                        <input type="text" placeholder="" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #toAccount="ngModel" required>
                     </div>
-                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
-                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toAccount.invalid && (toAccount.dirty || toAccount.touched)" >
+                        <label  *ngIf="toAccount.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
             </div>
@@ -72,74 +68,59 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toPhone.invalid && (toPhone.dirty || toPhone.touched)">
                         <label>Receiver's Phone</label>
-                        <input type="text" placeholder="Name of Bank" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #fName="ngModel" required >
+                        <input type="text" placeholder="" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #toPhone="ngModel" required >
                     </div>
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
-                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toPhone.invalid && (toPhone.dirty || toPhone.touched)" >
+                        <label  *ngIf="toPhone.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toEmail.invalid && (toEmail.dirty || toEmail.touched)">
                         <label>Receiver's Email</label>
-                        <input type="text" placeholder="Account Number" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #LName="ngModel" required>
+                        <input type="text" placeholder="" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #toEmail="ngModel" required>
                     </div>
-                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
-                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toEmail.invalid && (toEmail.dirty || toEmail.touched)" >
+                        <label  *ngIf="toEmail.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
             </div>
 
-
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
-                        <label>Originating Country</label>
-                        <pg-select style="width: 100%;" [(ngModel)]="source_country" (ngModelChange)="changeSource($event)" id="source_country" name="source_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
-                                   ShowSearch>
-                            <pg-option *ngFor="let option of optionsSource" Label="{{option.name}}"  [Value]="option">
-                            </pg-option>
-                        </pg-select>
-                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
-                            <label  *ngIf="gender.errors.required" class="error" >This field is required.</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
                         <label>Destination Country</label>
-                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
-                                   ShowSearch>
+                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel" [PlaceHolder]="" AllowClear
+                                   ShowSearch required>
                             <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
-                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" >
-                            <label  *ngIf="gender.errors.required" class="error" >This field is required.</label>
+                        <div *ngIf="dCountry.invalid && (dCountry.dirty || dCountry.touched)" >
+                            <label  *ngIf="dCountry.errors.required" class="error" >This field is required.</label>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
                         <label>Current Exchange Rate</label>
-                        <input readonly type="text" placeholder="Current Exchange Rate" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #fName="ngModel" required >
+                        <input readonly type="text" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
                     </div>
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
-                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
+                        <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                   <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cTotal.invalid && (cTotal.dirty || cTotal.touched)">
                         <label>Destination Total</label>
-                        <input readonly type="text" placeholder="{{ amount * rate }}" class="form-control" id="total" name="total" [(ngModel)]="total"  #LName="ngModel" required>
+                        <input readonly type="text" value="{{ amount * rate}}" placeholder="{{ amount * rate }}" class="form-control" id="total" name="total" [(ngModel)]="total"  #cTotal="ngModel" required>
                     </div>
-                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
-                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
-                    </div>
+                    <div *ngIf="cTotal.invalid && (cTotal.dirty || cTotal.touched)" >
+                        <label  *ngIf="cTotal.errors.required" class="error" >This field is required.</label>
+                    </div>-->
+                    <h3>Total : <span><small>{{destination_country?.currency +  amount * rate }}</small></span></h3>
                 </div>
             </div>
 
@@ -157,10 +138,18 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-cons m-t-10" type="submit" [class.disabled]="registerForm.invalid">Make Payment</button>
+            <button class="btn btn-primary btn-cons m-t-10"  [class.disabled]="!transferForm.valid">Make Payment</button>
         </form>
 
     </div>
+
+    {{cRate.valid}}
+    {{dCountry.valid}}
+    {{fName.valid}}
+    {{ toEmail.valid}}
+    {{toAccount.valid}}
+    {{toPhone.valid}}
+    {{toBank.valid}}
 </div>
 
 

@@ -1,8 +1,8 @@
 <div class="register-container mt-1 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
 
-        <img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">
-        <h4>Pages makes it easy to enjoy what matters the most in your life</h4>
+        <!--<img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png" src2x="assets/img/pock_2x.png" width="150" height="90">-->
+        <!--<h4>Pages makes it easy to enjoy what matters the most in your life</h4>-->
         <p>
             Create or Update Your profile
         </p>
@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
                         <label>Address</label>
-                        <input type="text" placeholder="No 9 Washinton avenue" class="form-control" id="address" name="address" [(ngModel)]="address"  #fName="ngModel" required >
+                        <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address"  #fName="ngModel" required >
                     </div>
                     <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
                         <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
@@ -20,7 +20,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
                         <label>City</label>
-                        <input type="text" placeholder="Los Angeles" class="form-control" id="city" name="city" [(ngModel)]="city"  #LName="ngModel" required>
+                        <input type="text" class="form-control" id="city" name="city" [(ngModel)]="city"  #LName="ngModel" required>
                     </div>
                     <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
                         <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
@@ -29,20 +29,20 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="userName.invalid && (userName.dirty || userName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="county.invalid && (county.dirty || county.touched)">
                         <label>Country</label>
-                        <input type="text" placeholder="United States" class="form-control" id="country" name="country" [(ngModel)]="country"  #userName="ngModel" required>
+                        <input type="text" class="form-control" id="country" name="country" [(ngModel)]="country"  #county="ngModel" required>
                     </div>
-                    <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" >
-                        <label  *ngIf="userName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="county.invalid && (county.dirty || county.touched)" >
+                        <label  *ngIf="county.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
                     <label>Gender</label>
-                    <pg-select style="width: 100%;" [(ngModel)]="selectedOption" id="gender" name="gender" #gender= "ngModel" [PlaceHolder]="'Select Option'" AllowClear
+                    <pg-select style="width: 100%;" [(ngModel)]="selectedOption" id="gender" name="gender" #gender="ngModel"  AllowClear
                                ShowSearch>
                         <pg-option *ngFor="let option of options" Label="{{option}}"  [Value]="option">
                         </pg-option>
@@ -55,12 +55,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="email.invalid && (email.dirty || email.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
                         <label>Phone</label>
-                        <input type="tel" placeholder="+1 785 343 3432" class="form-control" id="phone" name="phone" [(ngModel)]="phone"  #email="ngModel" required>
+                        <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone"  #phoneno="ngModel" required>
                     </div>
-                    <div *ngIf="email.invalid && (email.dirty || email.touched)" >
-                        <label  *ngIf="email.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)" >
+                        <label  *ngIf="phoneno.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
             </div>

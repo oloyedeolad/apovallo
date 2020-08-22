@@ -1,5 +1,5 @@
 <!-- START JUMBOTRON -->
-<div data-pages="parallax">
+<div data-pages="parallax" class="mt-10">
     <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
         <div class="inner">
             <!-- START BREADCRUMB -->
@@ -21,14 +21,14 @@
             <!-- START WIDGET -->
             <!-- START ITEM -->
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
-                           Source="Pages" Timestamp="Jul 24">
+                           Source="Apovallo" Timestamp="{{ lastSuccesful?.created | date: 'dd-MM-yyyy' }}">
                 <ng-template #CustomBody>
-                    <h5 class='no-margin'>Apple Inc.</h5>
-                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-                    <h3 class="m-b-0">111.25
+                    <h3 class='no-margin'>Total: <span><small>${{ nSuccessfulSum }}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions: <span><small> {{ nSuccessful }}</small></span></h3>
+                    <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
               <i class="fa fa-sort-up small tex"></i> 0.15</span>
-                    </h3>
+                    </h3>-->
                 </ng-template>
             </pgcardsocial>
             <!-- END ITEM -->
@@ -45,14 +45,14 @@
             <!-- START ITEM -->
 
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
-                           Source="John Smith" Timestamp="Apr 24">
+                           Source="Apovallo" Timestamp="{{ lastPending.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h5 class='no-margin'>Apple Inc.</h5>
-                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-                    <h3 class="m-b-0">111.25
+                    <h3 class='no-margin'>Total: <span><small>${{nPendingSum}}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ npending }}</small></span></h3>
+                    <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
               <i class="fa fa-sort-up small text-success"></i> 0.15</span>
-                    </h3>
+                    </h3>-->
                 </ng-template>
             </pgcardsocial>
         </div>
@@ -61,14 +61,14 @@
             <!-- START ITEM -->
 
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"
-                          Source="John Smith" Timestamp="Apr 24">
+                          Source="Apovallo" Timestamp="{{ lastSuccesful.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h5 class='no-margin'>Apple Inc.</h5>
-                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-                    <h3 class="m-b-0">111.25
+                    <h3 class='no-margin'>Total: <span><small>${{nFailedSum}}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ nFailed }}</small></span></h3>
+                   <!-- <h3 class="m-b-0">111.25
                         <span class="text-success">
               <i class="fa fa-sort-up small text-success"></i> 0.15</span>
-                    </h3>
+                    </h3>-->
                 </ng-template>
             </pgcardsocial>
         </div>
@@ -104,28 +104,26 @@
             <!--<quick-stats-widget></quick-stats-widget>-->
             <!-- END WIDGET -->
         </div>
-        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+        <div class="col-lg-6 col-sm-6  d-flex flex-column">
             <!-- START ITEM -->
             <div class="card card-default">
                 <div class="card-header ">
-                    <div class="card-title">Social Icon Buttons
+                    <div class="card-title">Welcome to Apovallo, Where money moves.
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>Fancy social icons? here are some of pre-made icons and buttons that are done which can come in handy</p>
-                    <br>
                     <button routerLink="transfer" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
-                        <i class="pg-icon"></i>
+                        <i class="pg-icon">send</i>
                         <span>Send Money</span>
                     </button>
-                    <!--<button aria-label="" class="btn btn-block btn-primary btn-lg" type="button">
-                        <i class="pg-icon">twitter</i>
-                        <span>Login with Twitter</span>
+                    <button routerLink="transaction" aria-label="" class="btn btn-block btn-primary btn-lg" type="button">
+                        <i class="pg-icon"></i>
+                        <span>Transactions</span>
                     </button>
-                    <button aria-label="" class="btn btn-block btn-danger btn-lg" type="button">
-                        <i class="pg-icon">google_plus</i>
-                        <span>Login with Google+</span>
-                    </button>-->
+                    <button routerLink="transactions/pending" aria-label="" class="btn btn-block btn-danger btn-lg" type="button">
+                        <i class="fa fa-pause"></i>
+                        <span>Pending Transactions</span>
+                    </button>
                 </div>
             </div>
 

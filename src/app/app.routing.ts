@@ -18,6 +18,11 @@ import {TransactionsComponent} from './@pages/layouts/simplywhite/transactions/t
 import {PentComponent} from './@pages/layouts/simplywhite/pent/pent.component';
 import {UserActivationComponent} from './@pages/layouts/simplywhite/user-activation/user-activation.component';
 import {TransferComponent} from './@pages/layouts/simplywhite/transfer/transfer.component';
+import {TnxSuccessfulComponent} from './@pages/layouts/simplywhite/tnx-successful/tnx-successful.component';
+import {TnxFailedComponent} from './@pages/layouts/simplywhite/tnx-failed/tnx-failed.component';
+import {TnxPendingComponent} from './@pages/layouts/simplywhite/tnx-pending/tnx-pending.component';
+import {TnxDetalsComponent} from './@pages/layouts/simplywhite/tnx-detals/tnx-detals.component';
+import {AuthGuardService} from './util/AuthGuardService';
 
 
 
@@ -46,12 +51,16 @@ export const AppRoutes: Routes = [
         breadcrumb: 'Home'
     },
     component: SimplyWhiteLayout,
+    canActivate: [AuthGuardService],
     children: [
       {path: 'profile', component: ProfileComponent},
       {path: 'transactions', component: TransactionsComponent},
+      {path: 'transactions/successful', component: TnxSuccessfulComponent},
+      {path: 'transactions/failed', component: TnxFailedComponent},
+      {path: 'transactions/pending', component: TnxPendingComponent},
+      {path: 'transactions/:id', component: TnxDetalsComponent},
       {path: '', component: PentComponent},
-      {path: 'pent', component: PentComponent},
-      {path: 'pent/transfer', component: TransferComponent}
+      {path: 'transfer', component: TransferComponent}
     ]
   },
   {

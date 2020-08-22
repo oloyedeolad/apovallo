@@ -18,17 +18,37 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
   menuLinks = [
     {
       label: 'Home',
-      details: '12 New Updates',
-      routerLink: 'pent',
+      routerLink: '/dashboard',
       iconType: 'fi',
-      iconName: 'shield'
+      iconName: 'home'
     },
     {
       label: 'Transactions',
-      details: '234 New Emails',
+      /*details: '234 New Emails',*/
       routerLink: 'transactions',
       iconType: 'fi',
       iconName: 'mail'
+    },
+    {
+      label: 'SuccessfulTransactions',
+      /*details: '234 New Emails',*/
+      routerLink: 'transactions/successful',
+      iconType: 'fi',
+      iconName: 'money'
+    },
+    {
+      label: 'Failed Transactions',
+      /*details: '234 New Emails',*/
+      routerLink: 'transactions/failed',
+      iconType: 'fi',
+      iconName: 'dollar'
+    },
+    {
+      label: 'Pending Transaction',
+      /*details: '234 New Emails',*/
+      routerLink: 'transactions/pending',
+      iconType: 'fi',
+      /*iconName: 'mail'*/
     },
     {
       label: 'Profile',

@@ -8,6 +8,8 @@ import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@s
 import {StripeCardComponent, StripeService} from 'ngx-stripe';
 import {Observable} from 'rxjs';
 import {ICountry, IExchangeRate} from '../transactions/country.model';
+import {ActivatedRoute} from '@angular/router';
+import {error} from 'util';
 
 
 @Component({
@@ -55,33 +57,35 @@ export class TransferComponent implements OnInit {
     locale: 'en'
   };
   rates: IExchangeRate[];
-  constructor(private toaster: ToastrService, private transactionService: TransactionService,
+  constructor(private toaster: ToastrService, private transactionService: TransactionService, private route: ActivatedRoute,
               private $localStorage: LocalStorageService, private stripeService: StripeService) {
     this.user = this.$localStorage.retrieve('user');
     console.log(this.user);
     this.rates = $localStorage.retrieve('rates');
-    this.rates.forEach((exchangeRate) => {
-      this.optionsSource.push(exchangeRate.source_country);
-      this.optionsDestination.push(exchangeRate.destination_country);
-    });
+    this.initOptions(this.rates);
+    console.log(this.rates);
   }
 
   ngOnInit() {
   }
 
   sendTransaction(form: any) {
+    if (form.invalid) {
+      this.toaster.error('Your form is invalid, please make sure you have filled all field', 'Form is Valid');
+      return;
+    }
     this.tnx = {
-      to_name: form.to_firstname + ' ' + form.to_lastname,
-      to_email: form.to_email,
-      to_account_number: form.to_account_number,
-      to_country: form.destination_country.name,
-      to_bank: form.to_bank,
-      to_phone: form.to_phone,
+      to_name: form.value.to_firstname,
+      to_email: form.value.to_email,
+      to_account_number: form.value.to_account_number,
+      to_country: form.value.destination_country.name,
+      to_bank: form.value.to_bank,
+      to_phone: form.value.to_phone,
       user: this.user.username,
-      from_country: form.source_country.name,
-      rate: form.rate,
-      total: form.total,
-      amount: form.amount
+      // from_country: form.source_country.name,
+      rate: form.value.rate,
+      total: Number(this.rates) * this.amount,
+      amount: form.value.amount
     };
     const extraData: IPaymentRequest = {
       amount: this.amount,
@@ -105,11 +109,12 @@ export class TransferComponent implements OnInit {
           ).subscribe((result) => {
             if (result.error) {
               console.log(result.error.message);
+              // this.toaster.error(result.error.message);
               this.tnx.tnx_status = result.paymentIntent.status;
               this.tnx.pay_ref = result.paymentIntent.id;
             } else {
               if (result.paymentIntent.status === 'succeeded') {
-                console.log(result.paymentIntent.status);
+                console.log(result.paymentIntent);
                 this.tnx.tnx_status = result.paymentIntent.status;
                 this.tnx.pay_ref = result.paymentIntent.id;
               }
@@ -125,8 +130,8 @@ export class TransferComponent implements OnInit {
           console.log(err);
         });
       });
-    }, (error) => {
-      console.log(error);
+    }, (error3) => {
+      console.log(error3);
     });
   }
 
@@ -139,6 +144,7 @@ export class TransferComponent implements OnInit {
   changeDestination(evet) {
     // tslint:disable-next-line:max-line-length
     // console.log(evet);
+    this.destination_country = evet;
     console.log(this.rates);
     const pet = this.source_country.name;
     const prate: IExchangeRate [] = this.rates.filter((rate)  => {
@@ -150,5 +156,20 @@ export class TransferComponent implements OnInit {
     console.log(finalRate);
     this.rate = finalRate[0].rate;
     console.log(this.rate);
+  }
+
+  async initOptions(rates: IExchangeRate[]) {
+    await rates.forEach((exchangeRate) => {
+        this.optionsDestination.push(exchangeRate.destination_country);
+        this.optionsSource.push(exchangeRate.source_country);
+    });
+    this.optionsDestination = await this.optionsDestination.filter(function (a) {
+        return !this[a.name] && (this[a.name] = true);
+    }, Object.create(null));
+
+    this.optionsSource = await  this.optionsSource.filter(function (a) {
+      return !this[a.name] && (this[a.name] = true);
+    }, Object.create(null));
+    console.log(this.optionsDestination);
   }
 }

@@ -1,0 +1,58 @@
+<!-- START JUMBOTRON -->
+<div data-pages="parallax">
+    <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
+        <div class="inner">
+            <!-- START BREADCRUMB -->
+            <ol class="breadcrumb sm-p-b-5">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Transaction Details</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- START CONTAINER FLUID -->
+<pg-container>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-transparent">
+                <div class="card-header ">
+                    <!--<div class="card-title">Transaction Details
+                    </div>-->
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-6">
+                            <pgcard Maximize="false" Refresh="false" Toggle="false">
+                                <ng-template #CardTitle>Transaction Details</ng-template>
+
+                                <div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>
+                                <div><p><span><b>Amount : </b><small>{{ transaction.amount }}</small></span></p></div>
+                                <div><p><span><b>Currency : </b><small>{{ transaction.currency }}</small></span></p></div>
+                                <div><p><span><b>Transaction Status : </b><small>{{ transaction.tnx_status }}</small></span></p></div>
+                                <div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>
+                                <div><p><span><b>Receiver's Name : </b><small>{{ transaction.to_name }}</small></span></p></div>
+                                <div><p><span><b>Receivers's bank : </b><small>{{ transaction.to_bank }}</small></span></p></div>
+                                <div><p><span><b>Receiver's Phone: </b><small>{{ transaction.pay_ref }}</small></span></p></div>
+                                <div><p><span><b>Payment Account Number : </b><small>{{ transaction.to_account_number }}</small></span></p></div>
+                                <div><p><span><b>Receiver's Country : </b><small>{{ " " + transaction.to_country}}</small></span></p></div>
+                                <div><p><span><b>Sending Rate : </b><small>{{ transaction.rate }}</small></span></p></div>
+                                <div><p><span><b>Receiver's Email : </b><small>{{ transaction.to_email }}</small></span></p></div>
+                                <div><p><span><b>Total in Destination Country : </b><small>{{ transaction.total }}</small></span></p></div>
+                            </pgcard>
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</pg-container>
+<!-- END CONTAINER FLUID -->

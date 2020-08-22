@@ -32,10 +32,13 @@
       </div>
     </ng-template>
     <ng-template #sideBarHeader>
-      <img src="assets/img/logo_blue.png" pgRetina src2x="assets/img/logo_blue_2x.png" alt="logo" class="brand"
-        width="78" height="22">
+      <img src="assets/img/pock.png" pgRetina src2x="assets/img/pock_2x.png" alt="logo" class="brand"
+        width="150" height="90">
+      <div class="dropdown-divider mt-10 mb-10">Hello</div>
     </ng-template>
-    <ng-template #menuItems>
+
+    <ng-template  #menuItems>
+      <div class="mt-10 mb-20"></div>
       <pg-menu-items [Items]="menuLinks">
       </pg-menu-items>
     </ng-template>
@@ -59,15 +62,15 @@
         <!-- END EMAIL MOBILE TOGGLE -->
         <div class="brand" [class.d-none]="_layoutOption === 'email'" [class.d-xl-block]="_layoutOption === 'email'"
           [class.d-lg-block]="_layoutOption === 'email'">
-          <img src="assets/img/logo_blue.png" alt="logo" pgRetina src1x="assets/img/logo_blue.png"
-            src2x="assets/img/logo_blue_2x.png" width="78" height="22">
+          <img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png"
+            src2x="assets/img/pock_2x.png" width="150" height="90">
         </div>
         <!--<a href="#" class="btn btn-link text-primary m-l-20 d-none d-lg-inline-flex d-xl-inline-flex">Add New Item</a>
         <a href="javascript:void(0)" class="search-link d-none d-lg-block d-xl-block" (click)="openSearch($event)"><i
             class="pg-icon">search</i>Type anywhere to <span class="bold">search</span></a>-->
       </div>
       <div class="d-flex align-items-center">
-        <!-- START NOTIFICATION LIST -->
+    <!--    &lt;!&ndash; START NOTIFICATION LIST &ndash;&gt;
         <ul class="d-lg-inline-block d-none notification-list no-margin  b-grey b-l b-r no-style p-l-20 p-r-20">
           <li class="p-r-10 inline">
             <div class="dropdown" dropdown>
@@ -75,15 +78,15 @@
                 <i class="pg-icon">world</i>
                 <span class="bubble"></span>
               </a>
-              <!-- START Notification Dropdown -->
+              &lt;!&ndash; START Notification Dropdown &ndash;&gt;
               <div *dropdownMenu class="dropdown-menu notification-toggle">
-                <!-- START Notification -->
+                &lt;!&ndash; START Notification &ndash;&gt;
                 <div class="notification-panel">
-                  <!-- START Notification Body-->
+                  &lt;!&ndash; START Notification Body&ndash;&gt;
                   <div class="notification-body scrollable">
-                    <!-- START Notification Item-->
+                    &lt;!&ndash; START Notification Item&ndash;&gt;
                     <div class="notification-item unread clearfix">
-                      <!-- START Notification Item-->
+                      &lt;!&ndash; START Notification Item&ndash;&gt;
                       <div class="heading open">
                         <a href="#" class="text-complete pull-left d-flex align-items-center">
                           <i class="pg-icon m-r-10">map</i>
@@ -109,15 +112,15 @@
                           </div>
                         </div>
                       </div>
-                      <!-- END Notification Item-->
-                      <!-- START Notification Item Right Side-->
+                      &lt;!&ndash; END Notification Item&ndash;&gt;
+                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;
                       <div class="option" tooltip="mark as read" placement="right">
                         <a href="javascript:void(0)" class="mark"></a>
                       </div>
-                      <!-- END Notification Item Right Side-->
+                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;
                     </div>
-                    <!-- START Notification Body-->
-                    <!-- START Notification Item-->
+                    &lt;!&ndash; START Notification Body&ndash;&gt;
+                    &lt;!&ndash; START Notification Item&ndash;&gt;
                     <div class="notification-item  clearfix">
                       <div class="heading">
                         <a href="javascript:void(0)" class="text-danger pull-left">
@@ -127,14 +130,14 @@
                         </a>
                         <span class="pull-right time">2 mins ago</span>
                       </div>
-                      <!-- START Notification Item Right Side-->
+                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;
                       <div class="option">
                         <a href="javascript:void(0)" class="mark"></a>
                       </div>
-                      <!-- END Notification Item Right Side-->
+                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;
                     </div>
-                    <!-- END Notification Item-->
-                    <!-- START Notification Item-->
+                    &lt;!&ndash; END Notification Item&ndash;&gt;
+                    &lt;!&ndash; START Notification Item&ndash;&gt;
                     <div class="notification-item  clearfix">
                       <div class="heading">
                         <a href="javascript:void(0)" class="text-warning pull-left">
@@ -144,14 +147,14 @@
                         </a>
                         <span class="pull-right time">yesterday</span>
                       </div>
-                      <!-- START Notification Item Right Side-->
+                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;
                       <div class="option">
                         <a href="javascript:void(0)" class="mark"></a>
                       </div>
-                      <!-- END Notification Item Right Side-->
+                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;
                     </div>
-                    <!-- END Notification Item-->
-                    <!-- START Notification Item-->
+                    &lt;!&ndash; END Notification Item&ndash;&gt;
+                    &lt;!&ndash; START Notification Item&ndash;&gt;
                     <div class="notification-item unread clearfix">
                       <div class="heading">
                         <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
@@ -164,27 +167,27 @@
                         </a>
                         <span class="pull-right time">11:00pm</span>
                       </div>
-                      <!-- START Notification Item Right Side-->
+                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;
                       <div class="option" tooltip="mark as read" placement="right">
                         <a href="javascript:void(0)" class="mark"></a>
                       </div>
-                      <!-- END Notification Item Right Side-->
+                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;
                     </div>
-                    <!-- END Notification Item-->
+                    &lt;!&ndash; END Notification Item&ndash;&gt;
                   </div>
-                  <!-- END Notification Body-->
-                  <!-- START Notification Footer-->
+                  &lt;!&ndash; END Notification Body&ndash;&gt;
+                  &lt;!&ndash; START Notification Footer&ndash;&gt;
                   <div class="notification-footer text-center">
                     <a href="javascript:void(0)" class="">Read all notifications</a>
                     <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="javascript:void(0)">
                       <i class="pg-refresh_new"></i>
                     </a>
                   </div>
-                  <!-- START Notification Footer-->
+                  &lt;!&ndash; START Notification Footer&ndash;&gt;
                 </div>
-                <!-- END Notification -->
+                &lt;!&ndash; END Notification &ndash;&gt;
               </div>
-              <!-- END Notification Dropdown -->
+              &lt;!&ndash; END Notification Dropdown &ndash;&gt;
             </div>
           </li>
 
@@ -207,7 +210,7 @@
                   class="pg-icon">edit</i></a>
             </li>
           </ng-template>
-        </ul>
+        </ul>-->
         <!-- END NOTIFICATIONS LIST -->
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14 font-heading d-lg-inline-block d-none m-l-20">
@@ -217,8 +220,8 @@
           <button class="profile-dropdown-toggle" type="button" dropdownToggle id="profileDropdown"
             aria-label="profile dropdown">
             <span class="thumbnail-wrapper d32 circular inline">
-              <img src="assets/img/profiles/avatar.jpg" alt="" pgRetina src1x="assets/img/profiles/avatar.jpg"
-                src2x="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+              <img src="assets/img/profiles/male.png" alt="" pgRetina src1x="assets/img/profiles/male.png"
+                src2x="assets/img/profiles/male_small2x.png" width="32" height="32">
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" *dropdownMenu role="menu">
@@ -228,9 +231,9 @@
           <!--  <a href="#" class="dropdown-item">Your Activity</a>
             <a href="#" class="dropdown-item">Your Archive</a>-->
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">Features</a>
+           <!-- <a href="#" class="dropdown-item">Features</a>
             <a href="#" class="dropdown-item">Help</a>
-            <a href="#" class="dropdown-item">Settings</a>
+            <a href="#" class="dropdown-item">Settings</a>-->
             <a href="#" class="dropdown-item" (click)="logOut()">Logout</a>
             <div class="dropdown-divider"></div>
            <!-- <span class="dropdown-item fs-12 hint-text">Last edited by David<br />on Friday at 5:27PM</span>-->

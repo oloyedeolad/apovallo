@@ -1,4 +1,4 @@
-<ul class="main-menu">
+<ul class="main-menu mt-5">
     <li *ngFor="let item of menuItems" [class.open]="item.toggle ==='open'" >
             <a  href="javascript:;" *ngIf="item.submenu;else singleLink" (click)="toggleNavigationSub($event,item)" [class.detailed]="item.details">
                 <pg-menu-icon *ngIf="item.iconType" [IconType]="item.iconType" [IconName]="item.iconName"></pg-menu-icon>

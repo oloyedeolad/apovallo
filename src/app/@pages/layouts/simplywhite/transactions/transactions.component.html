@@ -47,16 +47,18 @@
                     <ngx-datatable-column prop="to_amount" name="Amount"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_status" name="Status"></ngx-datatable-column>
                     <ngx-datatable-column prop="id" name="Action">
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value">
                         <div class="btn-group btn-toolbar  col-6 no-padding">
                             <div class="btn-group">
-                                <button aria-label="" type="button" class="btn btn-success">Edit
+                                <button routerLink="/dashboard/transactions/{{value}}" aria-label="" type="button" class="btn btn-success">View
                                 </button>
-                                <button aria-label="" type="button" class="btn btn-success">Help
+                                <!--<button aria-label="" type="button" class="btn btn-success">Help
                                 </button>
                                 <button aria-label="" type="button" class="btn btn-success">Create
-                                </button>
+                                </button>-->
                             </div>
                         </div>
+                        </ng-template>
                     </ngx-datatable-column>
                     <ng-template
                             ngx-datatable-footer-template

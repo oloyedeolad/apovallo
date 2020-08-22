@@ -196,7 +196,7 @@ body {
         }
         & > a {
           white-space: nowrap;
-          overflow: hidden;
+          overflow: visible;
           text-overflow: ellipsis;
           width: 65%;
         }
@@ -252,7 +252,7 @@ body {
             @include float(left);
             white-space: nowrap;
             text-overflow: ellipsis;
-            overflow: hidden;
+            overflow: visible;
             width: 65%;
           }
           & > .details {

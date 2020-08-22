@@ -4,6 +4,7 @@ import {TransactionService} from './transaction.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {IUser} from '../../../../account/model/user.model';
 import {ITransaction} from './transanction.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-transactions',
@@ -21,19 +22,18 @@ export class TransactionsComponent implements OnInit {
   transactions: ITransaction[];
 
 
-  constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService) {
+  constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService,
+              private route: ActivatedRoute) {
     console.log(this.columnModeSetting);
-    this.user = $localStorage.retrieve('user');
-    transactionService.query(this.user.id).subscribe((res) => {
-      this.transactions = res.body;
-      this.basicSort = [...this.transactions];
 
-      // push our inital complete list
-      this.basicRows = this.transactions;
-    }, (error) => {
-      console.log(error);
-    });
 
+        this.transactions = this.$localStorage.retrieve('aTnx');
+        if (this.transactions != null) {
+          this.basicSort = [...this.transactions];
+
+          // push our inital complete list
+          this.basicRows = this.transactions;
+        }
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
