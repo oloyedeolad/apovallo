@@ -10,6 +10,8 @@ import {Observable} from 'rxjs';
 import {ICountry, IExchangeRate} from '../transactions/country.model';
 import {ActivatedRoute} from '@angular/router';
 import {error} from 'util';
+import {BeneficiaryService} from '../transactions/benefiary.service';
+import {IBeneficiary} from '../transactions/beneficiary.model';
 
 
 @Component({
@@ -43,8 +45,10 @@ export class TransferComponent implements OnInit {
   to_phone: string;
   to_bank: string;
   total: number;
-  amount: number;
-  rate: number;
+  amount = 0;
+  rate = 0;
+  loadBeneficiary;
+  saveBeneficiary: boolean;
   currency: string;
   source_country: ICountry;
   destination_country: ICountry;
@@ -52,18 +56,30 @@ export class TransferComponent implements OnInit {
   optionsDestination: ICountry[] = [];
   user: IUser;
   tnx: ITransaction;
+  beneficiaries: IBeneficiary[] = [];
+  beneficiary: IBeneficiary = {};
 
   elementsOptions: StripeElementsOptions = {
     locale: 'en'
   };
   rates: IExchangeRate[];
   constructor(private toaster: ToastrService, private transactionService: TransactionService, private route: ActivatedRoute,
-              private $localStorage: LocalStorageService, private stripeService: StripeService) {
+              private $localStorage: LocalStorageService, private stripeService: StripeService,
+              private beneficiaryService: BeneficiaryService) {
     this.user = this.$localStorage.retrieve('user');
     console.log(this.user);
     this.rates = $localStorage.retrieve('rates');
     this.initOptions(this.rates);
     console.log(this.rates);
+
+    beneficiaryService.findByUserId(this.user.id).subscribe((res) => {
+      this.beneficiaries = res.body;
+      if (this.beneficiaries.length === 0) {
+        this.toaster.info('You have no saved Beneficiary', 'No Beneficiary Saved');
+      }
+    }, (error4) => {
+      console.log(error4);
+    });
   }
 
   ngOnInit() {
@@ -171,5 +187,36 @@ export class TransferComponent implements OnInit {
       return !this[a.name] && (this[a.name] = true);
     }, Object.create(null));
     console.log(this.optionsDestination);
+  }
+  createBeneficiary(value) {
+    console.log(value);
+    if (value) {
+      const beneficiary: IBeneficiary = {
+        name: this.to_firstname,
+        email: this.to_email,
+        phone: this.to_phone,
+        bank_name: this.to_bank,
+        account: this.to_account_number,
+        user: this.user.id
+      };
+      console.log(beneficiary);
+      this.beneficiaryService.create(beneficiary).subscribe((res) => {
+        console.log(res);
+      }, (error2) => {
+        console.log(error2);
+      });
+    }
+  }
+
+  loadDataBeneficiary(value) {
+
+  }
+
+  fillBeneficiary(value: IBeneficiary) {
+    this.to_firstname = value.name;
+    this.to_account_number = value.account;
+    this.to_bank = value.bank_name;
+    this.to_email = value.email;
+    this.to_phone = value.phone;
   }
 }

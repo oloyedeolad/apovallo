@@ -19,6 +19,7 @@ export interface ITransaction {
     from_country?: string;
     rate?: number;
     total?: number;
+    beneficiary?: number;
     to_account_number?: string;
 }
 
@@ -44,6 +45,7 @@ export class Transanction implements ITransaction {
         public rate?: number,
         public total?: number,
         public user?: string,
+        public beneficiary?: number,
         public to_account_number?: string,
     ) {
     }

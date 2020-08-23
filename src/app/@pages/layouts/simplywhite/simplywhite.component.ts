@@ -56,6 +56,12 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
       iconType: 'fi',
       iconName: 'users'
     },
+    {
+      label: 'Beneficiary',
+      routerLink: 'beneficiary',
+      iconType: 'fi',
+      iconName: 'users'
+    },
   ];
   user: IUser;
   constructor(public toggler: pagesToggleService, protected loginService: LoginService,  router: Router,

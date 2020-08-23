@@ -1,0 +1,92 @@
+<!-- START JUMBOTRON -->
+<div data-pages="parallax">
+    <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
+        <div class="inner">
+            <!-- START BREADCRUMB -->
+            <ol class="breadcrumb sm-p-b-5">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Beneficiary Details</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="register-container mt-1 pt-1 full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+
+        <!--<img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png" src2x="assets/img/pock_2x.png" width="150" height="90">-->
+        <!--<h4>Pages makes it easy to enjoy what matters the most in your life</h4>-->
+        <p>
+            Update Beneficiary
+        </p>
+        <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="createProfile(registerForm.value)">
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name"  #fName="ngModel" required >
+                    </div>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="faccount.invalid && (faccount.dirty || faccount.touched)">
+                        <label>Account</label>
+                        <input type="text" class="form-control" id="account" name="account" [(ngModel)]="account"  #faccount="ngModel" required >
+                    </div>
+                    <div *ngIf="faccount.invalid && (faccount.dirty || faccount.touched)" >
+                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="county.invalid && (county.dirty || county.touched)">
+                        <label>Bank</label>
+                        <input type="text" class="form-control" id="bank_name" name="bank_name" [(ngModel)]="bank_name"  #county="ngModel" required>
+                    </div>
+                    <div *ngIf="county.invalid && (county.dirty || county.touched)" >
+                        <label  *ngIf="county.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                        <label>Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone"  #phoneno="ngModel" required>
+                    </div>
+                    <div *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)" >
+                        <label  *ngIf="phoneno.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row m-t-10">
+                <div class="col-lg-6">
+                    <p><small>I agree to the <a href="javascript:void(0)" class="text-info">Pages Terms</a> and <a href="javascript:void(0)" class="text-info">Privacy</a>.</small></p>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <a href="javascript:void(0)" class="text-info small">Help? Contact Support</a>
+                </div>
+            </div>-->
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" [class.disabled]="registerForm.invalid">Update Details</button>
+        </form>
+
+    </div>
+</div>

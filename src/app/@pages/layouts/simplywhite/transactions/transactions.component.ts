@@ -20,7 +20,15 @@ export class TransactionsComponent implements OnInit {
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   user: IUser;
   transactions: ITransaction[];
-
+  nFailed = 0;
+  nFailedSum = 0;
+  nPendingSum = 0;
+  npending = 0;
+  nSuccessful = 0;
+  nSuccessfulSum = 0;
+  lastSuccesful: ITransaction = {};
+  lastPending: ITransaction = {};
+  lastFailed: ITransaction = {};
 
   constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService,
               private route: ActivatedRoute) {
@@ -30,10 +38,18 @@ export class TransactionsComponent implements OnInit {
         this.transactions = this.$localStorage.retrieve('aTnx');
         if (this.transactions != null) {
           this.basicSort = [...this.transactions];
-
           // push our inital complete list
           this.basicRows = this.transactions;
         }
+        this.lastFailed = this.$localStorage.retrieve('lastFailed');
+        this.nFailed = this.$localStorage.retrieve('nFailed');
+        this.nFailedSum = this.$localStorage.retrieve('nFailedSum');
+        this.npending = this.$localStorage.retrieve('npending');
+        this.nSuccessful = this.$localStorage.retrieve('nSuccessful');
+        this.nSuccessfulSum = this.$localStorage.retrieve('nSuccessfulSum');
+        this.lastSuccesful = this.$localStorage.retrieve('lastSuccessful');
+        this.lastPending = this.$localStorage.retrieve('lastPending');
+        this.lastFailed = this.$localStorage.retrieve('lastFailed');
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

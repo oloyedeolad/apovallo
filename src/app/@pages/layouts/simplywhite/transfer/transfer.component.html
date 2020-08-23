@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
                         <label>Amount</label>
-                        <input type="text" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
+                        <input type="number" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
                     </div>
                     <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
                         <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
@@ -31,6 +31,34 @@
                         </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div class="form-check complete">
+                        <input type="checkbox" id="checkColorOpt2" name="saveBeneficiary" [(ngModel)]="loadBeneficiary" (ngModelChange)="loadDataBeneficiary($event)">
+                        <label for="checkColorOpt2">
+                            Choose a saved beneficiary?
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="loadBeneficiary" class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useBen.invalid ">
+                        <label>Choose Beneficiary</label>
+                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event)" id="beneficiary" name="beneficiary" #useBen= "ngModel" [PlaceHolder]="" AllowClear
+                                   ShowSearch>
+                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank_name + '|'}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="useBen.invalid" >
+                            <label  *ngIf="useBen.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
          <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
@@ -87,6 +115,18 @@
                 </div>
             </div>
 
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div class="form-check complete">
+                        <input type="checkbox" id="checkColorOpt1" name="saveBeneficiary" [(ngModel)]="saveBeneficiary" (ngModelChange)="createBeneficiary($event)">
+                        <label for="checkColorOpt1">
+                            Save Beneficiary
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
@@ -106,7 +146,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
                         <label>Current Exchange Rate</label>
-                        <input readonly type="text" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
+                        <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
                     </div>
                     <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
                         <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
@@ -143,13 +183,7 @@
 
     </div>
 
-    {{cRate.valid}}
-    {{dCountry.valid}}
-    {{fName.valid}}
-    {{ toEmail.valid}}
-    {{toAccount.valid}}
-    {{toPhone.valid}}
-    {{toBank.valid}}
+
 </div>
 
 

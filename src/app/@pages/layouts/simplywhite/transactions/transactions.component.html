@@ -13,6 +13,90 @@
     </div>
 </div>
 
+<!-- START JUMBOTRON
+<div data-pages="parallax" class="mt-10">
+    <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
+        <div class="inner">
+             START BREADCRUMB
+            <ol class="breadcrumb sm-p-b-5">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </div>
+    </div>
+</div>
+ END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid p-l-25 p-r-25 p-t-0 p-b-25 sm-padding-10 sm-gutter">
+    <!-- START ROW -->
+    <div class="row">
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START WIDGET -->
+            <!-- START ITEM -->
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
+                          Source="Apovallo" Timestamp="{{ lastSuccesful?.created | date: 'dd-MM-yyyy' }}">
+                <ng-template #CustomBody>
+                    <h3 class='no-margin'>Total: <span><small>${{ nSuccessfulSum }}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions: <span><small> {{ nSuccessful }}</small></span></h3>
+                    <!--<h3 class="m-b-0">111.25
+                        <span class="text-success">
+              <i class="fa fa-sort-up small tex"></i> 0.15</span>
+                    </h3>-->
+                </ng-template>
+            </pgcardsocial>
+            <!-- END ITEM -->
+            <!-- END WIDGET -->
+            <!-- START WIDGET -->
+
+            <!--<weekly-sales-widget></weekly-sales-widget>-->
+            <!-- END WIDGET -->
+            <!-- START WIDGET -->
+            <!--<quick-stats-widget></quick-stats-widget>-->
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START ITEM -->
+
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
+                          Source="Apovallo" Timestamp="{{ lastPending?.created | date: 'dd-MM-yyyy'}}">
+                <ng-template #CustomBody>
+                    <h3 class='no-margin'>Total: <span><small>${{nPendingSum}}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ npending }}</small></span></h3>
+                    <!--<h3 class="m-b-0">111.25
+                        <span class="text-success">
+              <i class="fa fa-sort-up small text-success"></i> 0.15</span>
+                    </h3>-->
+                </ng-template>
+            </pgcardsocial>
+        </div>
+
+        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+            <!-- START ITEM -->
+
+            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"
+                          Source="Apovallo" Timestamp="{{ lastFailed?.created | date: 'dd-MM-yyyy'}}">
+                <ng-template #CustomBody>
+                    <h3 class='no-margin'>Total: <span><small>${{nFailedSum}}</small></span></h3>
+                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ nFailed }}</small></span></h3>
+                    <!-- <h3 class="m-b-0">111.25
+                         <span class="text-success">
+               <i class="fa fa-sort-up small text-success"></i> 0.15</span>
+                     </h3>-->
+                </ng-template>
+            </pgcardsocial>
+        </div>
+        <!-- <div class="col-lg-4 m-b-10 d-flex">
+             &lt;!&ndash; START WIDGET &ndash;&gt;
+             &lt;!&ndash;<table-widget></table-widget>&ndash;&gt;
+             &lt;!&ndash; END WIDGET &ndash;&gt;
+         </div>-->
+    </div>
+
+
+</div>
+
 <!-- START CONTAINER FLUID -->
 <pg-container extraHorizontalClass="bg-white" extraClass="bg-white">
     <!-- START card -->
@@ -44,8 +128,8 @@
                     <ngx-datatable-column prop="id" name="ID"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_name" name="Receiver"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_email" name="Receiver Email"></ngx-datatable-column>
-                    <ngx-datatable-column prop="to_amount" name="Amount"></ngx-datatable-column>
-                    <ngx-datatable-column prop="to_status" name="Status"></ngx-datatable-column>
+                    <ngx-datatable-column prop="amount" name="Amount"></ngx-datatable-column>
+                    <ngx-datatable-column prop="transfer_status" name="Status"></ngx-datatable-column>
                     <ngx-datatable-column prop="id" name="Action">
                         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value">
                         <div class="btn-group btn-toolbar  col-6 no-padding">
