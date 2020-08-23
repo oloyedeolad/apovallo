@@ -18,6 +18,7 @@ export class TnxDetalsComponent implements OnInit {
     console.log(transfer_tnx);
     this.transactionService.find(Number(transfer_tnx)).subscribe((res) => {
         this.transaction  = res.body;
+        console.log(this.transaction);
     }, (error) => {
       console.log(error);
     });

@@ -104,6 +104,7 @@ export class PentComponent implements OnInit {
     console.log(user);
     await this.transactionService.findByUserId(user.username).subscribe((res) => {
       this.transactions = res.body;
+      console.log(this.transactions);
       this.$localStorage.store('aTnx', this.transactions);
 
      /* if (this.succesfulTransactions != null) {

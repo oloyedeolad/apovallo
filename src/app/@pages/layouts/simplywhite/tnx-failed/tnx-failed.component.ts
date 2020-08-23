@@ -16,7 +16,7 @@ export class TnxFailedComponent implements OnInit {
   basicSort: ITransaction[];
   columns = [{name: 'ID'}, { name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' },
     { name: 'Status' }, {name: 'Action'}];
-
+  pageSize = 20;
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   user: IUser;
   transactions: ITransaction[];

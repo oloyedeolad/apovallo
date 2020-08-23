@@ -136,6 +136,7 @@ export class TransferComponent implements OnInit {
             } else {
               if (result.paymentIntent.status === 'succeeded') {
                 console.log(result.paymentIntent);
+                this.tnx.currency = result.paymentIntent.currency
                 this.tnx.tnx_status = result.paymentIntent.status;
                 this.tnx.pay_ref = result.paymentIntent.id;
               }
@@ -146,7 +147,7 @@ export class TransferComponent implements OnInit {
             console.log(this.tnx);
         this.transactionService.create(this.tnx).subscribe((final_result) => {
           console.log(final_result);
-          this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successfule');
+          this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successful');
         }, (err) => {
           console.log(err);
 
