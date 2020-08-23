@@ -52,9 +52,9 @@ export class PentComponent implements OnInit {
         this.nSuccessful = this.succesfulTransactions.length;
         this.lastSuccesful = this.succesfulTransactions[this.nFailed - 1];
         this.nSuccessfulSum = this.succesfulTransactions.reduce((a, b) => a + (b.amount || 0), 0);
-        this.$localStorage.store('nFailed', this.nFailedSum);
-        this.$localStorage.store('lastSuccesful', this.lastSuccesful);
-        this.$localStorage.store('nSuccesfulSum', this.nSuccessfulSum);
+        this.$localStorage.store('nSuccessful', this.nSuccessful);
+        this.$localStorage.store('lastSuccessful', this.lastSuccesful);
+        this.$localStorage.store('nSuccessfulSum', this.nSuccessfulSum);
       }
     }, (error) => {
       console.log(error);
@@ -90,7 +90,7 @@ export class PentComponent implements OnInit {
         this.lastFailed = this.failedTransactions[this.nFailed - 1 ];
         this.nFailedSum = this.pendingTransactions.reduce((a, b) => a + (b.amount || 0), 0);
         this.$localStorage.store('nFailed', this.nFailed);
-        this.$localStorage.store('nFailedSum', this.nFailed);
+        this.$localStorage.store('lastFailed', this.lastFailed);
         this.$localStorage.store('nFailedSum', this.nFailedSum);
       }
       console.log(this.transactions);

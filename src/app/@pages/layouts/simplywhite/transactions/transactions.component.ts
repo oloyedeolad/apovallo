@@ -45,6 +45,7 @@ export class TransactionsComponent implements OnInit {
         this.nFailed = this.$localStorage.retrieve('nFailed');
         this.nFailedSum = this.$localStorage.retrieve('nFailedSum');
         this.npending = this.$localStorage.retrieve('npending');
+        this.nPendingSum = this.$localStorage.retrieve('mPendingSum');
         this.nSuccessful = this.$localStorage.retrieve('nSuccessful');
         this.nSuccessfulSum = this.$localStorage.retrieve('nSuccessfulSum');
         this.lastSuccesful = this.$localStorage.retrieve('lastSuccessful');
