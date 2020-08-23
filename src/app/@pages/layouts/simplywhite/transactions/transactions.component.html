@@ -32,7 +32,7 @@
 <div class="container-fluid p-l-25 p-r-25 p-t-0 p-b-25 sm-padding-10 sm-gutter">
     <!-- START ROW -->
     <div class="row">
-        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+        <div routerLink="successful" class="col-lg-4 col-sm-6  d-flex flex-column">
             <!-- START WIDGET -->
             <!-- START ITEM -->
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
@@ -56,7 +56,7 @@
             <!--<quick-stats-widget></quick-stats-widget>-->
             <!-- END WIDGET -->
         </div>
-        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+        <div routerLink="pending" class="col-lg-4 col-sm-6  d-flex flex-column">
             <!-- START ITEM -->
 
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
@@ -72,7 +72,7 @@
             </pgcardsocial>
         </div>
 
-        <div class="col-lg-4 col-sm-6  d-flex flex-column">
+        <div routerLink="failed" class="col-lg-4 col-sm-6  d-flex flex-column">
             <!-- START ITEM -->
 
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"

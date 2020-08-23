@@ -1,4 +1,4 @@
-<div class="register-container mt-1 pt-1 full-height sm-p-t-30">
+<div *ngIf="!is_ready" class="register-container mt-1 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
 
         <!--<img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">-->
@@ -6,7 +6,7 @@
         <!--<p>
             We accept various types of cards: Debit, Credit, Amex, Visa, and others.
         </p>-->
-        <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm" (ngSubmit)="sendTransaction(transferForm)">
+        <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm" (ngSubmit)="confirmTransaction(transferForm)">
             <div class="row">
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
@@ -19,10 +19,9 @@
                 </div>
                 <div class="col-md-6">
                         <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
-                            <label>Currency</label>
-                            <pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource($event)" id="currency" name="currency" #useCurrency= "ngModel" [PlaceHolder]="" AllowClear
-                                       ShowSearch required>
-                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency}}"  [Value]="option">
+                            <!--<label>Currency</label>-->
+                            <pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource($event)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
+                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency_label}}"  [Value]="option">
                                 </pg-option>
                             </pg-select>
                             <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
@@ -130,8 +129,8 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
-                        <label>Destination Country</label>
-                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel" [PlaceHolder]="" AllowClear
+                       <!-- <label>Destination Country</label>-->
+                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel"  AllowClear
                                    ShowSearch required>
                             <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
                             </pg-option>
@@ -166,19 +165,7 @@
 
 
 
-
-            <div class="row">
-                <div class="col-md-10">
-                    <div pgFormGroupDefault class="form-group form-group-default" >
-                    <label>Credit Card Details</label>
-                    <ngx-stripe-card
-                            [options]="cardOptions"
-                            [elementsOptions]="elementsOptions"
-                    ></ngx-stripe-card>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary btn-cons m-t-10"  [class.disabled]="!transferForm.valid">Make Payment</button>
+            <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!transferForm.valid">Confirm Transaction</button>
         </form>
 
     </div>
@@ -186,5 +173,69 @@
 
 </div>
 
+<div *ngIf="is_ready" class="register-container mt-1 pt-1 full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+        <!-- START CONTAINER FLUID -->
+        <pg-container>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-transparent">
+                        <div class="card-header ">
+                            <h4>Please confirm transaction, then proceed to make payment</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-1">
 
+                                </div>
+                                <div class="col-lg-10">
+                                    <pgcard Maximize="false" Refresh="false" Toggle="false">
+                                        <ng-template #CardTitle>Transaction Details</ng-template>
+
+                                        <!--<div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>-->
+                                        <div><p><span><b>Amount : </b><small>{{ tnx.amount }}</small></span></p></div>
+                                        <div><p><span><b>Currency : </b><small>{{ tnx.currency }}</small></span></p></div>
+                                        <!--<div><p><span><b>Transaction Status : </b><small>{{ tnx_status }}</small></span></p></div>-->
+                                        <!--<div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>-->
+                                        <div><p><span><b>Receiver's Name : </b><small>{{ tnx.to_name }}</small></span></p></div>
+                                        <div><p><span><b>Receivers's bank : </b><small>{{ tnx.to_bank }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's Phone: </b><small>{{ tnx.pay_ref }}</small></span></p></div>
+                                        <div><p><span><b>Payment Account Number : </b><small>{{ tnx.to_account_number }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>
+                                        <div><p><span><b>Sending Rate : </b><small>{{ tnx.rate }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's Email : </b><small>{{ tnx.to_email }}</small></span></p></div>
+                                        <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }}</small></span></p></div>
+                                    </pgcard>
+                                </div>
+                                <div class="col-lg-1">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </pg-container>
+        <!-- END CONTAINER FLUID -->
+        <h4>Supply your card details to make payment</h4>
+        <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
+            <div class="row">
+                <div class="col-md-10">
+                    <div pgFormGroupDefault class="form-group form-group-default" >
+                        <label>Credit Card Details</label>
+                        <ngx-stripe-card
+                                [options]="cardOptions"
+                                [elementsOptions]="elementsOptions"
+                        ></ngx-stripe-card>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_ready = false">Cancel and Make Corrections</button>
+            <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!payForm.valid">Make Payment</button>
+        </form>
+
+        <!--<img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">-->
+
+    </div>
+</div>
 

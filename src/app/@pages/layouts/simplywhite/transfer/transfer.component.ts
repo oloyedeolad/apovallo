@@ -37,7 +37,7 @@ export class TransferComponent implements OnInit {
       }
     }
   };
-
+  is_ready = false;
   to_account_number: string;
   to_firstname: string;
   to_lastname: string;
@@ -84,25 +84,30 @@ export class TransferComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  sendTransaction(form: any) {
+  confirmTransaction(form) {
     if (form.invalid) {
       this.toaster.error('Your form is invalid, please make sure you have filled all field', 'Form is Valid');
       return;
+    } else {
+      this.tnx = {
+        to_name: form.value.to_firstname,
+        to_email: form.value.to_email,
+        to_account_number: form.value.to_account_number,
+        to_country: form.value.destination_country.name,
+        to_bank: form.value.to_bank,
+        to_phone: form.value.to_phone,
+        user: this.user.username,
+        // from_country: form.source_country.name,
+        rate: form.value.rate,
+        total: Number(form.value.rate) * form.value.rate,
+        amount: form.value.amount
+      };
     }
-    this.tnx = {
-      to_name: form.value.to_firstname,
-      to_email: form.value.to_email,
-      to_account_number: form.value.to_account_number,
-      to_country: form.value.destination_country.name,
-      to_bank: form.value.to_bank,
-      to_phone: form.value.to_phone,
-      user: this.user.username,
-      // from_country: form.source_country.name,
-      rate: form.value.rate,
-      total: Number(this.rates) * this.amount,
-      amount: form.value.amount
-    };
+    this.is_ready = true;
+    console.log(this.tnx);
+  }
+
+  sendTransaction() {
     const extraData: IPaymentRequest = {
       amount: this.amount,
       currency: this.currency
@@ -124,8 +129,8 @@ export class TransferComponent implements OnInit {
           }
           ).subscribe((result) => {
             if (result.error) {
-              console.log(result.error.message);
-              // this.toaster.error(result.error.message);
+              // console.log(result.error.message);
+               this.toaster.error(result.error.message);
               this.tnx.tnx_status = result.paymentIntent.status;
               this.tnx.pay_ref = result.paymentIntent.id;
             } else {
@@ -144,6 +149,7 @@ export class TransferComponent implements OnInit {
           this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successfule');
         }, (err) => {
           console.log(err);
+
         });
       });
     }, (error3) => {
