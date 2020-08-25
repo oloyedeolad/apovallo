@@ -38,7 +38,7 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
                           Source="Apovallo" Timestamp="{{ lastSuccesful?.created | date: 'dd-MM-yyyy' }}">
                 <ng-template #CustomBody>
-                    <h4 class='no-margin'>Number of transactions: <span><small>${{ nSuccessful }}</small></span></h4>
+                    <h4 class='no-margin'>Number of transactions: <span><small>{{ nSuccessful }}</small></span></h4>
                    <!-- <h3 class="small hint-text no-margin">Number of transactions: <span><small> {{ nSuccessful }}</small></span></h3>-->
                     <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
@@ -62,7 +62,7 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
                           Source="Apovallo" Timestamp="{{ lastPending?.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h4 class='no-margin'>Number of transactions: <span><small>${{npending}}</small></span></h4>
+                    <h4 class='no-margin'>Number of transactions: <span><small>{{npending}}</small></span></h4>
                     <!--<h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ npending }}</small></span></h3>-->
                     <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
@@ -78,7 +78,7 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"
                           Source="Apovallo" Timestamp="{{ lastFailed?.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h4 class='no-margin'>Number of transactions: <span><small>${{nFailed}}</small></span></h4>
+                    <h4 class='no-margin'>Number of transactions: <span><small>{{nFailed}}</small></span></h4>
                    <!-- <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ nFailed }}</small></span></h3>-->
                     <!-- <h3 class="m-b-0">111.25
                          <span class="text-success">

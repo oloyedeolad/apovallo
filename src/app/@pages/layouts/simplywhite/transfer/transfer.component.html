@@ -8,15 +8,7 @@
         </p>-->
         <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm" (ngSubmit)="confirmTransaction(transferForm)">
             <div class="row">
-                <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
-                        <label>Amount</label>
-                        <input type="number" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
-                    </div>
-                    <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
-                        <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
-                    </div>
-                </div>
+
                 <div class="col-md-6">
                         <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
                             <!--<label>Currency</label>-->
@@ -29,6 +21,17 @@
                             </div>
                         </div>
                 </div>
+
+                    <div class="col-md-6">
+                        <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
+                            <label>Amount</label>
+                            <input type="number" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
+                        </div>
+                        <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
+                            <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+
             </div>
 
             <div class="row">
@@ -159,7 +162,7 @@
                     <div *ngIf="cTotal.invalid && (cTotal.dirty || cTotal.touched)" >
                         <label  *ngIf="cTotal.errors.required" class="error" >This field is required.</label>
                     </div>-->
-                    <h3>Total : <span><small>{{ amount * rate + "" + destination_country?.currency }}</small></span></h3>
+                    <h3>Total : <span><small>{{ amount * rate + "" }} {{ destination_country?.currency }}</small></span></h3>
                 </div>
             </div>
 
@@ -173,7 +176,7 @@
 
 </div>
 
-<div *ngIf="is_ready && !is_goal" class="register-container mt-1 pt-1 full-height sm-p-t-30">
+<div *ngIf="middle" class="register-container mt-1 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
         <!-- START CONTAINER FLUID -->
         <pg-container>
@@ -207,10 +210,10 @@
                                         <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }}</small></span></p></div>
                                     </pgcard>
                                 </div>
-                                <div class="col-lg-1">
-                                    <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_ready = false">Edit Payments</button>
-                                    <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_goal = true;" >Make Payment</button>
-                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_ready = false">Edit Payments</button>
+                                <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_goal = true; middle=false;" >Make Payment</button>
                             </div>
                         </div>
                     </div>
@@ -226,7 +229,7 @@
 
 <div *ngIf="is_goal" class="register-container mt-20 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3> {{" " + tnx.amount}} will be transferred  to {{" " +tnx.to_name}}.</h3>
+        <h3> {{tnx.amount +"" + tnx.currency}} will be transferred  to {{" " +tnx.to_name}}.</h3>
         <!-- END CONTAINER FLUID -->
         <h4>Supply your card details to make payment</h4>
         <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">

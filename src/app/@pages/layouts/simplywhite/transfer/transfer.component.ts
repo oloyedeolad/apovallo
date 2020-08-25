@@ -45,6 +45,7 @@ export class TransferComponent implements OnInit {
   to_lastname: string;
   to_email: string;
   to_phone: string;
+  middle = false;
   to_bank: string;
   total: number;
   amount = 0;
@@ -110,6 +111,7 @@ export class TransferComponent implements OnInit {
       };
     }
     this.is_ready = true;
+    this.middle = true;
     console.log(this.tnx);
   }
 
@@ -139,6 +141,7 @@ export class TransferComponent implements OnInit {
                this.toaster.error(result.error.message);
               this.tnx.tnx_status = result.paymentIntent.status;
               this.tnx.pay_ref = result.paymentIntent.id;
+             // this.is_goal = false;
               this.is_goal = false;
               this.is_failed = true;
             } else {
@@ -147,6 +150,7 @@ export class TransferComponent implements OnInit {
                 this.tnx.currency = result.paymentIntent.currency;
                 this.tnx.tnx_status = result.paymentIntent.status;
                 this.tnx.pay_ref = result.paymentIntent.id;
+               // this.is_goal = false;
                 this.is_goal = false;
                 this.is_successful = true;
               }
@@ -234,8 +238,11 @@ export class TransferComponent implements OnInit {
     }
   }
 
-  openMiddle() {
-    if (this.is_goal && this.is_ready) {
+  openMiddle(st?: boolean): boolean {
+    if (st) {
+      return st;
+    }
+    if (!this.is_goal && this.is_ready) {
       return true;
     }
     return false;
