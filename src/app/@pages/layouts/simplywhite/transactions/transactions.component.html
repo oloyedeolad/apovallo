@@ -38,8 +38,8 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
                           Source="Apovallo" Timestamp="{{ lastSuccesful?.created | date: 'dd-MM-yyyy' }}">
                 <ng-template #CustomBody>
-                    <h3 class='no-margin'>Total: <span><small>${{ nSuccessfulSum }}</small></span></h3>
-                    <h3 class="small hint-text no-margin">Number of transactions: <span><small> {{ nSuccessful }}</small></span></h3>
+                    <h4 class='no-margin'>Number of transactions: <span><small>${{ nSuccessful }}</small></span></h4>
+                   <!-- <h3 class="small hint-text no-margin">Number of transactions: <span><small> {{ nSuccessful }}</small></span></h3>-->
                     <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
               <i class="fa fa-sort-up small tex"></i> 0.15</span>
@@ -62,8 +62,8 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Pending Transactions" TitleClass="text-success"
                           Source="Apovallo" Timestamp="{{ lastPending?.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h3 class='no-margin'>Total: <span><small>${{nPendingSum}}</small></span></h3>
-                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ npending }}</small></span></h3>
+                    <h4 class='no-margin'>Number of transactions: <span><small>${{npending}}</small></span></h4>
+                    <!--<h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ npending }}</small></span></h3>-->
                     <!--<h3 class="m-b-0">111.25
                         <span class="text-success">
               <i class="fa fa-sort-up small text-success"></i> 0.15</span>
@@ -78,8 +78,8 @@
             <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Failed Transactions" style="color: #ff0000" TitleClass="text-danger"
                           Source="Apovallo" Timestamp="{{ lastFailed?.created | date: 'dd-MM-yyyy'}}">
                 <ng-template #CustomBody>
-                    <h3 class='no-margin'>Total: <span><small>${{nFailedSum}}</small></span></h3>
-                    <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ nFailed }}</small></span></h3>
+                    <h4 class='no-margin'>Number of transactions: <span><small>${{nFailed}}</small></span></h4>
+                   <!-- <h3 class="small hint-text no-margin">Number of transactions:  <span><small>{{ nFailed }}</small></span></h3>-->
                     <!-- <h3 class="m-b-0">111.25
                          <span class="text-success">
                <i class="fa fa-sort-up small text-success"></i> 0.15</span>
@@ -122,13 +122,14 @@
                     [headerHeight]="50"
                     [footerHeight]="50"
                     [rowHeight]="'auto'"
-                    [limit]="5"
+                    [limit]="15"
                     [rows]='basicRows'>
 
                     <ngx-datatable-column prop="id" name="ID"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_name" name="Receiver"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_email" name="Receiver Email"></ngx-datatable-column>
                     <ngx-datatable-column prop="amount" name="Amount"></ngx-datatable-column>
+                    <ngx-datatable-column prop="currency" name="Currency"></ngx-datatable-column>
                     <ngx-datatable-column prop="transfer_status" name="Status"></ngx-datatable-column>
                     <ngx-datatable-column prop="id" name="Action">
                         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value">

@@ -1,16 +1,16 @@
 export interface ICountry {
-    id: number;
-    name: string;
-    currency: string;
-    currency_label: string;
+    id?: number;
+    name?: string;
+    currency?: string;
+    currency_label?: string;
 }
 
 export class Country implements ICountry {
     constructor(
-        public id: number,
-        public name: string,
-        public currency: string,
-        public currency_label: string
+        public id?: number,
+        public name?: string,
+        public currency?: string,
+        public currency_label?: string
     ) {
     }
 }

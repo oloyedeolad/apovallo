@@ -12,6 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 import {error} from 'util';
 import {BeneficiaryService} from '../transactions/benefiary.service';
 import {IBeneficiary} from '../transactions/beneficiary.model';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class TransferComponent implements OnInit {
       }
     }
   };
+  transferForm: NgForm;
   is_ready = false;
   to_account_number: string;
   to_firstname: string;
@@ -47,6 +49,9 @@ export class TransferComponent implements OnInit {
   total: number;
   amount = 0;
   rate = 0;
+  is_failed = false;
+  is_successful = false;
+  is_goal = false;
   loadBeneficiary;
   saveBeneficiary: boolean;
   currency: string;
@@ -99,8 +104,9 @@ export class TransferComponent implements OnInit {
         user: this.user.username,
         // from_country: form.source_country.name,
         rate: form.value.rate,
-        total: Number(form.value.rate) * form.value.rate,
-        amount: form.value.amount
+        total: Number(form.value.rate) * Number(form.value.amount),
+        amount: form.value.amount,
+        currency: this.currency
       };
     }
     this.is_ready = true;
@@ -133,12 +139,16 @@ export class TransferComponent implements OnInit {
                this.toaster.error(result.error.message);
               this.tnx.tnx_status = result.paymentIntent.status;
               this.tnx.pay_ref = result.paymentIntent.id;
+              this.is_goal = false;
+              this.is_failed = true;
             } else {
               if (result.paymentIntent.status === 'succeeded') {
                 console.log(result.paymentIntent);
-                this.tnx.currency = result.paymentIntent.currency
+                this.tnx.currency = result.paymentIntent.currency;
                 this.tnx.tnx_status = result.paymentIntent.status;
                 this.tnx.pay_ref = result.paymentIntent.id;
+                this.is_goal = false;
+                this.is_successful = true;
               }
             }
       }, (error1) => {
@@ -158,17 +168,25 @@ export class TransferComponent implements OnInit {
     });
   }
 
-  changeSource(evnt) {
-    console.log('am here now');
-    this.source_country = evnt;
-    this.currency = evnt.currency;
-    console.log(this.currency);
+  changeSource(evnt: NgForm) {
+    console.log(evnt.value);
+    this.source_country = evnt.value.currency;
+     this.currency = evnt.value.currency.currency;
+    console.log(evnt.controls.destination_country.reset());
+   // console.log(this.transferForm);
   }
   changeDestination(evet) {
     // tslint:disable-next-line:max-line-length
     // console.log(evet);
     this.destination_country = evet;
-    console.log(this.rates);
+    if (this.destination_country == null) {
+      return;
+    }
+    console.log(this.source_country);
+    if (this.source_country == null) {
+      this.toaster.error('you are yet to choose a source');
+      return;
+    }
     const pet = this.source_country.name;
     const prate: IExchangeRate [] = this.rates.filter((rate)  => {
        return  rate.destination_country.name === evet.name;
@@ -177,6 +195,7 @@ export class TransferComponent implements OnInit {
       return pot.source_country.name === this.source_country.name;
     });
     console.log(finalRate);
+    console.log(prate);
     this.rate = finalRate[0].rate;
     console.log(this.rate);
   }
@@ -193,7 +212,7 @@ export class TransferComponent implements OnInit {
     this.optionsSource = await  this.optionsSource.filter(function (a) {
       return !this[a.name] && (this[a.name] = true);
     }, Object.create(null));
-    console.log(this.optionsDestination);
+    console.log(this.optionsSource);
   }
   createBeneficiary(value) {
     console.log(value);
@@ -215,6 +234,12 @@ export class TransferComponent implements OnInit {
     }
   }
 
+  openMiddle() {
+    if (this.is_goal && this.is_ready) {
+      return true;
+    }
+    return false;
+  }
   loadDataBeneficiary(value) {
 
   }

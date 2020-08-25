@@ -27,38 +27,41 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
       /*details: '234 New Emails',*/
       routerLink: 'transactions',
       iconType: 'fi',
-      iconName: 'mail'
-    },
-    {
-      label: 'SuccessfulTransactions',
-      /*details: '234 New Emails',*/
-      routerLink: 'transactions/successful',
-      iconType: 'fi',
-      iconName: 'money'
-    },
-    {
-      label: 'Failed Transactions',
-      /*details: '234 New Emails',*/
-      routerLink: 'transactions/failed',
-      iconType: 'fi',
-      iconName: 'dollar'
-    },
-    {
-      label: 'Pending Transaction',
-      /*details: '234 New Emails',*/
-      routerLink: 'transactions/pending',
-      iconType: 'fi',
-      /*iconName: 'mail'*/
-    },
-    {
-      label: 'Profile',
-      routerLink: 'profile',
-      iconType: 'fi',
-      iconName: 'users'
+      iconName: 'mail',
+      toggle: 'close',
+      submenu: [
+        {
+          label: 'Successful',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/successful',
+          iconType: 'fi',
+          iconName: 'money'
+        },
+        {
+          label: 'Failed',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/failed',
+          iconType: 'fi',
+          iconName: 'dollar'
+        },
+        {
+          label: 'Pending',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/pending',
+          iconType: 'fi',
+          /*iconName: 'mail'*/
+        },
+      ]
     },
     {
       label: 'Beneficiary',
       routerLink: 'beneficiary',
+      iconType: 'fi',
+      iconName: 'users'
+    },
+    {
+      label: 'Profile',
+      routerLink: 'profile',
       iconType: 'fi',
       iconName: 'users'
     },

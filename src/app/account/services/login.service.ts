@@ -18,7 +18,7 @@ export class LoginService {
   logout(): void {
     this.authServerProvider.logout().subscribe(null, null, () => {
       this.toaster.success('You successfully logged out');
-      this.router.navigate(['/login']);
+      this.router.navigate(['']);
     });
   }
 

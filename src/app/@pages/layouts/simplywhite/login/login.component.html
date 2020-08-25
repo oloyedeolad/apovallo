@@ -28,7 +28,7 @@
 				<!-- START Form Control-->
 				<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="loginUserName.invalid && (loginUserName.dirty || loginUserName.touched)">
 					<label>Login</label>
-					<input type="text" id="userName" name="userName" [(ngModel)]="userName"  #loginUserName="ngModel" required  placeholder="User Name" class="form-control">
+					<input type="text" id="userName" name="userName" [(ngModel)]="userName"  #loginUserName="ngModel" required class="form-control">
 				</div>
 				<div *ngIf="loginUserName.invalid && (loginUserName.dirty || loginUserName.touched)" >
 					<label  *ngIf="loginUserName.errors.required" class="error" >This field is required.</label>
@@ -37,7 +37,7 @@
 				<!-- START Form Control-->
 				<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
 					<label>Password</label>
-					<input type="password" class="form-control" placeholder="Credentials" id="password" name="password" [(ngModel)]="password"  #loginPassword="ngModel" required>
+					<input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"  #loginPassword="ngModel" required>
 				</div>
 				<div *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)" >
 					<label  *ngIf="loginPassword.errors.required" class="error" >This field is required.</label>
@@ -45,10 +45,10 @@
 				<!-- START Form Control-->
 				<div class="row">
 					<div class="col-md-6 no-padding sm-p-l-10">
-						<div class="form-check ">
+						<!--<div class="form-check ">
 							<input type="checkbox" value="1" id="checkbox1">
 							<label for="checkbox1">Keep Me Signed in</label>
-						</div>
+						</div>-->
 					</div>
 					<div class="col-md-6 d-flex align-items-center justify-content-end">
 						<small>
