@@ -1,4 +1,4 @@
-<div class="register-container mt-1 pt-1 full-height sm-p-t-30">
+<div *ngIf="!is_successful" class="register-container mt-1 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
 
           <img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png" src2x="assets/img/pock_2x.png" width="150" height="90">
@@ -89,3 +89,14 @@
       </div>
     </div>
   </div>-->
+
+
+<div *ngIf="is_successful" class="register-container mt-1 pt-1 full-height sm-p-t-30">
+  <div class="d-flex justify-content-center flex-column full-height ">
+
+    <h3>Your registration is successful, check your email to activate</h3>
+    <p>
+      Create a pages account or sign in <a routerLink="" class="text-info">Here</a>
+    </p>
+  </div>
+</div>

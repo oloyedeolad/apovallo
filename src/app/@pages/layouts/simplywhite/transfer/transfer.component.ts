@@ -5,14 +5,14 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {IUser} from '../../../../account/model/user.model';
 import {IPaymentRequest, ITransaction} from '../transactions/transanction.model';
 import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@stripe/stripe-js';
-import {StripeCardComponent, StripeService} from 'ngx-stripe';
+import {StripeCardComponent, StripeCardNumberComponent, StripeService} from 'ngx-stripe';
 import {Observable} from 'rxjs';
 import {ICountry, IExchangeRate} from '../transactions/country.model';
 import {ActivatedRoute} from '@angular/router';
 import {error} from 'util';
 import {BeneficiaryService} from '../transactions/benefiary.service';
 import {IBeneficiary} from '../transactions/beneficiary.model';
-import {NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 
 @Component({
@@ -22,7 +22,9 @@ import {NgForm} from '@angular/forms';
 })
 export class TransferComponent implements OnInit {
   // @ts-ignore
-  @ViewChild(StripeCardComponent) card: StripeCardComponent;
+  @ViewChild(StripeCardNumberComponent) card: StripeCardNumberComponent;
+
+  stripeTest: FormGroup;
 
   cardOptions: StripeCardElementOptions = {
     style: {
@@ -33,11 +35,12 @@ export class TransferComponent implements OnInit {
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSize: '18px',
         '::placeholder': {
-          color: '#CFD7E0'
-        }
-      }
-    }
+          color: '#CFD7E0',
+        },
+      },
+    },
   };
+
   transferForm: NgForm;
   is_ready = false;
   to_account_number: string;
@@ -71,7 +74,7 @@ export class TransferComponent implements OnInit {
   rates: IExchangeRate[];
   constructor(private toaster: ToastrService, private transactionService: TransactionService, private route: ActivatedRoute,
               private $localStorage: LocalStorageService, private stripeService: StripeService,
-              private beneficiaryService: BeneficiaryService) {
+              private beneficiaryService: BeneficiaryService, private fb: FormBuilder) {
     this.user = this.$localStorage.retrieve('user');
     console.log(this.user);
     this.rates = $localStorage.retrieve('rates');
@@ -89,6 +92,10 @@ export class TransferComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.stripeTest = this.fb.group({
+      name: ['Angular v10', [Validators.required]],
+      amount: [1001, [Validators.required, Validators.pattern(/\d+/)]],
+    });
   }
   confirmTransaction(form) {
     if (form.invalid) {
@@ -112,6 +119,10 @@ export class TransferComponent implements OnInit {
     }
     this.is_ready = true;
     this.middle = true;
+    this.stripeTest.patchValue({
+      amount: this.tnx.amount,
+      name: this.user.first_name
+    });
     console.log(this.tnx);
   }
 

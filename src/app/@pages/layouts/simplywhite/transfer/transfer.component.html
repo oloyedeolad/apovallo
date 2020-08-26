@@ -25,7 +25,7 @@
                     <div class="col-md-6">
                         <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
                             <label>Amount</label>
-                            <input type="number" placeholder="" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
+                            <input type="number" max="2000" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
                         </div>
                         <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
                             <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
@@ -87,7 +87,7 @@
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
                         <label>Account Number</label>
-                        <input type="text" placeholder="" maxlength="10" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #toAccount="ngModel" required>
+                        <input type="text" placeholder="" maxlength="18" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #toAccount="ngModel" required>
                     </div>
                     <div *ngIf="toAccount.invalid && (toAccount.dirty || toAccount.touched)" >
                         <label  *ngIf="toAccount.errors.required" class="error" >This field is required.</label>
@@ -229,27 +229,87 @@
 
 <div *ngIf="is_goal" class="register-container mt-20 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3> {{tnx.amount +"" + tnx.currency}} will be transferred  to {{" " +tnx.to_name}}.</h3>
+        <h3> {{tnx.amount +"" + tnx.currency}} equivalent in local currency will be transferred  to {{" " +tnx.to_name}}.</h3>
         <!-- END CONTAINER FLUID -->
         <h4>Supply your card details to make payment</h4>
-        <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
+       <!-- <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
             <div class="row">
                 <div class="col-md-10">
-                    <div pgFormGroupDefault class="form-group form-group-default" >
+                    &lt;!&ndash;<div pgFormGroupDefault class="form-group form-group-default" >
                         <label>Credit Card Details</label>
                         <ngx-stripe-card
                                 [options]="cardOptions"
                                 [elementsOptions]="elementsOptions"
                         ></ngx-stripe-card>
-                    </div>
+                    </div>&ndash;&gt;
                 </div>
             </div>
             <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!payForm.valid">Make Payment</button>
-        </form>
+        </form>-->
+
+        <ngx-stripe-card-group
+                [formGroup]="stripeTest"
+                [elementsOptions]="elementsOptions"
+        >
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default">
+                        <label>Name</label>
+                        <!-- <label>Destination Country</label>-->
+                        <input class="form-control" formControlName="name" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default">
+                        <!-- <label>Destination Country</label>-->
+                        <label>Amount</label>
+                        <input class="form-control" formControlName="amount" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default">
+                        <!-- <label>Destination Country</label>-->
+                        <label>Card Numbers</label>
+                        <ngx-stripe-card-number [options]="cardOptions"></ngx-stripe-card-number>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default">
+                        <!-- <label>Destination Country</label>-->
+                        <label>Expiring Date</label>
+                        <ngx-stripe-card-expiry [options]="cardOptions"></ngx-stripe-card-expiry>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div pgFormGroupDefault class="form-group form-group-default">
+                        <!-- <label>Destination Country</label>-->
+                        <label>CVC</label>
+                        <ngx-stripe-card-cvc [options]="cardOptions"></ngx-stripe-card-cvc>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-cons m-t-10" type="submit" (click)="sendTransaction()">
+                PAY
+            </button>
+        </ngx-stripe-card-group>
 
     </div>
 
 </div>
+
 
 
 <div *ngIf="is_successful" class="register-container mt-40 pt-1 full-height sm-p-t-30">

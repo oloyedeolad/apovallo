@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {ILogin, Login} from '../../../../account/model/login.model';
 import {IUser} from '../../../../account/model/user.model';
 import {ToastrService} from 'ngx-toastr';
+import {SERVER_API_URL} from '../../../../app.constant';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
   // Sample Varriables
   userName;
   password;
+  is_reset = false;
+  email;
   constructor(private fb: FormBuilder, private $localStorage: LocalStorageService,
               private loginService: LoginService, private router: Router, private toast: ToastrService) {}
 
@@ -33,5 +36,15 @@ export class LoginComponent implements OnInit {
 
         }, () => {
           console.log('done'); });
+  }
+
+    requestPassword(req: any) {
+      this.loginService.resetPassword(req).subscribe((res) => {
+          this.toast.success('Please check your email for a link to reset your password');
+      }, (err) => {
+          console.log(err);
+      }, () => {
+          this.is_reset = false;
+      });
   }
 }

@@ -25,6 +25,8 @@ import {TnxDetalsComponent} from './@pages/layouts/simplywhite/tnx-detals/tnx-de
 import {AuthGuardService} from './util/AuthGuardService';
 import {BeneficiaryListComponent} from './@pages/layouts/simplywhite/beneficiary-list/beneficiary-list.component';
 import {BeneficiaryDetailComponent} from './@pages/layouts/simplywhite/beneficiary-detail/beneficiary-detail.component';
+import {PassResetComponent} from './@pages/layouts/simplywhite/pass-reset/pass-reset.component';
+import {LogoutComponent} from './@pages/layouts/simplywhite/logout/logout.component';
 
 
 
@@ -48,6 +50,14 @@ export const AppRoutes: Routes = [
     component: UserActivationComponent
   },
   {
+    path: 'reset/:token',
+    component: PassResetComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
     path: 'dashboard',
     data: {
         breadcrumb: 'Home'
@@ -64,7 +74,7 @@ export const AppRoutes: Routes = [
       {path: '', component: PentComponent},
       {path: 'transfer', component: TransferComponent},
       {path: 'beneficiary', component: BeneficiaryListComponent},
-      {path: 'beneficiary/:id', component: BeneficiaryDetailComponent}
+      {path: 'beneficiary/:id', component: BeneficiaryDetailComponent},
     ]
   },
   {

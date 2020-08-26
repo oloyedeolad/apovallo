@@ -88,6 +88,8 @@ import { TnxDetalsComponent } from './@pages/layouts/simplywhite/tnx-detals/tnx-
 import {AuthExpiredInterceptor} from './interceptor/auth-expired.interceptor';
 import { BeneficiaryListComponent } from './@pages/layouts/simplywhite/beneficiary-list/beneficiary-list.component';
 import { BeneficiaryDetailComponent } from './@pages/layouts/simplywhite/beneficiary-detail/beneficiary-detail.component';
+import { PassResetComponent } from './@pages/layouts/simplywhite/pass-reset/pass-reset.component';
+import { LogoutComponent } from './@pages/layouts/simplywhite/logout/logout.component';
 
 
 
@@ -136,6 +138,8 @@ export class AppHammerConfig extends HammerGestureConfig  {
     TnxDetalsComponent,
     BeneficiaryListComponent,
     BeneficiaryDetailComponent,
+    PassResetComponent,
+    LogoutComponent,
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,67 @@
+
+
+<!-- START CONTAINER FLUID -->
+<pg-container>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-transparent">
+                <div class="card-header ">
+                    <!--<div class="card-title">Transaction Details
+                    </div>-->
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-6">
+                            <pgcard Maximize="false" Refresh="false" Toggle="false">
+                                <h3>Reset Password</h3>
+                                <form class="p-t-15" role="form" #loginForm="ngForm" (ngSubmit)="resetPassword(loginForm.value)">
+                                    <!-- START Form Control-->
+                                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="newPassword.invalid && (newPassword.dirty || newPassword.touched)">
+                                        <label>New Password</label>
+                                        <input type="password" id="newPass" name="newPass" [(ngModel)]="newPass"  #newPassword="ngModel" required class="form-control">
+                                    </div>
+                                    <div *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)" >
+                                        <label  *ngIf="newPassword.errors.required" class="error" >This field is required.</label>
+                                    </div>
+                                    <!-- END Form Control-->
+                                    <!-- START Form Control-->
+                                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
+                                        <label>Confirm New Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"  #loginPassword="ngModel" required>
+                                    </div>
+                                    <div *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)" >
+                                        <label  *ngIf="loginPassword.errors.required" class="error" >This field is required.</label>
+                                    </div>
+                                    <!-- START Form Control-->
+                                    <div class="row">
+                                        <div class="col-md-6 no-padding sm-p-l-10">
+                                            <!--<div class="form-check ">
+                                                <input type="checkbox" value="1" id="checkbox1">
+                                                <label for="checkbox1">Keep Me Signed in</label>
+                                            </div>-->
+                                            <small>
+                                                You can login </small><span style="padding-left: 0.5em;"><a routerLink="" class="text-info small"> Here</a> </span>
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-end">
+                                            <small>
+                                                Create an account </small><span style="padding-left: 0.5em;"><a routerLink="register" class="text-info small"> Here</a> </span>
+                                        </div>
+                                    </div>
+                                    <!-- END Form Control-->
+                                    <button class="btn btn-primary btn-cons m-t-10" type="submit" [class.disabled]="loginForm.invalid">Sign in</button>
+                                </form>
+                            </pgcard>
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</pg-container>
+<!-- END CONTAINER FLUID -->

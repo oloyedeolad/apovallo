@@ -38,18 +38,18 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
           iconName: 'money'
         },
         {
-          label: 'Failed',
-          /*details: '234 New Emails',*/
-          routerLink: 'transactions/failed',
-          iconType: 'fi',
-          iconName: 'dollar'
-        },
-        {
           label: 'Pending',
           /*details: '234 New Emails',*/
           routerLink: 'transactions/pending',
           iconType: 'fi',
           /*iconName: 'mail'*/
+        },
+        {
+          label: 'Failed',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/failed',
+          iconType: 'fi',
+          iconName: 'dollar'
         },
       ]
     },
@@ -63,7 +63,13 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
       label: 'Profile',
       routerLink: 'profile',
       iconType: 'fi',
-      iconName: 'users'
+      iconName: 'users',
+    },
+    {
+      label: 'Logout',
+      routerLink: '/logout',
+      iconType: 'fi',
+      iconName: 'users',
     },
   ];
   user: IUser;

@@ -41,7 +41,9 @@
       <div class="mt-10 mb-20"></div>
       <pg-menu-items [Items]="menuLinks">
       </pg-menu-items>
+      <a href="#" class="dropdown-item" (click)="logOut()">Logout</a>
     </ng-template>
+    <a href="#" class="dropdown-item" (click)="logOut()">Logout</a>
   </pg-sidebar>
   <!-- PAGE CONTAINER -->
   <page-container>
@@ -60,7 +62,7 @@
           </span>
         </a>
         <!-- END EMAIL MOBILE TOGGLE -->
-        <div class="brand" [class.d-none]="_layoutOption === 'email'" [class.d-xl-block]="_layoutOption === 'email'"
+        <div class="brand mb-sm-5" [class.d-none]="_layoutOption === 'email'" [class.d-xl-block]="_layoutOption === 'email'"
           [class.d-lg-block]="_layoutOption === 'email'">
           <img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png"
             src2x="assets/img/pock_2x.png" width="150" height="90">

@@ -16,6 +16,7 @@ export class RegisterPageComponent implements OnInit {
   txtusername;
   txtpassword;
   txtemail;
+  is_successful = false;
 
   constructor(public userRegisterService: UserService, private toast: ToastrService,
               private router: Router) {}
@@ -42,8 +43,9 @@ export class RegisterPageComponent implements OnInit {
   protected onSaveSuccess(): void {
    /* this.isSaving = false;
     this.isRegistered = true;*/
+    this.is_successful = true;
     this.toast.success('Registration successful, please check your email to activate');
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
   }
 
   protected onSaveError(): void {
