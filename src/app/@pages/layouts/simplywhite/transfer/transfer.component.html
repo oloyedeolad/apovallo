@@ -13,7 +13,7 @@
                         <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
                             <!--<label>Currency</label>-->
                             <pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
-                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency_label}}"  [Value]="option">
+                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency_label.toUpperCase()}}"  [Value]="option">
                                 </pg-option>
                             </pg-select>
                             <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
@@ -197,7 +197,7 @@
 
                                         <!--<div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>-->
                                         <div><p><span><b>Amount : </b><small>{{ tnx.amount }}</small></span></p></div>
-                                        <div><p><span><b>Currency : </b><small>{{ tnx.currency }}</small></span></p></div>
+                                        <div><p><span><b>Currency : </b><small>{{ tnx.currency.toUpperCase() }}</small></span></p></div>
                                         <!--<div><p><span><b>Transaction Status : </b><small>{{ tnx_status }}</small></span></p></div>-->
                                         <!--<div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>-->
                                         <div><p><span><b>Receiver's Name : </b><small>{{ tnx.to_name }}</small></span></p></div>
@@ -207,13 +207,13 @@
                                         <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>
                                         <div><p><span><b>Sending Rate : </b><small>{{tnx.currency + "" + tnx.rate }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Email : </b><small>{{ tnx.to_email }}</small></span></p></div>
-                                        <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }}</small></span></p></div>
+                                        <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }} {{tnx.currency.toUpperCase()}}</small></span></p></div>
                                     </pgcard>
                                 </div>
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_ready = false">Edit Payments</button>
-                                <button class="btn btn-primary btn-lg btn-cons m-t-10" (click)="is_goal = true; middle=false;" >Make Payment</button>
+                                <button class="btn btn-primary btn-lg btn-cons m-t-10 m-lg-2" (click)="is_ready = false">Edit Payments</button>
+                                <button class="btn btn-primary btn-lg btn-cons m-t-10 m-lg-3" (click)="is_goal = true; middle=false;" >Make Payment</button>
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
 
 <div *ngIf="is_goal" class="register-container mt-20 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3> {{tnx.amount +"" + tnx.currency}} equivalent in local currency will be transferred  to {{" " +tnx.to_name}}.</h3>
+        <h3> {{tnx.amount +"" + tnx.currency.toUpperCase()}} equivalent in local currency will be transferred  to {{" " +tnx.to_name}}.</h3>
         <!-- END CONTAINER FLUID -->
         <h4>Supply your card details to make payment</h4>
        <!-- <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
@@ -256,7 +256,7 @@
                     <div pgFormGroupDefault class="form-group form-group-default">
                         <label>Name</label>
                         <!-- <label>Destination Country</label>-->
-                        <input class="form-control" formControlName="name" />
+                        <input class="form-control" formControlName="name" readonly />
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                     <div pgFormGroupDefault class="form-group form-group-default">
                         <!-- <label>Destination Country</label>-->
                         <label>Amount</label>
-                        <input class="form-control" formControlName="amount" />
+                        <input class="form-control" formControlName="amount" readonly />
                     </div>
                 </div>
             </div>
@@ -300,6 +300,7 @@
                     </div>
                 </div>
             </div>
+
 
             <button class="btn btn-primary btn-lg btn-cons m-t-10" type="submit" (click)="sendTransaction()">
                 PAY

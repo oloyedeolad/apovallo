@@ -45,7 +45,11 @@
                     <ngx-datatable-column prop="to_name" name="Receiver"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_email" name="Receiver Email"></ngx-datatable-column>
                     <ngx-datatable-column prop="amount" name="Amount"></ngx-datatable-column>
-                    <ngx-datatable-column prop="currency" name="Currency"></ngx-datatable-column>
+                    <ngx-datatable-column name="Currency">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            <strong>{{ value.toUpperCase() }}</strong>
+                        </ng-template>
+                    </ngx-datatable-column>
                     <ngx-datatable-column prop="to_status" name="Status"></ngx-datatable-column>
                     <ngx-datatable-column prop="id" name="Action">
                         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value">
