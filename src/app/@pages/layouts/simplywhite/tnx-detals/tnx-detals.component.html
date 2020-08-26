@@ -33,7 +33,7 @@
 
                                 <div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>
                                 <div><p><span><b>Amount : </b><small>{{ transaction.amount }}</small></span></p></div>
-                                <div><p><span><b>Currency : </b><small>{{ transaction.currency }}</small></span></p></div>
+                                <div *ngIf="transaction.currency"><p><span><b>Currency : </b><small>{{ transaction?.currency.toUpperCase() }}</small></span></p></div>
                                 <!--div><p><span><b>Transaction Status : </b><small>{{ transaction.tnx_status }}</small></span></p></div>-->
                                 <div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Name : </b><small>{{ transaction.to_name }}</small></span></p></div>
@@ -43,7 +43,7 @@
                                 <div><p><span><b>Receiver's Country : </b><small>{{ " " + transaction.to_country}}</small></span></p></div>
                                 <div><p><span><b>Sending Rate : </b><small>{{ transaction.rate }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Email : </b><small>{{ transaction.to_email }}</small></span></p></div>
-                                <div><p><span><b>Total in Destination Country : </b><small>{{ transaction.rate * transaction.amount }}</small></span></p></div>
+                                <!--<div><p><span><b>Total in Destination Country : </b><small>{{ transaction.rate * transaction.amount }}</small></span></p></div>-->
                             </pgcard>
                         </div>
                         <div class="col-lg-3">

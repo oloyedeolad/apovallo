@@ -34,6 +34,7 @@ export class PassResetComponent implements OnInit {
     console.log(this.token);
     this.loginService.newPassword(this.token).subscribe((res) => {
       console.log(res);
+      this.toast.success('Your password change was successful');
     }, (error) => {
       console.log(error);
       this.toast.error('the token is invalid or expired');
