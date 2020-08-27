@@ -30,11 +30,10 @@
               "src/assets/plugins/bootstrap/css/bootstrap.min.css",
               "src/assets/plugins/codrops-stepsform/css/component.css",
               "node_modules/ngx-toastr/toastr.css",
-              "src/assets/HTWF/style.css",
-              "src/assets/HTWF/css/content-box.css",
-              "src/assets/HTWF/css/image-box.css",
-              "src/assets/HTWF/css/animations.css",
-              "src/assets/HTWF/css/components.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/pe-icon-7-stroke.css",
+              "./node_modules/@mdi/font/css/materialdesignicons.min.css"
             ],
             "scripts": [
               "node_modules/focus-visible/dist/focus-visible.min.js",
@@ -47,20 +46,7 @@
               "src/assets/plugins/modernizr.custom.js",
               "src/assets/plugins/codrops-stepsform/js/classie.js",
               "src/assets/plugins/codrops-stepsform/js/stepsForm.js",
-              "src/assets/plugins/skycons/skycons.js",
-              "src/assets/HTWF/scripts/imagesloaded.min.js",
-              "src/assets/HTWF/scripts/parallax.min.js",
-              "src/assets/HTWF/scripts/flexslider/jquery.flexslider-min.js",
-              "src/assets/HTWF/scripts/parallax.min.js",
-              "src/assets/HTWF/scripts/php/contact-form.js",
-              "src/assets/HTWF/scripts/jquery.progress-counter.js",
-              "src/assets/HTWF/scripts/jquery.tab-accordion.js",
-              "src/assets/HTWF/scripts/bootstrap/js/bootstrap.popover.min.js",
-              "src/assets/HTWF/scripts/jquery.magnific-popup.min.js",
-              "src/assets/HTWF/scripts/social.stream.min.js",
-              "src/assets/HTWF/scripts/jquery.slimscroll.min.js",
-              "src/assets/HTWF/scripts/smooth.scroll.min.js",
-              "src/assets/HTWF/scripts/script.js"
+              "src/assets/plugins/skycons/skycons.js"
             ]
           },
           "configurations": {

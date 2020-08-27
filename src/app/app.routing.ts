@@ -27,6 +27,7 @@ import {BeneficiaryListComponent} from './@pages/layouts/simplywhite/beneficiary
 import {BeneficiaryDetailComponent} from './@pages/layouts/simplywhite/beneficiary-detail/beneficiary-detail.component';
 import {PassResetComponent} from './@pages/layouts/simplywhite/pass-reset/pass-reset.component';
 import {LogoutComponent} from './@pages/layouts/simplywhite/logout/logout.component';
+import {HommComponent} from './@pages/layouts/simplywhite/homm/homm.component';
 
 
 
@@ -39,11 +40,15 @@ export const AppRoutes: Routes = [
     data: {
         breadcrumb: 'Home'
     },
-    component: LoginComponent
+    component: HommComponent
   },
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'account/activate/:activation_key/:user',

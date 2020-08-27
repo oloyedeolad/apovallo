@@ -90,6 +90,17 @@ import { BeneficiaryListComponent } from './@pages/layouts/simplywhite/beneficia
 import { BeneficiaryDetailComponent } from './@pages/layouts/simplywhite/beneficiary-detail/beneficiary-detail.component';
 import { PassResetComponent } from './@pages/layouts/simplywhite/pass-reset/pass-reset.component';
 import { LogoutComponent } from './@pages/layouts/simplywhite/logout/logout.component';
+import { HomComponent } from './@pages/layouts/simplywhite/hom/hom.component';
+import {HommComponent} from './@pages/layouts/simplywhite/homm/homm.component';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
+import {NgxYoutubePlayerModule} from 'ngx-youtube-player';
+import {FooterComponent} from './@pages/layouts/simplywhite/footer/footer.component';
+import {SwitcherComponent} from './@pages/layouts/simplywhite/switcher/switcher.component';
+import {ContactComponent} from './@pages/layouts/simplywhite/contact/contact.component';
+import {AboutComponent} from './@pages/layouts/simplywhite/about/about.component';
+import {ScrollspyDirective} from './@pages/layouts/simplywhite/scrollspy.directive';
+import {FeaturesComponent} from './@pages/layouts/simplywhite/features/features.component';
+import {ServicesComponent} from './@pages/layouts/simplywhite/services/services.component';
 
 
 
@@ -132,6 +143,10 @@ export class AppHammerConfig extends HammerGestureConfig  {
     UserActivationComponent,
     SimplywhiteComponent,
     TransferComponent,
+    SwitcherComponent,
+    ContactComponent,
+      AboutComponent,
+    FooterComponent,
     TnxSuccessfulComponent,
     TnxFailedComponent,
     TnxPendingComponent,
@@ -140,6 +155,11 @@ export class AppHammerConfig extends HammerGestureConfig  {
     BeneficiaryDetailComponent,
     PassResetComponent,
     LogoutComponent,
+    HomComponent,
+    HommComponent,
+      ScrollspyDirective,
+      FeaturesComponent,
+    ServicesComponent
   ],
     imports: [
         BrowserModule,
@@ -169,6 +189,8 @@ export class AppHammerConfig extends HammerGestureConfig  {
         NgxWebstorageModule.forRoot(),
         pgTabsModule,
         PerfectScrollbarModule,
+        ScrollToModule.forRoot(),
+        NgxYoutubePlayerModule.forRoot(),
         pgSwitchModule,
         QuillModule.forRoot(),
         ReactiveFormsModule,
