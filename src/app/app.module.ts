@@ -169,7 +169,8 @@ export class AppHammerConfig extends HammerGestureConfig  {
         HttpModule,
         HttpClientModule,
         SharedModule,
-        NgxStripeModule.forRoot('pk_test_DINLqziBvdcWlwy5w2WeF2Wh'),
+        // tslint:disable-next-line:max-line-length
+        NgxStripeModule.forRoot('pk_live_51HHXOtA7YrVgiB6zUCsJGi4tw5h3MFXQ5WnpIy0Ceb3usZMzYLNxh40xgLwhftm9oNcmTcE1QC0TXf6YjFxI9Ute00bbqYEWpi'),
         ProgressModule,
         pgListViewModule,
         pgCardModule,
