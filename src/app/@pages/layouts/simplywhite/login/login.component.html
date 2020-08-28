@@ -29,7 +29,7 @@
 			<form class="p-t-15" role="form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
 				<!-- START Form Control-->
 				<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="loginUserName.invalid && (loginUserName.dirty || loginUserName.touched)">
-					<label>Login</label>
+					<label>Username</label>
 					<input type="text" id="userName" name="userName" [(ngModel)]="userName"  #loginUserName="ngModel" required class="form-control">
 				</div>
 				<div *ngIf="loginUserName.invalid && (loginUserName.dirty || loginUserName.touched)" >
@@ -52,11 +52,11 @@
 							<label for="checkbox1">Keep Me Signed in</label>
 						</div>-->
 						<small>
-							Forgot password? </small><span style="padding-left: 0.5em;"><a (click)="is_reset=true" class="text-info small"> Reset</a> </span>
+							 </small><span style="padding-left: 0.5em;"><a (click)="is_reset=true" class="text-info small"> Forgot password?</a> </span>
 					</div>
 					<div class="col-md-6 d-flex align-items-center justify-content-end">
 						<small>
-							Create an account </small><span style="padding-left: 0.5em;"><a routerLink="register" class="text-info small"> Here</a> </span>
+							 </small><span style="padding-left: 0.5em;"><a routerLink="/register" class="text-info small"> Create an account</a> </span>
 					</div>
 				</div>
 				<!-- END Form Control-->

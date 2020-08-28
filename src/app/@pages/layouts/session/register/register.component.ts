@@ -16,6 +16,7 @@ export class RegisterPageComponent implements OnInit {
   txtusername;
   txtpassword;
   txtemail;
+  txtphone;
   is_successful = false;
 
   constructor(public userRegisterService: UserService, private toast: ToastrService,
@@ -29,7 +30,8 @@ export class RegisterPageComponent implements OnInit {
       password: register.txtpassword,
       email: register.txtemail,
       first_name: register.txtfname,
-      last_name: register.txtlname
+      last_name: register.txtlname,
+      phone: register.txtphone
     };
     console.log(user);
     this.userRegisterService.create(user).subscribe((res) => {

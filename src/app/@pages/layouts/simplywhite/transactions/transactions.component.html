@@ -35,7 +35,7 @@
         <div routerLink="successful" class="col-lg-4 col-sm-6  d-flex flex-column">
             <!-- START WIDGET -->
             <!-- START ITEM -->
-            <pgcardsocial Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
+            <pgcardsocial style="color: green" Type="widget" AdditionalClasses="full-width m-b-10 no-border" Title="Successful Transactions" TitleClass="text-success"
                           Source="Apovallo" Timestamp="{{ lastSuccesful?.created | date: 'dd-MM-yyyy' }}">
                 <ng-template #CustomBody>
                     <h4 class='no-margin'>Number of transactions: <span><small>{{ nSuccessful }}</small></span></h4>

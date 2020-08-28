@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../../../account/services/login.service';
 import {ToastrService} from 'ngx-toastr';
 
@@ -15,7 +15,7 @@ export class PassResetComponent implements OnInit {
   token: UserReset = {};
   tokens: string;
   constructor(private route: ActivatedRoute, private loginService: LoginService,
-              private toast: ToastrService) {
+              private toast: ToastrService, private router: Router) {
     this.tokens = this.route.snapshot.paramMap.get('token');
     console.log(this.tokens);
   }
@@ -35,6 +35,7 @@ export class PassResetComponent implements OnInit {
     this.loginService.newPassword(this.token).subscribe((res) => {
       console.log(res);
       this.toast.success('Your password change was successful');
+      this.router.navigate(['login']);
     }, (error) => {
       console.log(error);
       this.toast.error('the token is invalid or expired');

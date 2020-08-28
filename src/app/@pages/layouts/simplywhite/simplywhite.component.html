@@ -53,7 +53,7 @@
         <i class="pg-icon">menu</i>
       </a>
       <!-- END MOBILE SIDEBAR TOGGLE -->
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center mb-10">
         <!-- START EMAIL MOBILE TOGGLE -->
         <a href="javascript:void(0);" class="toggle-secondary-sidebar align-items-center"
           (click)="toggleSecondarySideBar()" *ngIf="_layoutOption === 'email'">
@@ -62,7 +62,7 @@
           </span>
         </a>
         <!-- END EMAIL MOBILE TOGGLE -->
-        <div class="brand mb-sm-10" [class.d-none]="_layoutOption === 'email'" [class.d-xl-block]="_layoutOption === 'email'"
+        <div class="brand mb-sm-20" [class.d-none]="_layoutOption === 'email'" [class.d-xl-block]="_layoutOption === 'email'"
           [class.d-lg-block]="_layoutOption === 'email'">
           <img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png"
             src2x="assets/img/pock_2x.png" width="150" height="90">
@@ -227,7 +227,7 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" *dropdownMenu role="menu">
-            <a href="#" class="dropdown-item"><span>Signed in as <br /><b>{{user.first_name}} {{" " + user.last_name}}</b></span></a>
+            <p class="dropdown-item"><span>Signed in as <br /><b>{{user.first_name}} {{" " + user.last_name}}</b></span></p>
             <div class="dropdown-divider"></div>
             <a routerLink="profile" class="dropdown-item">Your Profile</a>
           <!--  <a href="#" class="dropdown-item">Your Activity</a>

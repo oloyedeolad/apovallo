@@ -7,7 +7,7 @@ import {IPaymentRequest, ITransaction} from '../transactions/transanction.model'
 import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@stripe/stripe-js';
 import {StripeCardComponent, StripeCardNumberComponent, StripeService} from 'ngx-stripe';
 import {Observable} from 'rxjs';
-import {ICountry, IExchangeRate} from '../transactions/country.model';
+import {ExchangeRate, ICountry, IExchangeRate} from '../transactions/country.model';
 import {ActivatedRoute} from '@angular/router';
 import {error} from 'util';
 import {BeneficiaryService} from '../transactions/benefiary.service';
@@ -98,6 +98,10 @@ export class TransferComponent implements OnInit {
     });
   }
   confirmTransaction(form) {
+    if (form.value.amount > 2000) {
+      this.toaster.error('Your amount cannot be more than 2000');
+      return;
+    }
     if (form.invalid) {
       this.toaster.error('Your form is invalid, please make sure you have filled all field', 'Form is Valid');
       return;
@@ -184,10 +188,20 @@ export class TransferComponent implements OnInit {
   }
 
   changeSource(evnt: NgForm) {
+    this.optionsDestination = [];
     console.log(evnt.value);
     this.source_country = evnt.value.currency;
      this.currency = evnt.value.currency.currency;
+     const b = this.currency;
+     const co: ICountry = this.source_country;
     console.log(evnt.controls.destination_country.reset());
+
+    const rates1: IExchangeRate[] = this.rates.filter(function (des) {
+        return des.source_country.name === co.name && des.destination_country.name !== co.name;
+    });
+    rates1.forEach((pes) => {
+      this.optionsDestination.push(pes.destination_country);
+    });
    // console.log(this.transferForm);
   }
   changeDestination(evet) {
@@ -217,12 +231,12 @@ export class TransferComponent implements OnInit {
 
   async initOptions(rates: IExchangeRate[]) {
     await rates.forEach((exchangeRate) => {
-        this.optionsDestination.push(exchangeRate.destination_country);
+        // this.optionsDestination.push(exchangeRate.destination_country);
         this.optionsSource.push(exchangeRate.source_country);
     });
-    this.optionsDestination = await this.optionsDestination.filter(function (a) {
+    /*this.optionsDestination = await this.optionsDestination.filter(function (a) {
         return !this[a.name] && (this[a.name] = true);
-    }, Object.create(null));
+    }, Object.create(null));*/
 
     this.optionsSource = await  this.optionsSource.filter(function (a) {
       return !this[a.name] && (this[a.name] = true);
@@ -231,7 +245,8 @@ export class TransferComponent implements OnInit {
   }
   createBeneficiary(value) {
     console.log(value);
-    if (value) {
+    // tslint:disable-next-line:max-line-length
+    if (this.to_firstname !== null && this.to_email !== null && this.to_phone !== null && this.to_bank != null && this.to_account_number != null) {
       const beneficiary: IBeneficiary = {
         name: this.to_firstname,
         email: this.to_email,
@@ -246,6 +261,7 @@ export class TransferComponent implements OnInit {
       }, (error2) => {
         console.log(error2);
       });
+    } else {
     }
   }
 

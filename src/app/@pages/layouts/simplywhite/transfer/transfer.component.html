@@ -19,18 +19,29 @@
                             <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
                                 <label  *ngIf="useCurrency.errors.required" class="error" >This field is required.</label>
                             </div>
+
                         </div>
                 </div>
 
-                    <div class="col-md-6">
-                        <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched)">
+                   <!-- <div class="col-md-6">
+                        <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched || sAmount.value >2000)">
                             <label>Amount</label>
-                            <input type="number" max="2000" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
+                            <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
                         </div>
-                        <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched)" >
-                            <label  *ngIf="sAmount.errors.required" class="error" >This field is required.</label>
+                        <div *ngIf="sAmount.invalid && (sAmount.dirty || sAmount.touched || sAmount.value > 2000)" >
+                            <label  *ngIf="sAmount.errors.required" class="error" >This field is required or value greater than 2000.</label>
                         </div>
-                    </div>
+                    </div>-->
+                <div class="col-md-6">
+                <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
+                    <label>Amount (max is 2000)</label>
+                    <input type="number"  class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required >
+                </div>
+                <div *ngIf="(sAmount.invalid && (sAmount.dirty || sAmount.touched)) || sAmount.value > 2000" >
+                    <label  *ngIf="fName.errors.required" class="error" >This field is required or amount is greater than 2000</label>
+                </div>
+
+                </div>
 
             </div>
 
@@ -205,16 +216,18 @@
                                         <div><p><span><b>Receiver's Phone: </b><small>{{ tnx.to_phone }}</small></span></p></div>
                                         <div><p><span><b>Payment Account Number : </b><small>{{ tnx.to_account_number }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>
-                                        <div><p><span><b>Sending Rate : </b><small>{{tnx.currency + "" + tnx.rate }}</small></span></p></div>
+                                        <div><p><span><b>Sending Rate : </b><small>{{ tnx.rate }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Email : </b><small>{{ tnx.to_email }}</small></span></p></div>
                                         <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }} {{destination_country?.currency}}</small></span></p></div>
                                     </pgcard>
+
+                                    <div>
+                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 mr-lg-5" (click)="is_ready = false">Edit Payments</button>
+                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 ml-lg-3" (click)="is_goal = true; middle=false;" >Make Payment</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <button class="btn btn-primary btn-lg btn-cons m-t-10 m-lg-2" (click)="is_ready = false">Edit Payments</button>
-                                <button class="btn btn-primary btn-lg btn-cons m-t-10 m-lg-3" (click)="is_goal = true; middle=false;" >Make Payment</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -315,7 +328,29 @@
 
 <div *ngIf="is_successful" class="register-container mt-40 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3>Your transfer to {{ tnx.to_name + " "}} is <span style="color: #2ca02c">Successful </span></h3>
+
+        <div class="card card-default" style="margin-top: 20%">
+            <div class="card-header ">
+                <div class="card-title">
+                    Transfer Successful
+                </div>
+            </div>
+            <div class="card-body">
+                <!--<button routerLink="transfer" aria-label="" class="btn btn-block btn-primary btn-lg" type="button">
+                    <i class="pg-icon">send</i>
+                    <span>Send Money</span>
+                </button>-->
+                <h3>Your transfer to {{ tnx.to_name + " "}} is <span style="color: #2ca02c">Successful </span></h3>
+                <button routerLink="/dashboard" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+                    <i class="pg-icon"></i>
+                    <span>Initiate New Transactions</span>
+                </button>
+                <!-- <button routerLink="transactions/pending" aria-label="" class="btn btn-block btn-danger btn-lg" type="button">
+                     <i class="fa fa-pause"></i>
+                     <span>Pending Transactions</span>
+                 </button-->
+            </div>
+        </div>
     </div>
 </div>
 

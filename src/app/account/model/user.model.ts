@@ -6,7 +6,7 @@ export interface IUser {
   email?: string;
   /*role?: IRole;*/
   status?: string;
- /* phone?: string;*/
+  phone?: string;
   is_staff?: boolean;
 /*  gender?: string;*/
   is_admin?: boolean;
@@ -28,7 +28,7 @@ export class User implements IUser {
     public is_admin?: boolean,
     /*public gender?: string,
     public role?: IRole,*/
-    /*public phone?: string,*/
+    public phone?: string,
     public status?: string,
     public createdAt?: Date,
     public updatedAt?: Date,

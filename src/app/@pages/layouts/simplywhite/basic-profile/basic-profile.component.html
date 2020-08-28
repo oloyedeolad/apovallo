@@ -7,8 +7,20 @@
             Create or Update Your profile
         </p>
         <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="createProfile(registerForm.value)">
-            <div class="row">
+           <!-- <div class="row">
                 <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
+                        <label>City</label>
+                        <input type="text" class="form-control" id="city" name="city" [(ngModel)]="city"  #LName="ngModel" required>
+                    </div>
+                    <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" >
+                        <label  *ngIf="LName.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="row">
+                <div class="col-md-12">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
                         <label>Address</label>
                         <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address"  #fName="ngModel" required >
@@ -17,7 +29,9 @@
                         <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="LName.invalid && (LName.dirty || LName.touched)">
                         <label>City</label>
                         <input type="text" class="form-control" id="city" name="city" [(ngModel)]="city"  #LName="ngModel" required>
@@ -41,8 +55,8 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="gender.invalid && (gender.dirty || gender.touched)">
-                    <label>Gender</label>
-                    <pg-select style="width: 100%;" [(ngModel)]="selectedOption" id="gender" name="gender" #gender="ngModel"  AllowClear
+                   <!-- <label>Gender</label>-->
+                    <pg-select style="width: 100%;" [(ngModel)]="selectedOption" id="gender" name="gender" #gender="ngModel" PlaceHolder="Gender"  AllowClear
                                ShowSearch>
                         <pg-option *ngFor="let option of options" Label="{{option}}"  [Value]="option">
                         </pg-option>
