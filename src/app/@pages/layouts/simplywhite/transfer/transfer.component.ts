@@ -155,6 +155,7 @@ export class TransferComponent implements OnInit {
               // console.log(result.error.message);
                this.toaster.error(result.error.message);
               this.tnx.tnx_status = result.paymentIntent.status;
+              this.tnx.transfer_status = 'failed';
               this.tnx.pay_ref = result.paymentIntent.id;
              // this.is_goal = false;
               this.is_goal = false;

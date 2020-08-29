@@ -15,7 +15,7 @@ export class BeneficiaryListComponent implements OnInit {
 
   basicRows: IBeneficiary[];
   basicSort: IBeneficiary[];
-  columns = [{name: 'ID'}, { name: 'Name' }, { name: 'Bank Name' }, { name: 'Account' },
+  columns = [ { name: 'Name' }, { name: 'Bank Name' }, { name: 'Account' },
     { name: 'Email' }, {name: 'Phone'}];
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   user: IUser;
