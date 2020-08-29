@@ -132,7 +132,7 @@ export class TransferComponent implements OnInit {
 
   sendTransaction() {
     const extraData: IPaymentRequest = {
-      amount: this.amount,
+      amount: this.amount * 100,
       currency: this.currency
     };
 
