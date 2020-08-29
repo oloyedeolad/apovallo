@@ -32,8 +32,8 @@
       </div>
     </ng-template>
     <ng-template #sideBarHeader>
-      <img src="assets/img/pock.png" pgRetina src2x="assets/img/pock_2x.png" alt="logo" class="brand"
-        width="150" height="90">
+     <a routerLink=""> <img src="assets/img/pock.png" pgRetina src2x="assets/img/pock_2x.png" alt="logo" class="brand"
+        width="150" height="90"></a>
       <div class="dropdown-divider mt-10 mb-10">Hello</div>
     </ng-template>
 
@@ -227,7 +227,7 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" *dropdownMenu role="menu">
-            <p class="dropdown-item"><span>Signed in as <br /><b>{{user.first_name}} {{" " + user.last_name}}</b></span></p>
+           <!-- <p class="dropdown-item"><span>Signed in as <br /><b>{{user.first_name}} {{" " + user.last_name}}</b></span></p>-->
             <div class="dropdown-divider"></div>
             <a routerLink="profile" class="dropdown-item">Your Profile</a>
           <!--  <a href="#" class="dropdown-item">Your Activity</a>

@@ -125,7 +125,7 @@ export class TransferComponent implements OnInit {
     this.middle = true;
     this.stripeTest.patchValue({
       amount: this.tnx.amount,
-      name: this.user.first_name
+      name: this.user.first_name + ' ' + this.user.last_name
     });
     console.log(this.tnx);
   }

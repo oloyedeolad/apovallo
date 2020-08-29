@@ -18,7 +18,7 @@ export class BasicProfileComponent implements OnInit {
   city: string;
   country: string;
   user: IUser;
-  buttonText = 'Create Profile';
+  buttonText = 'Save Profile';
   basicProfile: IBasicProfile = {};
   options: string[] = ['Female', 'Male'];
   selectedOption: string;

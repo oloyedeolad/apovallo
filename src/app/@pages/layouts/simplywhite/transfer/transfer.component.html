@@ -59,10 +59,9 @@
             <div *ngIf="loadBeneficiary" class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useBen.invalid ">
-                        <label>Choose Beneficiary</label>
-                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event)" id="beneficiary" name="beneficiary" #useBen= "ngModel" [PlaceHolder]="" AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event)" id="beneficiary" name="beneficiary" #useBen= "ngModel" PlaceHolder="Choose Beneficiary" AllowClear
                                    ShowSearch>
-                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank_name + '|'}}"  [Value]="option">
+                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank_name + '|' + option.account}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="useBen.invalid" >
@@ -211,8 +210,8 @@
                                         <div><p><span><b>Currency : </b><small>{{ tnx.currency.toUpperCase() }}</small></span></p></div>
                                         <!--<div><p><span><b>Transaction Status : </b><small>{{ tnx_status }}</small></span></p></div>-->
                                         <!--<div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>-->
-                                        <div><p><span><b>Receiver's Name : </b><small>{{ tnx.to_name }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's bank : </b><small>{{ tnx.to_bank }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's FullName : </b><small>{{ tnx.to_name }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's Bank : </b><small>{{ tnx.to_bank }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Phone: </b><small>{{ tnx.to_phone }}</small></span></p></div>
                                         <div><p><span><b>Payment Account Number : </b><small>{{ tnx.to_account_number }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>
@@ -222,7 +221,7 @@
                                     </pgcard>
 
                                     <div>
-                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 mr-lg-5" (click)="is_ready = false">Edit Payments</button>
+                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 mr-lg-5" (click)="is_ready = false; middle =false ">Edit Payments</button>
                                         <button class="btn btn-primary btn-lg btn-cons m-t-10 ml-lg-3" (click)="is_goal = true; middle=false;" >Make Payment</button>
                                     </div>
                                 </div>
