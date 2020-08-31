@@ -22,7 +22,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 })
 export class TransferComponent implements OnInit {
   // @ts-ignore
-  @ViewChild(StripeCardNumberComponent) card: StripeCardNumberComponent;
+  @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
   stripeTest: FormGroup;
 
@@ -146,7 +146,7 @@ export class TransferComponent implements OnInit {
                     card: this.card.element,
                     billing_details: {
                       name: this.user.first_name + ' ' + this.user.last_name,
-                      email: this.user.email
+                      email: this.user.email,
                     }
                   }
           }

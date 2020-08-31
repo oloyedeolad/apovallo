@@ -244,22 +244,22 @@
         <h3> {{tnx.amount +"" + tnx.currency.toUpperCase()}} equivalent in local currency will be transferred  to {{" " +tnx.to_name}}.</h3>
         <!-- END CONTAINER FLUID -->
         <h4>Supply your card details to make payment</h4>
-       <!-- <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
+        <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
             <div class="row">
                 <div class="col-md-10">
-                    &lt;!&ndash;<div pgFormGroupDefault class="form-group form-group-default" >
+                    <div pgFormGroupDefault class="form-group form-group-default" >
                         <label>Credit Card Details</label>
                         <ngx-stripe-card
                                 [options]="cardOptions"
                                 [elementsOptions]="elementsOptions"
                         ></ngx-stripe-card>
-                    </div>&ndash;&gt;
+                    </div>
                 </div>
             </div>
             <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!payForm.valid">Make Payment</button>
-        </form>-->
+        </form>
 
-        <ngx-stripe-card-group
+       <!-- <ngx-stripe-card-group
                 [formGroup]="stripeTest"
                 [elementsOptions]="elementsOptions"
         >
@@ -267,7 +267,7 @@
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default">
                         <label>Name</label>
-                        <!-- <label>Destination Country</label>-->
+                        &lt;!&ndash; <label>Destination Country</label>&ndash;&gt;
                         <input class="form-control" formControlName="name" readonly />
                     </div>
                 </div>
@@ -276,7 +276,7 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default">
-                        <!-- <label>Destination Country</label>-->
+                        &lt;!&ndash; <label>Destination Country</label>&ndash;&gt;
                         <label>Amount</label>
                         <input class="form-control" formControlName="amount" readonly />
                     </div>
@@ -286,7 +286,7 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default">
-                        <!-- <label>Destination Country</label>-->
+                        &lt;!&ndash; <label>Destination Country</label>&ndash;&gt;
                         <label>Card Numbers</label>
                         <ngx-stripe-card-number [options]="cardOptions"></ngx-stripe-card-number>
                     </div>
@@ -296,7 +296,7 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default">
-                        <!-- <label>Destination Country</label>-->
+                        &lt;!&ndash; <label>Destination Country</label>&ndash;&gt;
                         <label>Expiring Date</label>
                         <ngx-stripe-card-expiry [options]="cardOptions"></ngx-stripe-card-expiry>
                     </div>
@@ -306,19 +306,18 @@
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default">
-                        <!-- <label>Destination Country</label>-->
+                        &lt;!&ndash; <label>Destination Country</label>&ndash;&gt;
                         <label>CVC</label>
                         <ngx-stripe-card-cvc [options]="cardOptions"></ngx-stripe-card-cvc>
                     </div>
                 </div>
             </div>
 
-
             <button class="btn btn-primary btn-lg btn-cons m-t-10" type="submit" (click)="sendTransaction()">
                 PAY
             </button>
         </ngx-stripe-card-group>
-
+-->
     </div>
 
 </div>
