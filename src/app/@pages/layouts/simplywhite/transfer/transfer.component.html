@@ -172,7 +172,7 @@
                     <div *ngIf="cTotal.invalid && (cTotal.dirty || cTotal.touched)" >
                         <label  *ngIf="cTotal.errors.required" class="error" >This field is required.</label>
                     </div>-->
-                    <h3>Total : <span><small>{{ amount * rate + "" }} {{ destination_country?.currency }}</small></span></h3>
+                    <h3 *ngIf="destination_country">Total : <span><small>{{ amount * rate + "" }} {{ destination_country?.currency }}</small></span></h3>
                 </div>
             </div>
 
