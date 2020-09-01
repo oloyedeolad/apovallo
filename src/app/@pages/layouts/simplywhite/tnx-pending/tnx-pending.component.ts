@@ -15,8 +15,7 @@ export class TnxPendingComponent implements OnInit {
 
   basicRows: ITransaction[];
   basicSort: ITransaction[];
-  columns = [{ name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' }, {name: 'Currency'},
-    { name: 'Status' }, {name: 'Action'}];
+  columns = [{ name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' }, {name: 'Currency'}, {name: 'Action'}];
 
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   user: IUser;

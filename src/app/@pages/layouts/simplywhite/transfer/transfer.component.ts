@@ -152,11 +152,11 @@ export class TransferComponent implements OnInit {
           }
           ).subscribe((result) => {
             if (result.error) {
-              // console.log(result.error.message);
+              console.log(result);
                this.toaster.error(result.error.message);
-              this.tnx.tnx_status = result.paymentIntent.status;
+              this.tnx.txn_status = 'failed';
               this.tnx.transfer_status = 'failed';
-              this.tnx.pay_ref = result.paymentIntent.id;
+              this.tnx.pay_ref = result.error.payment_intent.id;
              // this.is_goal = false;
               this.is_goal = false;
               this.is_failed = true;
@@ -164,11 +164,12 @@ export class TransferComponent implements OnInit {
               if (result.paymentIntent.status === 'succeeded') {
                 console.log(result.paymentIntent);
                 this.tnx.currency = result.paymentIntent.currency;
-                this.tnx.tnx_status = result.paymentIntent.status;
+                this.tnx.txn_status = result.paymentIntent.status;
                 this.tnx.pay_ref = result.paymentIntent.id;
                // this.is_goal = false;
                 this.is_goal = false;
                 this.is_successful = true;
+                this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successful');
               }
             }
       }, (error1) => {
@@ -177,7 +178,6 @@ export class TransferComponent implements OnInit {
             console.log(this.tnx);
         this.transactionService.create(this.tnx).subscribe((final_result) => {
           console.log(final_result);
-          this.toaster.success('Your transfer is successful, you can continue to status', 'Transaction Successful');
         }, (err) => {
           console.log(err);
 

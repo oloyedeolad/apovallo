@@ -41,16 +41,16 @@ export class TransactionsComponent implements OnInit {
           // push our inital complete list
           this.basicRows = this.transactions;
         }
-        this.lastFailed = this.$localStorage.retrieve('lastFailed');
+        /*this.lastFailed = this.$localStorage.retrieve('lastFailed');*/
         this.nFailed = this.$localStorage.retrieve('nFailed');
         this.nFailedSum = this.$localStorage.retrieve('nFailedSum');
         this.npending = this.$localStorage.retrieve('npending');
         this.nPendingSum = this.$localStorage.retrieve('mPendingSum');
         this.nSuccessful = this.$localStorage.retrieve('nSuccessful');
         this.nSuccessfulSum = this.$localStorage.retrieve('nSuccessfulSum');
-        this.lastSuccesful = this.$localStorage.retrieve('lastSuccessful');
+       /* this.lastSuccesful = this.$localStorage.retrieve('lastSuccessful');
         this.lastPending = this.$localStorage.retrieve('lastPending');
-        this.lastFailed = this.$localStorage.retrieve('lastFailed');
+        this.lastFailed = this.$localStorage.retrieve('lastFailed');*/
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

@@ -9,7 +9,7 @@ export interface ITransaction {
     customer?: string;
     description?: string;
     metadata?: IMetaData;
-    tnx_status?: string;
+    txn_status?: string;
     transfer_status?: string;
     to_name?: string;
     to_email?: string;
@@ -32,7 +32,7 @@ export class Transanction implements ITransaction {
         public created?: Date,
         public currency?: string,
         public customer?: string,
-        public tnx_status?: string,
+        public txn_status?: string,
         public transfer_status?: string,
         public description?: string,
         public metadata?: IMetaData,

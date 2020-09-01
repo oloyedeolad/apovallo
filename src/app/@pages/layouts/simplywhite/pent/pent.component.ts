@@ -90,7 +90,7 @@ export class PentComponent implements OnInit {
         this.lastFailed = this.failedTransactions[this.nFailed - 1 ];
         this.nFailedSum = this.pendingTransactions.reduce((a, b) => a + (b.amount || 0), 0);
         this.$localStorage.store('nFailed', this.nFailed);
-        this.$localStorage.store('lastFailed', this.lastFailed);
+       /* this.$localStorage.store('lastFailed', this.lastFailed);*/
         this.$localStorage.store('nFailedSum', this.nFailedSum);
       }
       console.log(this.transactions);
@@ -104,7 +104,7 @@ export class PentComponent implements OnInit {
     console.log(user);
     await this.transactionService.findByUserId(user.username).subscribe((res) => {
       this.transactions = res.body;
-      console.log(this.transactions);
+      console.log('All: ' + this.transactions);
       this.$localStorage.store('aTnx', this.transactions);
 
      /* if (this.succesfulTransactions != null) {
