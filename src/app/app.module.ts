@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 
 // Layouts
 import {
-    CondensedComponent, BlankComponent, RootLayout, CorporateLayout,
+    BlankComponent, RootLayout,
     SimplyWhiteLayout, ExecutiveLayout, CasualLayout, DemoComponent
 } from './@pages/layouts';
 // Layout Service - Required
@@ -120,8 +120,6 @@ export class AppHammerConfig extends HammerGestureConfig  {
 @NgModule({
   declarations: [
     AppComponent,
-    CondensedComponent,
-    CorporateLayout,
     SimplyWhiteLayout,
     ExecutiveLayout,
     CasualLayout,

@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
 // Layouts
 import {
-  CondensedComponent,
+
   BlankComponent,
-  CorporateLayout,
   SimplyWhiteLayout,
   ExecutiveLayout,
   CasualLayout ,
@@ -81,12 +80,5 @@ export const AppRoutes: Routes = [
       {path: 'beneficiary', component: BeneficiaryListComponent},
       {path: 'beneficiary/:id', component: BeneficiaryDetailComponent},
     ]
-  },
-  {
-    path: 'corporate',
-    data: {
-        breadcrumb: 'Home'
-    },
-    component: CorporateLayout
   },
 ];
