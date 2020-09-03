@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 // Layouts
 import {
     BlankComponent, RootLayout,
-    SimplyWhiteLayout, ExecutiveLayout, CasualLayout, DemoComponent
+    SimplyWhiteLayout
 } from './@pages/layouts';
 // Layout Service - Required
 import { pagesToggleService } from './@pages/services/toggler.service';
@@ -58,7 +58,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 
 // Sample Blank Pages - Optional
-import { BlankCorporateComponent } from './@pages/layouts/blank-corporate/blank-corporate.component';
+
 import { BlankSimplywhiteComponent } from './@pages/layouts/blank-simplywhite/blank-simplywhite.component';
 import { BlankCasualComponent } from './@pages/layouts/blank-casual/blank-casual.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
@@ -121,17 +121,11 @@ export class AppHammerConfig extends HammerGestureConfig  {
   declarations: [
     AppComponent,
     SimplyWhiteLayout,
-    ExecutiveLayout,
-    CasualLayout,
     LoginComponent,
     RegisterPageComponent,
     SidebarComponent, QuickviewComponent, SearchOverlayComponent, HeaderComponent, HorizontalMenuComponent,
     BlankComponent,
     RootLayout,
-      DemoComponent,
-    BlankCorporateComponent,
-    BlankSimplywhiteComponent,
-    BlankCasualComponent,
     ProfileComponent,
     BasicProfileComponent,
     UserDetailComponent,

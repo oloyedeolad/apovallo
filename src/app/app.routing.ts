@@ -4,11 +4,6 @@ import {
 
   BlankComponent,
   SimplyWhiteLayout,
-  ExecutiveLayout,
-  CasualLayout ,
-  BlankCasualComponent,
-  BlankCorporateComponent,
-  BlankSimplywhiteComponent
 } from './@pages/layouts';
 import {LoginComponent} from './@pages/layouts/simplywhite/login/login.component';
 import {RegisterPageComponent} from './@pages/layouts/session/register/register.component';

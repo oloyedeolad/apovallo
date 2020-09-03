@@ -31,9 +31,9 @@
         <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
           <a href="javascript: void(0);" [ngx-scroll-to]="'pricing'" class="nav-link">Pricing</a>
         </li>
-        <li class="nav-item" [ngClass]="{'active':currentSection === 'blog'}">
+       <!-- <li class="nav-item" [ngClass]="{'active':currentSection === 'blog'}">
           <a href="javascript: void(0);" [ngx-scroll-to]="'blog'" class="nav-link">Blog</a>
-        </li>
+        </li>-->
         <li class="nav-item" [ngClass]="{'active':currentSection === 'contact'}">
           <a href="javascript: void(0);" [ngx-scroll-to]="'contact'" class="nav-link">Contact</a>
         </li>
@@ -64,13 +64,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 offset-lg-2 text-white text-center">
-          <h4 class="home-small-title">Awesome Design</h4>
-          <h1 class="home-title">We love make things amazing and simple</h1>
-          <p class="padding-t-15 home-desc mx-auto">Maecenas class semper class semper sollicitudin lectus lorem
-            iaculis
-            imperdiet aliquam vehicula tempor auctor curabitur pede aenean ornare.</p>
-          <p class="play-shadow margin-l-r-auto"><a
-              class="play-btn video-play-icon"><i class="mdi mdi-play text-center"></i></a></p>
+          <h4 class="home-small-title">WELCOME TO APOVALLO</h4>
+          <h1 class="home-title">WHERE MONEY MOVES</h1>
+          <p class="padding-t-15 home-desc mx-auto">We deliver your money within minutes at the most competitive rates</p>
+          <p class="play-shadow margin-l-r-auto"><a routerLink="login"
+                  class="play-btn video-play-icon"><i class="mdi mdi-play text-center"></i></a></p>
+          Send Money Now
         </div>
       </div>
     </div>
@@ -91,7 +90,7 @@
   <section class="section-sm bg-light">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+<!--        <div class="col-md-3">
           <div class="client-images my-3 my-md-0">
             <img src="assets/images/clients/1.png" alt="logo-img" class="mx-auto img-fluid d-block">
           </div>
@@ -113,7 +112,7 @@
           <div class="client-images my-3 my-md-0">
             <img src="assets/images/clients/4.png" alt="logo-img" class="mx-auto img-fluid d-block">
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>
