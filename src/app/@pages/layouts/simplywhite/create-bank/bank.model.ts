@@ -26,8 +26,8 @@ export class BankRead implements IReadBank {
     constructor(
         public id?: number,
         public country?: IBank,
-        name?: string,
-        code?: string
+        public name?: string,
+        public code?: string
     ) {
     }
 }

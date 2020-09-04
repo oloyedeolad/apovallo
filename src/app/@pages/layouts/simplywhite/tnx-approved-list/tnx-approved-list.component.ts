@@ -40,13 +40,27 @@ export class TnxApprovedListComponent implements OnInit {
   }
 
   updateFilter(event) {
-    const val = event.target.value.toLowerCase();
-
+    const value = event.target.value.toLowerCase();
+    // get the amount of columns in the table
+    const count = this.columns.length;
+    const keys = Object.keys(this.basicSort[0]);
     // filter our data
-    const temp = this.basicSort.filter(function(d) {
-      // Change the column name here
-      // example d.places
-      return d.to_name.toLowerCase().indexOf(val) !== -1 || !val;
+    const temp = this.basicSort.filter(item => {
+      // iterate through each row's column data
+      for (let i = 0; i < count; i++) {
+        // check for a match
+        if (
+            (item[keys[i]] &&
+                item[keys[i]]
+                    .toString()
+                    .toLowerCase()
+                    .indexOf(value) !== -1) ||
+            !value
+        ) {
+          // found match, return true to add to result set
+          return true;
+        }
+      }
     });
 
     // update the rows

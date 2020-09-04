@@ -113,7 +113,7 @@
 
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Beneficiary Bank"  (ngModelChange)="changeDestination($event)"  id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
                                    ShowSearch required>
                             <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option.name">
                             </pg-option>
