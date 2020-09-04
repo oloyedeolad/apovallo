@@ -101,6 +101,8 @@ import {AboutComponent} from './@pages/layouts/simplywhite/about/about.component
 import {ScrollspyDirective} from './@pages/layouts/simplywhite/scrollspy.directive';
 import {FeaturesComponent} from './@pages/layouts/simplywhite/features/features.component';
 import {ServicesComponent} from './@pages/layouts/simplywhite/services/services.component';
+import { CreateBankComponent } from './@pages/layouts/simplywhite/create-bank/create-bank.component';
+import { BankListComponent } from './@pages/layouts/simplywhite/bank-list/bank-list.component';
 
 
 
@@ -151,7 +153,9 @@ export class AppHammerConfig extends HammerGestureConfig  {
     HommComponent,
       ScrollspyDirective,
       FeaturesComponent,
-    ServicesComponent
+    ServicesComponent,
+    CreateBankComponent,
+    BankListComponent
   ],
     imports: [
         BrowserModule,

@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-center flex-column full-height ">
 
         <!--<img src="assets/img/logo.png" alt="logo" pgRetina src1x="assets/img/logo.png" src2x="assets/img/logo_2x.png" width="78" height="22">-->
-        <h4>Transfer Money Made Easy</h4>
+        <h4>Transfer Money</h4>
         <!--<p>
             We accept various types of cards: Debit, Credit, Amex, Visa, and others.
         </p>-->
@@ -46,6 +46,30 @@
             </div>
 
             <div class="row">
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
+                        <!-- <label>Destination Country</label>-->
+                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel"  AllowClear
+                                   ShowSearch required>
+                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="dCountry.invalid && (dCountry.dirty || dCountry.touched)" >
+                            <label  *ngIf="dCountry.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
+                        <label>Current Exchange Rate</label>
+                        <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
+                    </div>
+                    <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
+                        <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12 mb-2">
                     <div class="form-check complete">
                         <input type="checkbox" id="checkColorOpt2" name="saveBeneficiary" [(ngModel)]="loadBeneficiary" (ngModelChange)="loadDataBeneficiary($event)">
@@ -71,7 +95,7 @@
                 </div>
             </div>
 
-         <div class="row">
+            <div class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
                         <label>Receiver's Full Name</label>
@@ -86,13 +110,26 @@
 
             <div class="row">
                 <div class="col-md-6">
+
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
+                        <!-- <label>Destination Country</label>-->
+                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
+                                   ShowSearch required>
+                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option.name">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
+                            <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+
+                  <!--  <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <label>Name of Bank</label>
                         <input type="text" placeholder="" class="form-control" id="to_bank" name="to_bank" [(ngModel)]="to_bank"  #toBank="ngModel" required >
                     </div>
                     <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
                         <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
@@ -141,28 +178,18 @@
 
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
-                       <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel"  AllowClear
-                                   ShowSearch required>
-                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
-                            </pg-option>
-                        </pg-select>
-                        <div *ngIf="dCountry.invalid && (dCountry.dirty || dCountry.touched)" >
-                            <label  *ngIf="dCountry.errors.required" class="error" >This field is required.</label>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
+                    <!--<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
                         <label>Current Exchange Rate</label>
                         <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
                     </div>
                     <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
                         <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-6">
                    <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cTotal.invalid && (cTotal.dirty || cTotal.touched)">
@@ -339,7 +366,7 @@
                     <span>Send Money</span>
                 </button>-->
                 <h3>Your transfer to {{ tnx.to_name + " "}} is <span style="color: #2ca02c">Successful </span></h3>
-                <button routerLink="/dashboard/transfer" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+                <button (click)="reLoad()" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
                     <i class="pg-icon"></i>
                     <span>Initiate New Transactions</span>
                 </button>
@@ -355,6 +382,14 @@
 
 <div *ngIf="is_failed" class="register-container mt-40 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3>Your transfer to {{ tnx.to_name + " "}} <span style="color: red"><h2>Failed</h2></span>  </h3>
+        <h3>Your transfer to {{ tnx?.to_name + " "}} <span style="color: red"><h2>Failed</h2></span>  </h3>
+        <button (click)="reLoad()" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+            <i class="pg-icon"></i>
+            <span>Initiate New Transactions</span>
+        </button>
+        <button (click)="is_failed = false; is_ready = false;" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+            <i class="pg-icon"></i>
+            <span>Try Again</span>
+        </button>
     </div>
 </div>

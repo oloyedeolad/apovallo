@@ -24,7 +24,7 @@
 			<img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png" src2x="assets/img/pock_2x.png"
 				 width="150" height="90">
 
-			<p class="p-t-35">Sign into your Apovallo account</p>
+			<p class="p-t-35" style="font-size: 16px">Sign into your Apovallo account</p>
 			<!-- START Login Form -->
 			<form class="p-t-15" role="form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
 				<!-- START Form Control-->
@@ -51,10 +51,10 @@
 							<input type="checkbox" value="1" id="checkbox1">
 							<label for="checkbox1">Keep Me Signed in</label>
 						</div>-->
-						<a (click)="is_reset=true" class="text-info small" style="cursor: pointer;"> <small> Forgot password? </small></a> 
+						<a (click)="is_reset=true" class="text-info small" style="cursor: pointer; font-size: 14px"> Forgot password? </a>
 					</div>
 					<div class="col-md-6 d-flex align-items-center justify-content-end">
-						<a routerLink="/register" class="text-info small"> <small>Create an account here </small></a>
+						<a routerLink="/register" class="text-info small"> Create an account here </a>
 					</div>
 				</div>
 				<!-- END Form Control-->

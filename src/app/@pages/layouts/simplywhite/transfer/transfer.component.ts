@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {TransactionService} from '../transactions/transaction.service';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -8,11 +8,13 @@ import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@s
 import {StripeCardComponent, StripeCardNumberComponent, StripeService} from 'ngx-stripe';
 import {Observable} from 'rxjs';
 import {ExchangeRate, ICountry, IExchangeRate} from '../transactions/country.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {error} from 'util';
 import {BeneficiaryService} from '../transactions/benefiary.service';
 import {IBeneficiary} from '../transactions/beneficiary.model';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {IBank} from '../create-bank/bank.model';
+import {BankService} from '../create-bank/bank.service';
 
 
 @Component({
@@ -20,7 +22,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.scss']
 })
-export class TransferComponent implements OnInit {
+export class TransferComponent implements OnInit, OnDestroy {
   // @ts-ignore
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
@@ -40,7 +42,7 @@ export class TransferComponent implements OnInit {
       },
     },
   };
-
+  mySubscription: any;
   transferForm: NgForm;
   is_ready = false;
   to_account_number: string;
@@ -50,6 +52,7 @@ export class TransferComponent implements OnInit {
   to_phone: string;
   middle = false;
   to_bank: string;
+  bankOptions: IBank[];
   total: number;
   amount = 0;
   rate = 0;
@@ -65,6 +68,7 @@ export class TransferComponent implements OnInit {
   optionsDestination: ICountry[] = [];
   user: IUser;
   tnx: ITransaction;
+  loadBenInitStatus = false;
   beneficiaries: IBeneficiary[] = [];
   beneficiary: IBeneficiary = {};
 
@@ -74,7 +78,8 @@ export class TransferComponent implements OnInit {
   rates: IExchangeRate[];
   constructor(private toaster: ToastrService, private transactionService: TransactionService, private route: ActivatedRoute,
               private $localStorage: LocalStorageService, private stripeService: StripeService,
-              private beneficiaryService: BeneficiaryService, private fb: FormBuilder) {
+              private beneficiaryService: BeneficiaryService, private fb: FormBuilder, private router: Router,
+              private bankService: BankService) {
     this.user = this.$localStorage.retrieve('user');
     console.log(this.user);
     this.rates = $localStorage.retrieve('rates');
@@ -89,13 +94,31 @@ export class TransferComponent implements OnInit {
     }, (error4) => {
       console.log(error4);
     });
+
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
   }
 
   ngOnInit() {
+    console.log('details reLoad');
     this.stripeTest = this.fb.group({
       name: ['Angular v10', [Validators.required]],
       amount: [1001, [Validators.required, Validators.pattern(/\d+/)]],
     });
+  }
+
+  ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
   }
   confirmTransaction(form) {
     if (form.value.amount > 2000) {
@@ -228,6 +251,12 @@ export class TransferComponent implements OnInit {
     console.log(prate);
     this.rate = finalRate[0].rate;
     console.log(this.rate);
+
+    this.bankService.findByCountryId(this.destination_country.id).subscribe((res) => {
+      this.bankOptions = res.body;
+    }, (err) => {
+      console.log(err);
+    }) ;
   }
 
   async initOptions(rates: IExchangeRate[]) {
@@ -266,6 +295,10 @@ export class TransferComponent implements OnInit {
     }
   }
 
+  reLoad() {
+    this.router.navigate(['/dashboard']);
+  }
+
   openMiddle(st?: boolean): boolean {
     if (st) {
       return st;
@@ -276,7 +309,14 @@ export class TransferComponent implements OnInit {
     return false;
   }
   loadDataBeneficiary(value) {
-
+    console.log(value);
+    if (!value && this.loadBenInitStatus) {
+      this.to_firstname = '';
+      this.to_account_number = '';
+      this.to_bank = '';
+      this.to_email = '';
+      this.to_phone = '';
+    }
   }
 
   fillBeneficiary(value: IBeneficiary) {
@@ -285,5 +325,6 @@ export class TransferComponent implements OnInit {
     this.to_bank = value.bank_name;
     this.to_email = value.email;
     this.to_phone = value.phone;
+    this.loadBenInitStatus = true;
   }
 }
