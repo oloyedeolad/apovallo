@@ -12650,8 +12650,8 @@ __webpack_require__.r(__webpack_exports__);
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var SERVER_API_URL = 'http://127.0.0.1:8000/';
-// export const SERVER_API_URL = 'https://app.apovallo.com/';
+// export const SERVER_API_URL = 'http://127.0.0.1:8000/';
+var SERVER_API_URL = 'https://app.apovallo.com/';
 
 
 /***/ }),
