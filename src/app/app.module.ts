@@ -103,6 +103,8 @@ import {FeaturesComponent} from './@pages/layouts/simplywhite/features/features.
 import {ServicesComponent} from './@pages/layouts/simplywhite/services/services.component';
 import { CreateBankComponent } from './@pages/layouts/simplywhite/create-bank/create-bank.component';
 import { BankListComponent } from './@pages/layouts/simplywhite/bank-list/bank-list.component';
+import { TnxPendingListComponent } from './@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component';
+import { TnxApprovedListComponent } from './@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component';
 
 
 
@@ -155,7 +157,9 @@ export class AppHammerConfig extends HammerGestureConfig  {
       FeaturesComponent,
     ServicesComponent,
     CreateBankComponent,
-    BankListComponent
+    BankListComponent,
+    TnxPendingListComponent,
+    TnxApprovedListComponent
   ],
     imports: [
         BrowserModule,

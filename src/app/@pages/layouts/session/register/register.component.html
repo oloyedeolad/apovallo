@@ -4,7 +4,7 @@
           <img src="assets/img/pock.png" alt="logo" pgRetina src1x="assets/img/pock.png" src2x="assets/img/pock_2x.png" width="150" height="90">
           <h4>Apovallo makes it easy to send money</h4>
           <p>
-            Create an account or if you already have an account<a routerLink="/login" class="text-info"> Sign in Here</a>
+            If you already have an account<a routerLink="/login" class="text-info"> Sign in Here</a>
           </p>
           <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
             <div class="row">
@@ -30,7 +30,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="userName.invalid && (userName.dirty || userName.touched)">
-                  <label>User name</label>
+                  <label>Preferred Username</label>
                   <input type="text" class="form-control" id="txtusername" name="txtusername" [(ngModel)]="txtusername"  #userName="ngModel" required>
                 </div>
                 <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" >

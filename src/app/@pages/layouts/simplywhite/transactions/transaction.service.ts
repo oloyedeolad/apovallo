@@ -65,6 +65,12 @@ export class TransactionService {
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 
+    findByOnlyStatus(status: string): Observable<EntityArrayResponseType> {
+        return this.http
+            .get<ITransaction[]>(`${this.resourceUrl}${status}/`, {  observe: 'response' })
+            .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+    }
+
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         return res;
     }

@@ -282,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!is_successful\" class=\"register-container mt-1 pt-1 full-height sm-p-t-30\">\r\n    <div class=\"d-flex justify-content-center flex-column full-height \">\r\n\r\n          <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\" src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\r\n          <h4>Apovallo makes it easy to send money</h4>\r\n          <p>\r\n            Create an account or if you already have an account<a routerLink=\"/login\" class=\"text-info\"> Sign in Here</a>\r\n          </p>\r\n          <form class=\"p-t-15\" role=\"form\" #registerForm=\"ngForm\" (ngSubmit)=\"register(registerForm.value)\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-6\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"fName.invalid && (fName.dirty || fName.touched)\">\r\n                  <label>First Name</label>\r\n                  <input type=\"text\"  class=\"form-control\" id=\"txtfname\" name=\"txtfname\" [(ngModel)]=\"txtfname\"  #fName=\"ngModel\" required >\r\n                </div>\r\n                <div *ngIf=\"fName.invalid && (fName.dirty || fName.touched)\" >\r\n                    <label  *ngIf=\"fName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"LName.invalid && (LName.dirty || LName.touched)\">\r\n                  <label>Last Names</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"txtlname\" name=\"txtlname\" [(ngModel)]=\"txtlname\"  #LName=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"LName.invalid && (LName.dirty || LName.touched)\" >\r\n                    <label  *ngIf=\"LName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"userName.invalid && (userName.dirty || userName.touched)\">\r\n                  <label>User name</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"txtusername\" name=\"txtusername\" [(ngModel)]=\"txtusername\"  #userName=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"userName.invalid && (userName.dirty || userName.touched)\" >\r\n                    <label  *ngIf=\"userName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"password.invalid && (password.dirty || password.touched)\">\r\n                  <label>Create Password</label>\r\n                  <input type=\"password\"  class=\"form-control\" id=\"txtpassword\" name=\"txtpassword\" [(ngModel)]=\"txtpassword\"  #password=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"password.invalid && (password.dirty || password.touched)\" >\r\n                    <label  *ngIf=\"password.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"email.invalid && (email.dirty || email.touched)\">\r\n                  <label>Email</label>\r\n                  <input type=\"email\"  class=\"form-control\" id=\"txtemail\" name=\"txtemail\" [(ngModel)]=\"txtemail\"  #email=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"email.invalid && (email.dirty || email.touched)\" >\r\n                    <label  *ngIf=\"email.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"phone.invalid && (phone.dirty || phone.touched)\">\r\n                  <label>Phone</label>\r\n                  <input type=\"email\"  class=\"form-control\" id=\"txtphone\" name=\"txtphone\" [(ngModel)]=\"txtphone\"  #phone=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched)\" >\r\n                  <label  *ngIf=\"email.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row m-t-10\">\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"form-check \">\r\n\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"1\" id=\"checkbox1\" required>\r\n\t\t\t\t\t\t\t<label for=\"checkbox1\"><small>I agree to the <a href=\"javascript:void(0)\" class=\"text-info\">Apovallo Terms</a> and <a href=\"javascript:void(0)\" class=\"text-info\">Privacy</a>.</small></label>\r\n\t\t\t\t\t\t</div>\r\n                <!--<p><small>I agree to the <a href=\"javascript:void(0)\" class=\"text-info\">Pages Terms</a> and <a href=\"javascript:void(0)\" class=\"text-info\">Privacy</a>.</small></p>-->\r\n              </div>\r\n              <div class=\"col-lg-6 text-right\">\r\n                <a href=\"javascript:void(0)\" class=\"text-info small\"></a>\r\n              </div>\r\n            </div>\r\n            <button class=\"btn btn-primary btn-cons m-t-10\" type=\"submit\" [class.disabled]=\"registerForm.invalid\">Create a new account</button>\r\n          </form>\r\n\r\n    </div>\r\n  </div>\r\n  <!--<div class=\" full-width\">\r\n    <div class=\"register-container mt-2 m-b-10 clearfix\">\r\n      <div class=\"m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix d-flex-md-up\">\r\n        <div class=\"col-md-2 no-padding d-flex align-items-center\">\r\n          <img src=\"assets/img/demo/pages_icon.png\" alt=\"\" class=\"\" pgRetina src1x=\"assets/img/demo/pages_icon.png\" src2x=\"assets/img/demo/pages_icon_2x.png\" width=\"60\" height=\"60\">\r\n        </div>\r\n        <div class=\"col-md-9 no-padding d-flex align-items-center\">\r\n          <p class=\"hinted-text small inline sm-p-t-10\">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>-->\r\n\r\n\r\n<div *ngIf=\"is_successful\" class=\"register-container mt-1 pt-1 full-height sm-p-t-30\">\r\n  <div class=\"d-flex justify-content-center flex-column full-height \" style=\"margin-top:23%;\">\r\n\r\n    <h3>Your registration is successful, check your email to activate</h3>\r\n    <!--<p>\r\n      Create a account or sign in <a routerLink=\"\" class=\"text-info\">Here</a>\r\n    </p>-->\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!is_successful\" class=\"register-container mt-1 pt-1 full-height sm-p-t-30\">\r\n    <div class=\"d-flex justify-content-center flex-column full-height \">\r\n\r\n          <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\" src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\r\n          <h4>Apovallo makes it easy to send money</h4>\r\n          <p>\r\n            If you already have an account<a routerLink=\"/login\" class=\"text-info\"> Sign in Here</a>\r\n          </p>\r\n          <form class=\"p-t-15\" role=\"form\" #registerForm=\"ngForm\" (ngSubmit)=\"register(registerForm.value)\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-6\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"fName.invalid && (fName.dirty || fName.touched)\">\r\n                  <label>First Name</label>\r\n                  <input type=\"text\"  class=\"form-control\" id=\"txtfname\" name=\"txtfname\" [(ngModel)]=\"txtfname\"  #fName=\"ngModel\" required >\r\n                </div>\r\n                <div *ngIf=\"fName.invalid && (fName.dirty || fName.touched)\" >\r\n                    <label  *ngIf=\"fName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"LName.invalid && (LName.dirty || LName.touched)\">\r\n                  <label>Last Names</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"txtlname\" name=\"txtlname\" [(ngModel)]=\"txtlname\"  #LName=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"LName.invalid && (LName.dirty || LName.touched)\" >\r\n                    <label  *ngIf=\"LName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"userName.invalid && (userName.dirty || userName.touched)\">\r\n                  <label>Preferred Username</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"txtusername\" name=\"txtusername\" [(ngModel)]=\"txtusername\"  #userName=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"userName.invalid && (userName.dirty || userName.touched)\" >\r\n                    <label  *ngIf=\"userName.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"password.invalid && (password.dirty || password.touched)\">\r\n                  <label>Create Password</label>\r\n                  <input type=\"password\"  class=\"form-control\" id=\"txtpassword\" name=\"txtpassword\" [(ngModel)]=\"txtpassword\"  #password=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"password.invalid && (password.dirty || password.touched)\" >\r\n                    <label  *ngIf=\"password.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"email.invalid && (email.dirty || email.touched)\">\r\n                  <label>Email</label>\r\n                  <input type=\"email\"  class=\"form-control\" id=\"txtemail\" name=\"txtemail\" [(ngModel)]=\"txtemail\"  #email=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"email.invalid && (email.dirty || email.touched)\" >\r\n                    <label  *ngIf=\"email.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12\">\r\n                <div pgFormGroupDefault class=\"form-group form-group-default\" [class.has-error]=\"phone.invalid && (phone.dirty || phone.touched)\">\r\n                  <label>Phone</label>\r\n                  <input type=\"email\"  class=\"form-control\" id=\"txtphone\" name=\"txtphone\" [(ngModel)]=\"txtphone\"  #phone=\"ngModel\" required>\r\n                </div>\r\n                <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched)\" >\r\n                  <label  *ngIf=\"email.errors.required\" class=\"error\" >This field is required.</label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"row m-t-10\">\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"form-check \">\r\n\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"1\" id=\"checkbox1\" required>\r\n\t\t\t\t\t\t\t<label for=\"checkbox1\"><small>I agree to the <a href=\"javascript:void(0)\" class=\"text-info\">Apovallo Terms</a> and <a href=\"javascript:void(0)\" class=\"text-info\">Privacy</a>.</small></label>\r\n\t\t\t\t\t\t</div>\r\n                <!--<p><small>I agree to the <a href=\"javascript:void(0)\" class=\"text-info\">Pages Terms</a> and <a href=\"javascript:void(0)\" class=\"text-info\">Privacy</a>.</small></p>-->\r\n              </div>\r\n              <div class=\"col-lg-6 text-right\">\r\n                <a href=\"javascript:void(0)\" class=\"text-info small\"></a>\r\n              </div>\r\n            </div>\r\n            <button class=\"btn btn-primary btn-cons m-t-10\" type=\"submit\" [class.disabled]=\"registerForm.invalid\">Create a new account</button>\r\n          </form>\r\n\r\n    </div>\r\n  </div>\r\n  <!--<div class=\" full-width\">\r\n    <div class=\"register-container mt-2 m-b-10 clearfix\">\r\n      <div class=\"m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix d-flex-md-up\">\r\n        <div class=\"col-md-2 no-padding d-flex align-items-center\">\r\n          <img src=\"assets/img/demo/pages_icon.png\" alt=\"\" class=\"\" pgRetina src1x=\"assets/img/demo/pages_icon.png\" src2x=\"assets/img/demo/pages_icon_2x.png\" width=\"60\" height=\"60\">\r\n        </div>\r\n        <div class=\"col-md-9 no-padding d-flex align-items-center\">\r\n          <p class=\"hinted-text small inline sm-p-t-10\">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>-->\r\n\r\n\r\n<div *ngIf=\"is_successful\" class=\"register-container mt-1 pt-1 full-height sm-p-t-30\">\r\n  <div class=\"d-flex justify-content-center flex-column full-height \" style=\"margin-top:23%;\">\r\n\r\n    <h3>Your registration is successful, check your email to activate</h3>\r\n    <!--<p>\r\n      Create a account or sign in <a routerLink=\"\" class=\"text-info\">Here</a>\r\n    </p>-->\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -533,6 +533,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.html":
+/*!*************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.html ***!
+  \*************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Pending Transactions\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!-- <ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column name=\"Currency\">\n                        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n                            <strong>{{ value.toUpperCase() }}</strong>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-detals/tnx-detals.component.html":
 /*!***********************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-detals/tnx-detals.component.html ***!
@@ -556,6 +569,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<!-- START JUMBOTRON -->\n<div data-pages=\"parallax\">\n    <div class=\"container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0\">\n        <div class=\"inner\">\n            <!-- START BREADCRUMB -->\n            <ol class=\"breadcrumb sm-p-b-5\">\n                <li class=\"breadcrumb-item\">\n                    <a href=\"javascript:void(0)\">Home</a>\n                </li>\n                <li class=\"breadcrumb-item active\">Failed Transactions</li>\n            </ol>\n        </div>\n    </div>\n</div>\n\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Transaction History\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!--<ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.html":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.html ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Pending Transactions\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!-- <ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column name=\"Currency\">\n                        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n                            <strong>{{ value.toUpperCase() }}</strong>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
 
 /***/ }),
 
@@ -10243,6 +10269,108 @@ var SwitcherComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.scss":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.scss ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0BwYWdlcy9sYXlvdXRzL3NpbXBseXdoaXRlL3RueC1hcHByb3ZlZC1saXN0L3RueC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.ts":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.ts ***!
+  \*********************************************************************************************/
+/*! exports provided: TnxApprovedListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TnxApprovedListComponent", function() { return TnxApprovedListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @swimlane/ngx-datatable */ "./node_modules/@swimlane/ngx-datatable/fesm5/swimlane-ngx-datatable.js");
+/* harmony import */ var _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../transactions/transaction.service */ "./src/app/@pages/layouts/simplywhite/transactions/transaction.service.ts");
+/* harmony import */ var ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-webstorage */ "./node_modules/ngx-webstorage/fesm5/ngx-webstorage.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var TnxApprovedListComponent = /** @class */ (function () {
+    function TnxApprovedListComponent(transactionService, $localStorage) {
+        var _this = this;
+        this.transactionService = transactionService;
+        this.$localStorage = $localStorage;
+        this.columns = [{ name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' }, { name: 'Currency' },
+            { name: 'Status' }, { name: 'Action' }];
+        // No Option YET
+        // https://github.com/swimlane/ngx-datatable/issues/423
+        this.scrollBarHorizontal = window.innerWidth < 960;
+        this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
+        this.transactionService.findByOnlyStatus('approved').subscribe(function (res) {
+            _this.transactions = res.body;
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+        }, function (err) {
+        });
+    }
+    TnxApprovedListComponent.prototype.ngOnInit = function () {
+    };
+    TnxApprovedListComponent.prototype.updateFilter = function (event) {
+        var val = event.target.value.toLowerCase();
+        // filter our data
+        var temp = this.basicSort.filter(function (d) {
+            // Change the column name here
+            // example d.places
+            return d.to_name.toLowerCase().indexOf(val) !== -1 || !val;
+        });
+        // update the rows
+        this.basicRows = temp;
+        // Whenever the filter changes, always go back to the first page
+        this.table.offset = 0;
+    };
+    TnxApprovedListComponent.ctorParameters = function () { return [
+        { type: _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"] },
+        { type: ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"], { static: true }),
+        __metadata("design:type", _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"])
+    ], TnxApprovedListComponent.prototype, "table", void 0);
+    TnxApprovedListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-tnx-approved-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./tnx-approved-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./tnx-approved-list.component.scss */ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"], ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"]])
+    ], TnxApprovedListComponent);
+    return TnxApprovedListComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/@pages/layouts/simplywhite/tnx-detals/tnx-detals.component.scss":
 /*!*********************************************************************************!*\
   !*** ./src/app/@pages/layouts/simplywhite/tnx-detals/tnx-detals.component.scss ***!
@@ -10428,6 +10556,108 @@ var TnxFailedComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], TnxFailedComponent);
     return TnxFailedComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.scss ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0BwYWdlcy9sYXlvdXRzL3NpbXBseXdoaXRlL3RueC1wZW5kaW5nLWxpc3QvdG54LXBlbmRpbmctbGlzdC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: TnxPendingListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TnxPendingListComponent", function() { return TnxPendingListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @swimlane/ngx-datatable */ "./node_modules/@swimlane/ngx-datatable/fesm5/swimlane-ngx-datatable.js");
+/* harmony import */ var _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../transactions/transaction.service */ "./src/app/@pages/layouts/simplywhite/transactions/transaction.service.ts");
+/* harmony import */ var ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-webstorage */ "./node_modules/ngx-webstorage/fesm5/ngx-webstorage.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var TnxPendingListComponent = /** @class */ (function () {
+    function TnxPendingListComponent(transactionService, $localStorage) {
+        var _this = this;
+        this.transactionService = transactionService;
+        this.$localStorage = $localStorage;
+        this.columns = [{ name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' }, { name: 'Currency' },
+            { name: 'Status' }, { name: 'Action' }];
+        // No Option YET
+        // https://github.com/swimlane/ngx-datatable/issues/423
+        this.scrollBarHorizontal = window.innerWidth < 960;
+        this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
+        this.transactionService.findByOnlyStatus('pending').subscribe(function (res) {
+            _this.transactions = res.body;
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+        }, function (err) {
+        });
+    }
+    TnxPendingListComponent.prototype.ngOnInit = function () {
+    };
+    TnxPendingListComponent.prototype.updateFilter = function (event) {
+        var val = event.target.value.toLowerCase();
+        // filter our data
+        var temp = this.basicSort.filter(function (d) {
+            // Change the column name here
+            // example d.places
+            return d.to_name.toLowerCase().indexOf(val) !== -1 || !val;
+        });
+        // update the rows
+        this.basicRows = temp;
+        // Whenever the filter changes, always go back to the first page
+        this.table.offset = 0;
+    };
+    TnxPendingListComponent.ctorParameters = function () { return [
+        { type: _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"] },
+        { type: ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"], { static: true }),
+        __metadata("design:type", _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"])
+    ], TnxPendingListComponent.prototype, "table", void 0);
+    TnxPendingListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-tnx-pending-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./tnx-pending-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./tnx-pending-list.component.scss */ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"], ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"]])
+    ], TnxPendingListComponent);
+    return TnxPendingListComponent;
 }());
 
 
@@ -10947,6 +11177,12 @@ var TransactionService = /** @class */ (function () {
         var _this = this;
         return this.http
             .get("" + this.resourceUrl + status + "/" + user + "/", { observe: 'response' })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) { return _this.convertDateArrayFromServer(res); }));
+    };
+    TransactionService.prototype.findByOnlyStatus = function (status) {
+        var _this = this;
+        return this.http
+            .get("" + this.resourceUrl + status + "/", { observe: 'response' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) { return _this.convertDateArrayFromServer(res); }));
     };
     TransactionService.prototype.convertDateFromServer = function (res) {
@@ -12486,6 +12722,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_layouts_simplywhite_services_services_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/services/services.component */ "./src/app/@pages/layouts/simplywhite/services/services.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_create_bank_create_bank_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/create-bank/create-bank.component */ "./src/app/@pages/layouts/simplywhite/create-bank/create-bank.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_bank_list_bank_list_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/bank-list/bank-list.component */ "./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12542,6 +12780,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 // Thirdparty Components / Plugins - Optional
+
+
 
 
 
@@ -12643,7 +12883,9 @@ var AppModule = /** @class */ (function () {
                 _pages_layouts_simplywhite_features_features_component__WEBPACK_IMPORTED_MODULE_64__["FeaturesComponent"],
                 _pages_layouts_simplywhite_services_services_component__WEBPACK_IMPORTED_MODULE_65__["ServicesComponent"],
                 _pages_layouts_simplywhite_create_bank_create_bank_component__WEBPACK_IMPORTED_MODULE_66__["CreateBankComponent"],
-                _pages_layouts_simplywhite_bank_list_bank_list_component__WEBPACK_IMPORTED_MODULE_67__["BankListComponent"]
+                _pages_layouts_simplywhite_bank_list_bank_list_component__WEBPACK_IMPORTED_MODULE_67__["BankListComponent"],
+                _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_68__["TnxPendingListComponent"],
+                _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_69__["TnxApprovedListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
