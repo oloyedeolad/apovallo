@@ -5,9 +5,10 @@ import {SERVER_API_URL} from '../../../../app.constant';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {createRequestOption} from '../../../../util/request-util';
-import {IPaymentRequest, ITransaction} from './transanction.model';
+import {IPaymentRequest, ITransaction, ITransactionRead} from './transanction.model';
 
 type EntityResponseType = HttpResponse<ITransaction>;
+type EntityResponseTyped = HttpResponse<ITransactionRead>;
 type EntityResponseTypePay = HttpResponse<string>;
 type EntityArrayResponseType = HttpResponse<ITransaction[]>;
 
@@ -36,10 +37,10 @@ export class TransactionService {
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
     }
 
-    find(id: number): Observable<EntityResponseType> {
+    find(id: number): Observable<EntityResponseTyped> {
         return this.http
-            .get<ITransaction>(`${this.resourceUrl}${id}/`, { observe: 'response' })
-            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+            .get<ITransactionRead>(`${this.resourceUrl}${id}/`, { observe: 'response' })
+            .pipe(map((res: EntityResponseTyped) => res));
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TransactionService} from '../transactions/transaction.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ActivatedRoute} from '@angular/router';
-import {ITransaction} from '../transactions/transanction.model';
+import {ITransaction, ITransactionRead} from '../transactions/transanction.model';
 
 @Component({
   selector: 'app-tnx-detals',
@@ -11,7 +11,7 @@ import {ITransaction} from '../transactions/transanction.model';
 })
 export class TnxDetalsComponent implements OnInit {
 
-  transaction: ITransaction = {};
+  transaction: ITransactionRead = {};
   constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService,
               private route: ActivatedRoute) {
     const transfer_tnx = this.route.snapshot.paramMap.get('id');

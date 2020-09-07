@@ -113,9 +113,9 @@
 
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Beneficiary Bank"  (ngModelChange)="changeDestination($event)"  id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Beneficiary Bank" id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
                                    ShowSearch required>
-                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option.name">
+                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
@@ -238,7 +238,7 @@
                                         <!--<div><p><span><b>Transaction Status : </b><small>{{ tnx_status }}</small></span></p></div>-->
                                         <!--<div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>-->
                                         <div><p><span><b>Receiver's FullName : </b><small>{{ tnx.to_name }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's Bank : </b><small>{{ tnx.to_bank }}</small></span></p></div>
+                                        <div><p><span><b>Receiver's Bank : </b><small>{{ to_bank.name }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Phone: </b><small>{{ tnx.to_phone }}</small></span></p></div>
                                         <div><p><span><b>Payment Account Number : </b><small>{{ tnx.to_account_number }}</small></span></p></div>
                                         <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>

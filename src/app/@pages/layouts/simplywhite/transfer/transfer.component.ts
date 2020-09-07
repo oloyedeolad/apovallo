@@ -51,7 +51,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   to_email: string;
   to_phone: string;
   middle = false;
-  to_bank: string;
+  to_bank: IBank;
   bankOptions: IBank[];
   total: number;
   amount = 0;
@@ -134,7 +134,7 @@ export class TransferComponent implements OnInit, OnDestroy {
         to_email: form.value.to_email,
         to_account_number: form.value.to_account_number,
         to_country: form.value.destination_country.name,
-        to_bank: form.value.to_bank,
+        to_bank: form.value.to_bank.id,
         to_phone: form.value.to_phone,
         user: this.user.username,
         // from_country: form.source_country.name,
@@ -253,6 +253,7 @@ export class TransferComponent implements OnInit, OnDestroy {
     console.log(this.rate);
 
     this.bankService.findByCountryId(this.destination_country.id).subscribe((res) => {
+      console.log(res);
       this.bankOptions = res.body;
     }, (err) => {
       console.log(err);
@@ -281,7 +282,7 @@ export class TransferComponent implements OnInit, OnDestroy {
         name: this.to_firstname,
         email: this.to_email,
         phone: this.to_phone,
-        bank_name: this.to_bank,
+        bank_name: this.to_bank.name,
         account: this.to_account_number,
         user: this.user.id
       };
@@ -313,7 +314,7 @@ export class TransferComponent implements OnInit, OnDestroy {
     if (!value && this.loadBenInitStatus) {
       this.to_firstname = '';
       this.to_account_number = '';
-      this.to_bank = '';
+      // this.to_bank = '';
       this.to_email = '';
       this.to_phone = '';
     }
@@ -322,7 +323,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   fillBeneficiary(value: IBeneficiary) {
     this.to_firstname = value.name;
     this.to_account_number = value.account;
-    this.to_bank = value.bank_name;
+    // this.to_bank = value.bank_name;
     this.to_email = value.email;
     this.to_phone = value.phone;
     this.loadBenInitStatus = true;

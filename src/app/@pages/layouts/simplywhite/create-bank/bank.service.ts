@@ -13,7 +13,7 @@ type EntityArrayResponseType = HttpResponse<IBank[]>;
 
 @Injectable({ providedIn: 'root' })
 export class BankService {
-    public resourceUrl = SERVER_API_URL + 'finance/tnx/';
+    public resourceUrl = SERVER_API_URL + 'finance/bank/';
     public resourceUrl2 = SERVER_API_URL + 'finance/paymentintent/';
 
     constructor(protected http: HttpClient) {}
@@ -55,7 +55,7 @@ export class BankService {
 
     findByCountryId(id: number): Observable<EntityArrayResponseType> {
         return this.http
-            .get<IBank[]>(`${this.resourceUrl}byuser/${id}/my`, { observe: 'response' })
+            .get<IBank[]>(`${this.resourceUrl}country/${id}/`, { observe: 'response' })
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 

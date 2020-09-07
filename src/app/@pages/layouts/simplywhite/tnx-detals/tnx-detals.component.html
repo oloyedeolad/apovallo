@@ -37,7 +37,7 @@
                                 <!--div><p><span><b>Transaction Status : </b><small>{{ transaction.tnx_status }}</small></span></p></div>-->
                                 <div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Name : </b><small>{{ transaction.to_name }}</small></span></p></div>
-                                <div><p><span><b>Receiver's bank : </b><small>{{ transaction.to_bank }}</small></span></p></div>
+                                <div><p><span><b>Receiver's bank : </b><small>{{ transaction.to_bank.name }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Phone: </b><small>{{ transaction.to_phone }}</small></span></p></div>
                                 <div><p><span><b>Payment Account Number : </b><small>{{ transaction.to_account_number }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Country : </b><small>{{ " " + transaction.to_country}}</small></span></p></div>
