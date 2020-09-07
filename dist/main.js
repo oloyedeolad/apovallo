@@ -299,6 +299,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.html":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.html ***!
+  \***********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\"><h2 style=\"text-align: center\">See Our Exchange Rates</h2>\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-3 col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"col-8 card-body align-content-center align-self-center\">\n            <div class=\"table-responsive table-striped\">\n                <ngx-datatable\n                    #table\n                    class='table-striped table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!-- <ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"source_country.name\" name=\"From Country\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"destination_country.name\" name=\"To Country\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"rate\" name=\"Rate\"></ngx-datatable-column>\n                  <!--  <ngx-datatable-column name=\"Currency\">\n                        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n                            <strong>{{ value.toUpperCase() }}</strong>\n                        </ng-template>\n                    </ngx-datatable-column>-->\n                 <!--   <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    &lt;!&ndash;<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>&ndash;&gt;\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>-->\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.html":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.html ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>all-transaction-list works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.html":
 /*!*********************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.html ***!
@@ -377,6 +403,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.html":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.html ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Declined Transactions\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!-- <ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column name=\"Currency\">\n                        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n                            <strong>{{ value.toUpperCase() }}</strong>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/features/features.component.html":
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/features/features.component.html ***!
@@ -425,7 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- STRAT NAVBAR -->\n<nav class=\"navbar navbar-expand-lg fixed-top navbar-white navbar-custom sticky sticky-dark\">\n  <div class=\"container\">\n    <!-- LOGO -->\n   <!-- <a class=\"navbar-brand logo text-uppercase\" href=\"/\">\n      <i class=\"mdi mdi-alien\"></i>Hiric\n    </a>-->\n    <div class=\"navbar-brand mb-sm-10\">\n      <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\"\n           src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\n    </div>\n\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\"\n      aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"toggleMenu()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n      <ul class=\"navbar-nav navbar-center\" id=\"mySidenav\">\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'home'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'home'\" class=\"nav-link\">Home</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'features'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'features'\" class=\"nav-link\">Features</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'services'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'services'\" class=\"nav-link\">Services</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'about'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'about'\" class=\"nav-link\">About</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'pricing'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'pricing'\" class=\"nav-link\"></a>\n        </li>\n       <!-- <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'blog'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'blog'\" class=\"nav-link\">Blog</a>\n        </li>-->\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'contact'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'contact'\" class=\"nav-link\">Contact</a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"login\"  class=\"nav-link\">Login</a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"register\"  class=\"nav-link\">Register</a>\n        </li>\n      </ul>\n      <div class=\"nav-button ml-auto\">\n        <ul class=\"nav navbar-nav navbar-right\">\n          <!--<li>\n            <button type=\"button\" class=\"btn btn-custom navbar-btn btn-rounded\">Try it\n              Free</button>\n          </li>-->\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n<!-- END NAVBAR -->\n\n<div appScrollspy [spiedTags]=\"['SECTION']\" (sectionChange)=\"onSectionChange($event)\">\n  <!--START HOME-->\n  <section class=\"section bg-home home-half\" id=\"home\" data-image-src=\"images/bg-home.jpg\">\n    <div class=\"bg-overlay\"></div>\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-8 offset-lg-2 text-white text-center\">\n          <h4 class=\"home-small-title\">WELCOME TO APOVALLO</h4>\n          <h1 class=\"home-title\">WHERE MONEY MOVES</h1>\n          <p class=\"padding-t-15 home-desc mx-auto\">We deliver your money within minutes at the most competitive rates</p>\n          <p class=\"play-shadow margin-l-r-auto\"><a routerLink=\"login\"\n                  class=\"play-btn video-play-icon\"><i class=\"mdi mdi-play text-center\"></i></a></p>\n          Send Money Now\n        </div>\n      </div>\n    </div>\n  </section>\n  <ng-template #content let-modal>\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <youtube-player [videoId]=\"'JlvxDa7Sges'\" height=\"450\" width=\"780\">\n      </youtube-player>\n    </div>\n  </ng-template>\n  <!--END HOME-->\n\n  <section class=\"section-sm bg-light\">\n    <div class=\"container\">\n      <div class=\"row\">\n<!--        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/1.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/2.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3 \">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/3.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/4.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>-->\n      </div>\n    </div>\n  </section>\n\n  <app-features></app-features>\n  <app-services></app-services>\n  <app-about></app-about>\n <!-- <app-pricing></app-pricing>-->\n <!-- <app-blog></app-blog>-->\n  <app-contact></app-contact>\n  <app-footer></app-footer>\n <!-- <app-switcher></app-switcher>-->\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- STRAT NAVBAR -->\n<nav class=\"navbar navbar-expand-lg fixed-top navbar-white navbar-custom sticky sticky-dark\">\n  <div class=\"container\">\n    <!-- LOGO -->\n   <!-- <a class=\"navbar-brand logo text-uppercase\" href=\"/\">\n      <i class=\"mdi mdi-alien\"></i>Hiric\n    </a>-->\n    <div class=\"navbar-brand mb-sm-10\">\n      <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\"\n           src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\n    </div>\n\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\"\n      aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"toggleMenu()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n      <ul class=\"navbar-nav navbar-center\" id=\"mySidenav\">\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'home'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'home'\" class=\"nav-link\">Home</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'features'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'features'\" class=\"nav-link\">Features</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'services'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'services'\" class=\"nav-link\">Services</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'about'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'about'\" class=\"nav-link\">About</a>\n        </li>\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'pricing'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'pricing'\" class=\"nav-link\"></a>\n        </li>\n       <!-- <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'blog'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'blog'\" class=\"nav-link\">Blog</a>\n        </li>-->\n        <li class=\"nav-item\" [ngClass]=\"{'active':currentSection === 'contact'}\">\n          <a href=\"javascript: void(0);\" [ngx-scroll-to]=\"'contact'\" class=\"nav-link\">Contact</a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"login\"  class=\"nav-link\">Login</a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"register\"  class=\"nav-link\">Register</a>\n        </li>\n      </ul>\n      <div class=\"nav-button ml-auto\">\n        <ul class=\"nav navbar-nav navbar-right\">\n          <!--<li>\n            <button type=\"button\" class=\"btn btn-custom navbar-btn btn-rounded\">Try it\n              Free</button>\n          </li>-->\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n<!-- END NAVBAR -->\n\n<div appScrollspy [spiedTags]=\"['SECTION']\" (sectionChange)=\"onSectionChange($event)\">\n  <!--START HOME-->\n  <section class=\"section bg-home home-half\" id=\"home\" data-image-src=\"images/bg-home.jpg\">\n    <div class=\"bg-overlay\"></div>\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-8 offset-lg-2 text-white text-center\">\n          <h4 class=\"home-small-title\">WELCOME TO APOVALLO</h4>\n          <h1 class=\"home-title\">WHERE MONEY MOVES</h1>\n          <p class=\"padding-t-15 home-desc mx-auto\">We deliver your money within minutes at the most competitive rates</p>\n          <p class=\"play-shadow margin-l-r-auto\"><a routerLink=\"login\"\n                  class=\"play-btn video-play-icon\"><i class=\"mdi mdi-play text-center\"></i></a></p>\n          Send Money Now\n        </div>\n      </div>\n    </div>\n  </section>\n  <ng-template #content let-modal>\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <youtube-player [videoId]=\"'JlvxDa7Sges'\" height=\"450\" width=\"780\">\n      </youtube-player>\n    </div>\n  </ng-template>\n  <!--END HOME-->\n\n  <section class=\"section-sm bg-light\">\n    <div class=\"container\">\n      <div class=\"row\">\n<!--        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/1.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/2.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3 \">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/3.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>\n\n        <div class=\"col-md-3\">\n          <div class=\"client-images my-3 my-md-0\">\n            <img src=\"assets/images/clients/4.png\" alt=\"logo-img\" class=\"mx-auto img-fluid d-block\">\n          </div>\n        </div>-->\n      </div>\n    </div>\n  </section>\n\n  <app-features></app-features>\n  <app-services></app-services>\n  <app-about></app-about>\n <!-- <app-pricing></app-pricing>-->\n <!-- <app-blog></app-blog>-->\n  <app-all-exchange-rate-list></app-all-exchange-rate-list>\n  <app-contact></app-contact>\n  <app-footer></app-footer>\n <!-- <app-switcher></app-switcher>-->\n</div>\n");
 
 /***/ }),
 
@@ -516,7 +555,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- WRAP LAYOUT IF BOXED -->\n<div class=\"container\" *ngIf=\"_boxed; else basicLayoutBlock\">\n  <ng-container *ngTemplateOutlet=\"contentTpl\"></ng-container>\n</div>\n<ng-template #basicLayoutBlock>\n  <ng-container *ngTemplateOutlet=\"contentTpl\"></ng-container>\n</ng-template>\n<!-- YOUR LAYOUT CONTENT GOES INSIDE HERE -->\n<ng-template #contentTpl>\n  <!-- PAGE SIDEBAR -->\n  <pg-sidebar>\n    <ng-template #sideBarOverlay>\n      <div class=\"row\">\n        <div class=\"col-xs-6 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-40\"><img src=\"assets/img/demo/social_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n        <div class=\"col-xs-6 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-10\"><img src=\"assets/img/demo/email_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-xs-6 m-t-20 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-40\"><img src=\"assets/img/demo/calendar_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n        <div class=\"col-xs-6 m-t-20 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-10\"><img src=\"assets/img/demo/add_more.svg\" alt=\"socail\">\n          </a>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template #sideBarHeader>\n     <a routerLink=\"\"> <img src=\"assets/img/pock.png\" pgRetina src2x=\"assets/img/pock_2x.png\" alt=\"logo\" class=\"brand\"\n        width=\"150\" height=\"90\"></a>\n      <div class=\"dropdown-divider mt-10 mb-10\">Hello</div>\n    </ng-template>\n\n    <ng-template  #menuItems>\n      <div class=\"mt-10 mb-20\"></div>\n      <pg-menu-items [Items]=\"menuLinks\">\n      </pg-menu-items>\n      <a href=\"#\" class=\"dropdown-item\" (click)=\"logOut()\">Logout</a>\n    </ng-template>\n    <a href=\"#\" class=\"dropdown-item\" (click)=\"logOut()\">Logout</a>\n  </pg-sidebar>\n  <!-- PAGE CONTAINER -->\n  <page-container>\n    <pg-header [boxed]=\"_boxed\">\n      <!-- START MOBILE SIDEBAR TOGGLE -->\n      <a href=\"javascript:void(0);\" class=\"btn-icon-link toggle-sidebar d-lg-none\" (click)=\"toggleMobileSidebar()\">\n        <i class=\"pg-icon\">menu</i>\n      </a>\n      <!-- END MOBILE SIDEBAR TOGGLE -->\n      <div class=\"d-flex align-items-center mb-10\">\n        <!-- START EMAIL MOBILE TOGGLE -->\n        <a href=\"javascript:void(0);\" class=\"toggle-secondary-sidebar align-items-center\"\n          (click)=\"toggleSecondarySideBar()\" *ngIf=\"_layoutOption === 'email'\">\n          <span class=\"d-flex align-items-center\">\n            Inbox <span class=\"text-info\">(12)</span> <span class=\"pg-icon\">drop_down</span>\n          </span>\n        </a>\n        <!-- END EMAIL MOBILE TOGGLE -->\n        <div class=\"brand mb-sm-20\" [class.d-none]=\"_layoutOption === 'email'\" [class.d-xl-block]=\"_layoutOption === 'email'\"\n          [class.d-lg-block]=\"_layoutOption === 'email'\">\n          <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\"\n            src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\n        </div>\n        <!--<a href=\"#\" class=\"btn btn-link text-primary m-l-20 d-none d-lg-inline-flex d-xl-inline-flex\">Add New Item</a>\n        <a href=\"javascript:void(0)\" class=\"search-link d-none d-lg-block d-xl-block\" (click)=\"openSearch($event)\"><i\n            class=\"pg-icon\">search</i>Type anywhere to <span class=\"bold\">search</span></a>-->\n      </div>\n      <div class=\"d-flex align-items-center\">\n    <!--    &lt;!&ndash; START NOTIFICATION LIST &ndash;&gt;\n        <ul class=\"d-lg-inline-block d-none notification-list no-margin  b-grey b-l b-r no-style p-l-20 p-r-20\">\n          <li class=\"p-r-10 inline\">\n            <div class=\"dropdown\" dropdown>\n              <a href=\"javascript:;\" id=\"notification-center\" class=\"header-icon btn-icon-link\" dropdownToggle>\n                <i class=\"pg-icon\">world</i>\n                <span class=\"bubble\"></span>\n              </a>\n              &lt;!&ndash; START Notification Dropdown &ndash;&gt;\n              <div *dropdownMenu class=\"dropdown-menu notification-toggle\">\n                &lt;!&ndash; START Notification &ndash;&gt;\n                <div class=\"notification-panel\">\n                  &lt;!&ndash; START Notification Body&ndash;&gt;\n                  <div class=\"notification-body scrollable\">\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item unread clearfix\">\n                      &lt;!&ndash; START Notification Item&ndash;&gt;\n                      <div class=\"heading open\">\n                        <a href=\"#\" class=\"text-complete pull-left d-flex align-items-center\">\n                          <i class=\"pg-icon m-r-10\">map</i>\n                          <span class=\"bold\">Carrot Design</span>\n                          <span class=\"fs-12 m-l-10\">David Nester</span>\n                        </a>\n                        <div class=\"pull-right\">\n                          <div class=\"thumbnail-wrapper d16 circular inline m-t-15 m-r-10 toggle-more-details\">\n                            <div><i class=\"pg-icon\">chevron_down</i>\n                            </div>\n                          </div>\n                          <span class=\" time\">few sec ago</span>\n                        </div>\n                        <div class=\"more-details\">\n                          <div class=\"more-details-inner\">\n                            <h5 class=\"semi-bold fs-16\">“Apple’s Motivation - Innovation <br>\n                              distinguishes between <br>\n                              A leader and a follower.”</h5>\n                            <p class=\"small hint-text\">\n                              Commented on john Smiths wall.\n                              <br> via pages framework.\n                            </p>\n                          </div>\n                        </div>\n                      </div>\n                      &lt;!&ndash; END Notification Item&ndash;&gt;\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\" tooltip=\"mark as read\" placement=\"right\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; START Notification Body&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item  clearfix\">\n                      <div class=\"heading\">\n                        <a href=\"javascript:void(0)\" class=\"text-danger pull-left\">\n                          <i class=\"pg-icon m-r-10\">alert_warning</i>\n                          <span class=\"bold\">98% Server Load</span>\n                          <span class=\"fs-12 m-l-10\">Take Action</span>\n                        </a>\n                        <span class=\"pull-right time\">2 mins ago</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item  clearfix\">\n                      <div class=\"heading\">\n                        <a href=\"javascript:void(0)\" class=\"text-warning pull-left\">\n                          <i class=\"pg-icon m-r-10\">alert_warning</i>\n                          <span class=\"bold\">Warning Notification</span>\n                          <span class=\"fs-12 m-l-10\">Buy Now</span>\n                        </a>\n                        <span class=\"pull-right time\">yesterday</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item unread clearfix\">\n                      <div class=\"heading\">\n                        <div class=\"thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10\">\n                          <img width=\"30\" height=\"30\" src2x=\"assets/img/profiles/1x.jpg\" pgRetina\n                            src1x=\"assets/img/profiles/1.jpg\" alt=\"\" src=\"assets/img/profiles/1.jpg\">\n                        </div>\n                        <a href=\"javascript:void(0)\" class=\"text-complete pull-left\">\n                          <span class=\"bold\">Revox Design Labs</span>\n                          <span class=\"fs-12 m-l-10\">Owners</span>\n                        </a>\n                        <span class=\"pull-right time\">11:00pm</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\" tooltip=\"mark as read\" placement=\"right\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                  </div>\n                  &lt;!&ndash; END Notification Body&ndash;&gt;\n                  &lt;!&ndash; START Notification Footer&ndash;&gt;\n                  <div class=\"notification-footer text-center\">\n                    <a href=\"javascript:void(0)\" class=\"\">Read all notifications</a>\n                    <a data-toggle=\"refresh\" class=\"portlet-refresh text-black pull-right\" href=\"javascript:void(0)\">\n                      <i class=\"pg-refresh_new\"></i>\n                    </a>\n                  </div>\n                  &lt;!&ndash; START Notification Footer&ndash;&gt;\n                </div>\n                &lt;!&ndash; END Notification &ndash;&gt;\n              </div>\n              &lt;!&ndash; END Notification Dropdown &ndash;&gt;\n            </div>\n          </li>\n\n          <ng-template [ngIf]=\"_layoutOption != 'email'\">\n            <li class=\"p-r-10 inline\">\n              <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link\">\n                <i class=\"pg-icon\">link_alt</i>\n              </a>\n            </li>\n            <li class=\"p-r-10 inline\">\n              <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link\">\n                <i class=\"pg-icon\">grid_alt</i>\n              </a>\n            </li>\n          </ng-template>\n\n          <ng-template [ngIf]=\"_layoutOption == 'email'\">\n            <li class=\"inline\">\n              <a href=\"javascript:void(0)\" id=\"mark-email\" class=\"mark-email btn-icon-link m-l-10\"><i\n                  class=\"pg-icon\">edit</i></a>\n            </li>\n          </ng-template>\n        </ul>-->\n        <!-- END NOTIFICATIONS LIST -->\n        <!-- START User Info-->\n        <div class=\"pull-left p-r-10 fs-14 font-heading d-lg-inline-block d-none m-l-20\">\n          <span class=\"semi-bold\">{{user.first_name}}</span> <span class=\"text-color\">{{\" \" + user.last_name}}</span>\n        </div>\n        <div class=\"dropdown pull-right d-lg-block d-none\" dropdown>\n          <button class=\"profile-dropdown-toggle\" type=\"button\" dropdownToggle id=\"profileDropdown\"\n            aria-label=\"profile dropdown\">\n            <span class=\"thumbnail-wrapper d32 circular inline\">\n              <img src=\"assets/img/profiles/male.png\" alt=\"\" pgRetina src1x=\"assets/img/profiles/male.png\"\n                src2x=\"assets/img/profiles/male_small2x.png\" width=\"32\" height=\"32\">\n            </span>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right profile-dropdown\" *dropdownMenu role=\"menu\">\n           <!-- <p class=\"dropdown-item\"><span>Signed in as <br /><b>{{user.first_name}} {{\" \" + user.last_name}}</b></span></p>-->\n            <div class=\"dropdown-divider\"></div>\n            <a routerLink=\"profile\" class=\"dropdown-item\">Your Profile</a>\n          <!--  <a href=\"#\" class=\"dropdown-item\">Your Activity</a>\n            <a href=\"#\" class=\"dropdown-item\">Your Archive</a>-->\n            <div class=\"dropdown-divider\"></div>\n           <!-- <a href=\"#\" class=\"dropdown-item\">Features</a>\n            <a href=\"#\" class=\"dropdown-item\">Help</a>\n            <a href=\"#\" class=\"dropdown-item\">Settings</a>-->\n            <a href=\"#\" class=\"dropdown-item\" (click)=\"logOut()\">Logout</a>\n            <div class=\"dropdown-divider\"></div>\n           <!-- <span class=\"dropdown-item fs-12 hint-text\">Last edited by David<br />on Friday at 5:27PM</span>-->\n          </div>\n        </div>\n        <!-- END User Info-->\n       <!-- <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link m-l-5 sm-no-margin d-inline-block btn-icon-link\"\n          (click)=\"openQuickView($event)\">\n          <i class=\"pg-icon\">menu_add</i>\n        </a>-->\n      </div>\n    </pg-header>\n    <div class=\"page-content-wrapper {{_pageContainerClass}}\">\n      <!-- START PAGE CONTENT -->\n      <div class=\"content {{_contentClass}}\">\n        <router-outlet></router-outlet>\n      </div>\n      <!-- END PAGE CONTENT -->\n      <!-- START COPYRIGHT -->\n      <ng-template [ngIf]=\"_footer\">\n        <div class=\" container-fluid container-fixed-lg footer\">\n          <div class=\"copyright sm-text-center\">\n            <p class=\"small no-margin pull-left sm-pull-reset\">\n              <span class=\"hint-text\">Copyright &copy; 2020</span>&nbsp;<span class=\"font-montserrat\">Apovallo</span>.\n              <span class=\"hint-text\">All rights\n                reserved.</span> <span class=\"sm-block\"><a class=\"m-l-10 m-r-10\" href=\"javascript:void(0)\">Terms of\n                  use</a> <span class=\"muted\">|</span> <a class=\"m-l-10\" href=\"javascript:void(0)\">Privacy\n                  Policy</a></span>\n            </p>\n\n            <p class=\"small no-margin pull-right sm-pull-reset\">\n               <span class=\"hint-text\"></span>\n            </p>\n\n            <div class=\"clearfix\">\n            </div>\n          </div>\n        </div>\n        <!-- END COPYRIGHT -->\n      </ng-template>\n    </div>\n  </page-container>\n<!--  &lt;!&ndash; QUICKSEARCH &ndash;&gt;\n  <app-search-overlay></app-search-overlay>\n   QUICKVIEW\n  <app-quickview></app-quickview>-->\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- WRAP LAYOUT IF BOXED -->\n<div class=\"container\" *ngIf=\"_boxed; else basicLayoutBlock\">\n  <ng-container *ngTemplateOutlet=\"contentTpl\"></ng-container>\n</div>\n<ng-template #basicLayoutBlock>\n  <ng-container *ngTemplateOutlet=\"contentTpl\"></ng-container>\n</ng-template>\n<!-- YOUR LAYOUT CONTENT GOES INSIDE HERE -->\n<ng-template #contentTpl>\n  <!-- PAGE SIDEBAR -->\n  <pg-sidebar>\n    <ng-template #sideBarOverlay>\n      <div class=\"row\">\n        <div class=\"col-xs-6 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-40\"><img src=\"assets/img/demo/social_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n        <div class=\"col-xs-6 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-10\"><img src=\"assets/img/demo/email_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-xs-6 m-t-20 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-40\"><img src=\"assets/img/demo/calendar_app.svg\" alt=\"socail\">\n          </a>\n        </div>\n        <div  class=\"col-xs-6 m-t-20 no-padding\">\n          <a href=\"javascript:void(0)\" class=\"p-l-10\"><img src=\"assets/img/demo/add_more.svg\" alt=\"socail\">\n          </a>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template #sideBarHeader>\n     <a routerLink=\"\"> <img src=\"assets/img/pock.png\" pgRetina src2x=\"assets/img/pock_2x.png\" alt=\"logo\" class=\"brand\"\n        width=\"150\" height=\"90\"></a>\n      <div class=\"dropdown-divider mt-10 mb-10\">Hello</div>\n    </ng-template>\n\n    <ng-template #menuItems>\n      <div class=\"mt-10 mb-20\"></div>\n      <pg-menu-items *ngIf=\"!user.is_staff\" [Items]=\"menuLinks\">\n      </pg-menu-items>\n    </ng-template>\n    <ng-template *ngIf=\"user.is_staff\" #menuItems>\n      <div class=\"mt-10 mb-20\"></div>\n      <pg-menu-items [Items]=\"menuAdminLinks\">\n      </pg-menu-items>\n    </ng-template>\n  </pg-sidebar>\n  <!-- PAGE CONTAINER -->\n  <page-container>\n    <pg-header [boxed]=\"_boxed\">\n      <!-- START MOBILE SIDEBAR TOGGLE -->\n      <a href=\"javascript:void(0);\" class=\"btn-icon-link toggle-sidebar d-lg-none\" (click)=\"toggleMobileSidebar()\">\n        <i class=\"pg-icon\">menu</i>\n      </a>\n      <!-- END MOBILE SIDEBAR TOGGLE -->\n      <div class=\"d-flex align-items-center mb-10\">\n        <!-- START EMAIL MOBILE TOGGLE -->\n        <a href=\"javascript:void(0);\" class=\"toggle-secondary-sidebar align-items-center\"\n          (click)=\"toggleSecondarySideBar()\" *ngIf=\"_layoutOption === 'email'\">\n          <span class=\"d-flex align-items-center\">\n            Inbox <span class=\"text-info\">(12)</span> <span class=\"pg-icon\">drop_down</span>\n          </span>\n        </a>\n        <!-- END EMAIL MOBILE TOGGLE -->\n        <div class=\"brand mb-sm-20\" [class.d-none]=\"_layoutOption === 'email'\" [class.d-xl-block]=\"_layoutOption === 'email'\"\n          [class.d-lg-block]=\"_layoutOption === 'email'\">\n          <img src=\"assets/img/pock.png\" alt=\"logo\" pgRetina src1x=\"assets/img/pock.png\"\n            src2x=\"assets/img/pock_2x.png\" width=\"150\" height=\"90\">\n        </div>\n        <!--<a href=\"#\" class=\"btn btn-link text-primary m-l-20 d-none d-lg-inline-flex d-xl-inline-flex\">Add New Item</a>\n        <a href=\"javascript:void(0)\" class=\"search-link d-none d-lg-block d-xl-block\" (click)=\"openSearch($event)\"><i\n            class=\"pg-icon\">search</i>Type anywhere to <span class=\"bold\">search</span></a>-->\n      </div>\n      <div class=\"d-flex align-items-center\">\n    <!--    &lt;!&ndash; START NOTIFICATION LIST &ndash;&gt;\n        <ul class=\"d-lg-inline-block d-none notification-list no-margin  b-grey b-l b-r no-style p-l-20 p-r-20\">\n          <li class=\"p-r-10 inline\">\n            <div class=\"dropdown\" dropdown>\n              <a href=\"javascript:;\" id=\"notification-center\" class=\"header-icon btn-icon-link\" dropdownToggle>\n                <i class=\"pg-icon\">world</i>\n                <span class=\"bubble\"></span>\n              </a>\n              &lt;!&ndash; START Notification Dropdown &ndash;&gt;\n              <div *dropdownMenu class=\"dropdown-menu notification-toggle\">\n                &lt;!&ndash; START Notification &ndash;&gt;\n                <div class=\"notification-panel\">\n                  &lt;!&ndash; START Notification Body&ndash;&gt;\n                  <div class=\"notification-body scrollable\">\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item unread clearfix\">\n                      &lt;!&ndash; START Notification Item&ndash;&gt;\n                      <div class=\"heading open\">\n                        <a href=\"#\" class=\"text-complete pull-left d-flex align-items-center\">\n                          <i class=\"pg-icon m-r-10\">map</i>\n                          <span class=\"bold\">Carrot Design</span>\n                          <span class=\"fs-12 m-l-10\">David Nester</span>\n                        </a>\n                        <div class=\"pull-right\">\n                          <div class=\"thumbnail-wrapper d16 circular inline m-t-15 m-r-10 toggle-more-details\">\n                            <div><i class=\"pg-icon\">chevron_down</i>\n                            </div>\n                          </div>\n                          <span class=\" time\">few sec ago</span>\n                        </div>\n                        <div class=\"more-details\">\n                          <div class=\"more-details-inner\">\n                            <h5 class=\"semi-bold fs-16\">“Apple’s Motivation - Innovation <br>\n                              distinguishes between <br>\n                              A leader and a follower.”</h5>\n                            <p class=\"small hint-text\">\n                              Commented on john Smiths wall.\n                              <br> via pages framework.\n                            </p>\n                          </div>\n                        </div>\n                      </div>\n                      &lt;!&ndash; END Notification Item&ndash;&gt;\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\" tooltip=\"mark as read\" placement=\"right\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; START Notification Body&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item  clearfix\">\n                      <div class=\"heading\">\n                        <a href=\"javascript:void(0)\" class=\"text-danger pull-left\">\n                          <i class=\"pg-icon m-r-10\">alert_warning</i>\n                          <span class=\"bold\">98% Server Load</span>\n                          <span class=\"fs-12 m-l-10\">Take Action</span>\n                        </a>\n                        <span class=\"pull-right time\">2 mins ago</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item  clearfix\">\n                      <div class=\"heading\">\n                        <a href=\"javascript:void(0)\" class=\"text-warning pull-left\">\n                          <i class=\"pg-icon m-r-10\">alert_warning</i>\n                          <span class=\"bold\">Warning Notification</span>\n                          <span class=\"fs-12 m-l-10\">Buy Now</span>\n                        </a>\n                        <span class=\"pull-right time\">yesterday</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                    &lt;!&ndash; START Notification Item&ndash;&gt;\n                    <div class=\"notification-item unread clearfix\">\n                      <div class=\"heading\">\n                        <div class=\"thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10\">\n                          <img width=\"30\" height=\"30\" src2x=\"assets/img/profiles/1x.jpg\" pgRetina\n                            src1x=\"assets/img/profiles/1.jpg\" alt=\"\" src=\"assets/img/profiles/1.jpg\">\n                        </div>\n                        <a href=\"javascript:void(0)\" class=\"text-complete pull-left\">\n                          <span class=\"bold\">Revox Design Labs</span>\n                          <span class=\"fs-12 m-l-10\">Owners</span>\n                        </a>\n                        <span class=\"pull-right time\">11:00pm</span>\n                      </div>\n                      &lt;!&ndash; START Notification Item Right Side&ndash;&gt;\n                      <div class=\"option\" tooltip=\"mark as read\" placement=\"right\">\n                        <a href=\"javascript:void(0)\" class=\"mark\"></a>\n                      </div>\n                      &lt;!&ndash; END Notification Item Right Side&ndash;&gt;\n                    </div>\n                    &lt;!&ndash; END Notification Item&ndash;&gt;\n                  </div>\n                  &lt;!&ndash; END Notification Body&ndash;&gt;\n                  &lt;!&ndash; START Notification Footer&ndash;&gt;\n                  <div class=\"notification-footer text-center\">\n                    <a href=\"javascript:void(0)\" class=\"\">Read all notifications</a>\n                    <a data-toggle=\"refresh\" class=\"portlet-refresh text-black pull-right\" href=\"javascript:void(0)\">\n                      <i class=\"pg-refresh_new\"></i>\n                    </a>\n                  </div>\n                  &lt;!&ndash; START Notification Footer&ndash;&gt;\n                </div>\n                &lt;!&ndash; END Notification &ndash;&gt;\n              </div>\n              &lt;!&ndash; END Notification Dropdown &ndash;&gt;\n            </div>\n          </li>\n\n          <ng-template [ngIf]=\"_layoutOption != 'email'\">\n            <li class=\"p-r-10 inline\">\n              <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link\">\n                <i class=\"pg-icon\">link_alt</i>\n              </a>\n            </li>\n            <li class=\"p-r-10 inline\">\n              <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link\">\n                <i class=\"pg-icon\">grid_alt</i>\n              </a>\n            </li>\n          </ng-template>\n\n          <ng-template [ngIf]=\"_layoutOption == 'email'\">\n            <li class=\"inline\">\n              <a href=\"javascript:void(0)\" id=\"mark-email\" class=\"mark-email btn-icon-link m-l-10\"><i\n                  class=\"pg-icon\">edit</i></a>\n            </li>\n          </ng-template>\n        </ul>-->\n        <!-- END NOTIFICATIONS LIST -->\n        <!-- START User Info-->\n        <div class=\"pull-left p-r-10 fs-14 font-heading d-lg-inline-block d-none m-l-20\">\n          <span class=\"semi-bold\">{{user.first_name}}</span> <span class=\"text-color\">{{\" \" + user.last_name}}</span>\n        </div>\n        <div class=\"dropdown pull-right d-lg-block d-none\" dropdown>\n          <button class=\"profile-dropdown-toggle\" type=\"button\" dropdownToggle id=\"profileDropdown\"\n            aria-label=\"profile dropdown\">\n            <span class=\"thumbnail-wrapper d32 circular inline\">\n              <img src=\"assets/img/profiles/male.png\" alt=\"\" pgRetina src1x=\"assets/img/profiles/male.png\"\n                src2x=\"assets/img/profiles/male_small2x.png\" width=\"32\" height=\"32\">\n            </span>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right profile-dropdown\" *dropdownMenu role=\"menu\">\n           <!-- <p class=\"dropdown-item\"><span>Signed in as <br /><b>{{user.first_name}} {{\" \" + user.last_name}}</b></span></p>-->\n            <div class=\"dropdown-divider\"></div>\n            <a routerLink=\"profile\" class=\"dropdown-item\">Your Profile</a>\n          <!--  <a href=\"#\" class=\"dropdown-item\">Your Activity</a>\n            <a href=\"#\" class=\"dropdown-item\">Your Archive</a>-->\n            <div class=\"dropdown-divider\"></div>\n           <!-- <a href=\"#\" class=\"dropdown-item\">Features</a>\n            <a href=\"#\" class=\"dropdown-item\">Help</a>\n            <a href=\"#\" class=\"dropdown-item\">Settings</a>-->\n            <a href=\"#\" class=\"dropdown-item\" (click)=\"logOut()\">Logout</a>\n            <div class=\"dropdown-divider\"></div>\n           <!-- <span class=\"dropdown-item fs-12 hint-text\">Last edited by David<br />on Friday at 5:27PM</span>-->\n          </div>\n        </div>\n        <!-- END User Info-->\n       <!-- <a href=\"javascript:void(0)\" class=\"header-icon btn-icon-link m-l-5 sm-no-margin d-inline-block btn-icon-link\"\n          (click)=\"openQuickView($event)\">\n          <i class=\"pg-icon\">menu_add</i>\n        </a>-->\n      </div>\n    </pg-header>\n    <div class=\"page-content-wrapper {{_pageContainerClass}}\">\n      <!-- START PAGE CONTENT -->\n      <div class=\"content {{_contentClass}}\">\n        <router-outlet></router-outlet>\n      </div>\n      <!-- END PAGE CONTENT -->\n      <!-- START COPYRIGHT -->\n      <ng-template [ngIf]=\"_footer\">\n        <div class=\" container-fluid container-fixed-lg footer\">\n          <div class=\"copyright sm-text-center\">\n            <p class=\"small no-margin pull-left sm-pull-reset\">\n              <span class=\"hint-text\">Copyright &copy; 2020</span>&nbsp;<span class=\"font-montserrat\">Apovallo</span>.\n              <span class=\"hint-text\">All rights\n                reserved.</span> <span class=\"sm-block\"><a class=\"m-l-10 m-r-10\" href=\"javascript:void(0)\">Terms of\n                  use</a> <span class=\"muted\">|</span> <a class=\"m-l-10\" href=\"javascript:void(0)\">Privacy\n                  Policy</a></span>\n            </p>\n\n            <p class=\"small no-margin pull-right sm-pull-reset\">\n               <span class=\"hint-text\"></span>\n            </p>\n\n            <div class=\"clearfix\">\n            </div>\n          </div>\n        </div>\n        <!-- END COPYRIGHT -->\n      </ng-template>\n    </div>\n  </page-container>\n<!--  &lt;!&ndash; QUICKSEARCH &ndash;&gt;\n  <app-search-overlay></app-search-overlay>\n   QUICKVIEW\n  <app-quickview></app-quickview>-->\n</ng-template>\n");
 
 /***/ }),
 
@@ -568,7 +607,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- START JUMBOTRON -->\n<div data-pages=\"parallax\">\n    <div class=\"container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0\">\n        <div class=\"inner\">\n            <!-- START BREADCRUMB -->\n            <ol class=\"breadcrumb sm-p-b-5\">\n                <li class=\"breadcrumb-item\">\n                    <a href=\"javascript:void(0)\">Home</a>\n                </li>\n                <li class=\"breadcrumb-item active\">Failed Transactions</li>\n            </ol>\n        </div>\n    </div>\n</div>\n\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Transaction History\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!--<ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"transfer_status\" name=\"Status\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- START JUMBOTRON -->\n<div data-pages=\"parallax\">\n    <div class=\"container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0\">\n        <div class=\"inner\">\n            <!-- START BREADCRUMB -->\n            <ol class=\"breadcrumb sm-p-b-5\">\n                <li class=\"breadcrumb-item\">\n                    <a href=\"javascript:void(0)\">Home</a>\n                </li>\n                <li class=\"breadcrumb-item active\">Failed Transactions</li>\n            </ol>\n        </div>\n    </div>\n</div>\n\n<!-- START CONTAINER FLUID -->\n<pg-container extraHorizontalClass=\"bg-white\" extraClass=\"bg-white\">\n    <!-- START card -->\n    <div class=\"card card-transparent\">\n        <div class=\"card-header \">\n            <div class=\"card-title\">Transaction History\n            </div>\n            <div class=\"pull-right\">\n                <div class=\"col-xs-12\">\n                    <input type=\"text\" class=\"form-control pull-right\" placeholder=\"Search\" (keyup)='updateFilter($event)'>\n                </div>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"table-responsive\">\n                <ngx-datatable\n                    #table\n                    class='table table-hover'\n                    [columns]=\"columns\"\n                    [columnMode]=\"columnModeSetting\"\n                    [scrollbarH]=\"scrollBarHorizontal\"\n                    [headerHeight]=\"50\"\n                    [footerHeight]=\"50\"\n                    [rowHeight]=\"'auto'\"\n                    [limit]=\"15\"\n                    [rows]='basicRows'>\n\n                    <!--<ngx-datatable-column prop=\"id\" name=\"ID\"></ngx-datatable-column>-->\n                    <ngx-datatable-column prop=\"to_name\" name=\"Receiver\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"to_email\" name=\"Receiver Email\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"amount\" name=\"Amount\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"currency\" name=\"Currency\"></ngx-datatable-column>\n                    <ngx-datatable-column prop=\"id\" name=\"Action\">\n                        <ng-template ngx-datatable-cell-template let-rowIndex=\"rowIndex\" let-value=\"value\">\n                            <div class=\"btn-group btn-toolbar  col-6 no-padding\">\n                                <div class=\"btn-group\">\n                                    <button routerLink=\"/dashboard/transactions/{{value}}\" aria-label=\"\" type=\"button\" class=\"btn btn-success\">View\n                                    </button>\n                                    <!--<button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Help\n                                    </button>\n                                    <button aria-label=\"\" type=\"button\" class=\"btn btn-success\">Create\n                                    </button>-->\n                                </div>\n                            </div>\n                        </ng-template>\n                    </ngx-datatable-column>\n                    <ng-template\n                            ngx-datatable-footer-template\n                            let-rowCount=\"rowCount\"\n                            let-pageSize=\"pageSize\"\n                            let-selectedCount=\"selectedCount\"\n                            let-curPage=\"curPage\"\n                            let-offset=\"offset\">\n                        Showing {{curPage}} to {{pageSize}} of {{rowCount}} entries\n                    </ng-template>\n                </ngx-datatable>\n            </div>\n        </div>\n    </div>\n    <!-- END card -->\n</pg-container>\n<!-- END CONTAINER FLUID -->\n");
 
 /***/ }),
 
@@ -8281,6 +8320,161 @@ var AboutComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.scss":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.scss ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0BwYWdlcy9sYXlvdXRzL3NpbXBseXdoaXRlL2FsbC1leGNoYW5nZS1yYXRlLWxpc3QvYWxsLWV4Y2hhbmdlLXJhdGUtbGlzdC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.ts":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.ts ***!
+  \*******************************************************************************************************/
+/*! exports provided: AllExchangeRateListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllExchangeRateListComponent", function() { return AllExchangeRateListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _transactions_exchange_rate_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../transactions/exchange_rate.service */ "./src/app/@pages/layouts/simplywhite/transactions/exchange_rate.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var AllExchangeRateListComponent = /** @class */ (function () {
+    function AllExchangeRateListComponent(exchangeRateService) {
+        var _this = this;
+        this.exchangeRateService = exchangeRateService;
+        this.columns = [{ name: 'From Country' }, { name: 'To Country' }, { name: 'Rate' }];
+        // No Option YET
+        // https://github.com/swimlane/ngx-datatable/issues/423
+        this.scrollBarHorizontal = window.innerWidth < 960;
+        this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
+        this.exchangeRateService.query().subscribe(function (res) {
+            _this.exchangeRates = res.body;
+            if (_this.exchangeRates != null) {
+                _this.basicSort = _this.exchangeRates.slice();
+                _this.basicRows = _this.exchangeRates;
+            }
+        });
+    }
+    AllExchangeRateListComponent.prototype.ngOnInit = function () {
+    };
+    AllExchangeRateListComponent.prototype.updateFilter = function (event) {
+        var value = event.target.value.toLowerCase();
+        // get the amount of columns in the table
+        var count = this.columns.length;
+        var keys = Object.keys(this.basicSort[0]);
+        // filter our data
+        var temp = this.basicSort.filter(function (item) {
+            // iterate through each row's column data
+            for (var i = 0; i < count; i++) {
+                // check for a match
+                if ((item[keys[i]] &&
+                    item[keys[i]]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(value) !== -1) ||
+                    !value) {
+                    // found match, return true to add to result set
+                    return true;
+                }
+            }
+        });
+    };
+    AllExchangeRateListComponent.ctorParameters = function () { return [
+        { type: _transactions_exchange_rate_service__WEBPACK_IMPORTED_MODULE_1__["ExchangeRateService"] }
+    ]; };
+    AllExchangeRateListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-all-exchange-rate-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./all-exchange-rate-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./all-exchange-rate-list.component.scss */ "./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_transactions_exchange_rate_service__WEBPACK_IMPORTED_MODULE_1__["ExchangeRateService"]])
+    ], AllExchangeRateListComponent);
+    return AllExchangeRateListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.scss":
+/*!*****************************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.scss ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0BwYWdlcy9sYXlvdXRzL3NpbXBseXdoaXRlL2FsbC10cmFuc2FjdGlvbi1saXN0L2FsbC10cmFuc2FjdGlvbi1saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.ts":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: AllTransactionListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllTransactionListComponent", function() { return AllTransactionListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var AllTransactionListComponent = /** @class */ (function () {
+    function AllTransactionListComponent() {
+    }
+    AllTransactionListComponent.prototype.ngOnInit = function () {
+    };
+    AllTransactionListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-all-transaction-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./all-transaction-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./all-transaction-list.component.scss */ "./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AllTransactionListComponent);
+    return AllTransactionListComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.scss":
 /*!*******************************************************************************!*\
   !*** ./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.scss ***!
@@ -9085,6 +9279,117 @@ var CreateBankComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
     ], CreateBankComponent);
     return CreateBankComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.scss":
+/*!***************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.scss ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0BwYWdlcy9sYXlvdXRzL3NpbXBseXdoaXRlL2RlY2xpbmVkLWxpc3QvZGVjbGluZWQtbGlzdC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: DeclinedListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeclinedListComponent", function() { return DeclinedListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @swimlane/ngx-datatable */ "./node_modules/@swimlane/ngx-datatable/fesm5/swimlane-ngx-datatable.js");
+/* harmony import */ var _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../transactions/transaction.service */ "./src/app/@pages/layouts/simplywhite/transactions/transaction.service.ts");
+/* harmony import */ var ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-webstorage */ "./node_modules/ngx-webstorage/fesm5/ngx-webstorage.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var DeclinedListComponent = /** @class */ (function () {
+    function DeclinedListComponent(transactionService, $localStorage) {
+        var _this = this;
+        this.transactionService = transactionService;
+        this.$localStorage = $localStorage;
+        this.columns = [{ name: 'Receiver' }, { name: 'Receiver Email' }, { name: 'Amount' }, { name: 'Currency' },
+            { name: 'Status' }, { name: 'Action' }];
+        // No Option YET
+        // https://github.com/swimlane/ngx-datatable/issues/423
+        this.scrollBarHorizontal = window.innerWidth < 960;
+        this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
+        this.transactionService.findByOnlyStatus('declined').subscribe(function (res) {
+            _this.transactions = res.body;
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+        }, function (err) {
+        });
+    }
+    DeclinedListComponent.prototype.ngOnInit = function () {
+    };
+    DeclinedListComponent.prototype.updateFilter = function (event) {
+        var value = event.target.value.toLowerCase();
+        // get the amount of columns in the table
+        var count = this.columns.length;
+        var keys = Object.keys(this.basicSort[0]);
+        // filter our data
+        var temp = this.basicSort.filter(function (item) {
+            // iterate through each row's column data
+            for (var i = 0; i < count; i++) {
+                // check for a match
+                if ((item[keys[i]] &&
+                    item[keys[i]]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(value) !== -1) ||
+                    !value) {
+                    // found match, return true to add to result set
+                    return true;
+                }
+            }
+        });
+    };
+    DeclinedListComponent.ctorParameters = function () { return [
+        { type: _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"] },
+        { type: ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"], { static: true }),
+        __metadata("design:type", _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_1__["DatatableComponent"])
+    ], DeclinedListComponent.prototype, "table", void 0);
+    DeclinedListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-declined-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./declined-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./declined-list.component.scss */ "./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"], ngx_webstorage__WEBPACK_IMPORTED_MODULE_3__["LocalStorageService"]])
+    ], DeclinedListComponent);
+    return DeclinedListComponent;
 }());
 
 
@@ -10095,6 +10400,57 @@ var SimplyWhiteLayout = /** @class */ (function (_super) {
         _this.routed = routed;
         _this.$localStorage = $localStorage;
         _this.exchangeRateService = exchangeRateService;
+        _this.menuAdminLinks = [
+            {
+                label: 'Home',
+                routerLink: '/dashboard',
+                iconType: 'fi',
+                iconName: 'home'
+            },
+            {
+                label: 'Transactions',
+                /*details: '234 New Emails',*/
+                routerLink: 'transactions',
+                iconType: 'fi',
+                iconName: 'mail',
+                toggle: 'close',
+                submenu: [
+                    {
+                        label: 'Successful',
+                        /*details: '234 New Emails',*/
+                        routerLink: 'transactions/successful',
+                        iconType: 'fi',
+                        iconName: 'money'
+                    },
+                    {
+                        label: 'Pending',
+                        /*details: '234 New Emails',*/
+                        routerLink: 'transactions/pending',
+                        iconType: 'fi',
+                    },
+                    {
+                        label: 'Approved',
+                        /*details: '234 New Emails',*/
+                        routerLink: 'transactions/approved',
+                        iconType: 'fi',
+                    },
+                    {
+                        label: 'Disapproved',
+                        /*details: '234 New Emails',*/
+                        routerLink: 'transactions/disapproved',
+                        iconType: 'fi',
+                        iconName: 'dollar'
+                    },
+                    {
+                        label: 'Failed',
+                        /*details: '234 New Emails',*/
+                        routerLink: 'transactions/failed',
+                        iconType: 'fi',
+                        iconName: 'dollar'
+                    },
+                ]
+            }
+        ];
         _this.menuLinks = [
             {
                 label: 'Home',
@@ -10152,6 +10508,7 @@ var SimplyWhiteLayout = /** @class */ (function (_super) {
             },
         ];
         _this.user = $localStorage.retrieve('user');
+        console.log(_this.user);
         _this.loadCountries();
         return _this;
     }
@@ -10642,17 +10999,26 @@ var TnxPendingListComponent = /** @class */ (function () {
     TnxPendingListComponent.prototype.ngOnInit = function () {
     };
     TnxPendingListComponent.prototype.updateFilter = function (event) {
-        var val = event.target.value.toLowerCase();
+        var value = event.target.value.toLowerCase();
+        // get the amount of columns in the table
+        var count = this.columns.length;
+        var keys = Object.keys(this.basicSort[0]);
         // filter our data
-        var temp = this.basicSort.filter(function (d) {
-            // Change the column name here
-            // example d.places
-            return d.to_name.toLowerCase().indexOf(val) !== -1 || !val;
+        var temp = this.basicSort.filter(function (item) {
+            // iterate through each row's column data
+            for (var i = 0; i < count; i++) {
+                // check for a match
+                if ((item[keys[i]] &&
+                    item[keys[i]]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(value) !== -1) ||
+                    !value) {
+                    // found match, return true to add to result set
+                    return true;
+                }
+            }
         });
-        // update the rows
-        this.basicRows = temp;
-        // Whenever the filter changes, always go back to the first page
-        this.table.offset = 0;
     };
     TnxPendingListComponent.ctorParameters = function () { return [
         { type: _transactions_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"] },
@@ -12737,6 +13103,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_layouts_simplywhite_bank_list_bank_list_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/bank-list/bank-list.component */ "./src/app/@pages/layouts/simplywhite/bank-list/bank-list.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_declined_list_declined_list_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/declined-list/declined-list.component */ "./src/app/@pages/layouts/simplywhite/declined-list/declined-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_all_transaction_list_all_transaction_list_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component */ "./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_all_exchange_rate_list_all_exchange_rate_list_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component */ "./src/app/@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12793,6 +13162,9 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 // Thirdparty Components / Plugins - Optional
+
+
+
 
 
 
@@ -12898,7 +13270,10 @@ var AppModule = /** @class */ (function () {
                 _pages_layouts_simplywhite_create_bank_create_bank_component__WEBPACK_IMPORTED_MODULE_66__["CreateBankComponent"],
                 _pages_layouts_simplywhite_bank_list_bank_list_component__WEBPACK_IMPORTED_MODULE_67__["BankListComponent"],
                 _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_68__["TnxPendingListComponent"],
-                _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_69__["TnxApprovedListComponent"]
+                _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_69__["TnxApprovedListComponent"],
+                _pages_layouts_simplywhite_declined_list_declined_list_component__WEBPACK_IMPORTED_MODULE_70__["DeclinedListComponent"],
+                _pages_layouts_simplywhite_all_transaction_list_all_transaction_list_component__WEBPACK_IMPORTED_MODULE_71__["AllTransactionListComponent"],
+                _pages_layouts_simplywhite_all_exchange_rate_list_all_exchange_rate_list_component__WEBPACK_IMPORTED_MODULE_72__["AllExchangeRateListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -12994,10 +13369,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_layouts_simplywhite_pass_reset_pass_reset_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/pass-reset/pass-reset.component */ "./src/app/@pages/layouts/simplywhite/pass-reset/pass-reset.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_logout_logout_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/logout/logout.component */ "./src/app/@pages/layouts/simplywhite/logout/logout.component.ts");
 /* harmony import */ var _pages_layouts_simplywhite_homm_homm_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/homm/homm.component */ "./src/app/@pages/layouts/simplywhite/homm/homm.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_all_transaction_list_all_transaction_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component */ "./src/app/@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component.ts");
+/* harmony import */ var _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component */ "./src/app/@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 // Layouts
+
+
+
 
 
 
@@ -13062,6 +13443,9 @@ var AppRoutes = [
             { path: 'transfer', component: _pages_layouts_simplywhite_transfer_transfer_component__WEBPACK_IMPORTED_MODULE_7__["TransferComponent"] },
             { path: 'beneficiary', component: _pages_layouts_simplywhite_beneficiary_list_beneficiary_list_component__WEBPACK_IMPORTED_MODULE_13__["BeneficiaryListComponent"] },
             { path: 'beneficiary/:id', component: _pages_layouts_simplywhite_beneficiary_detail_beneficiary_detail_component__WEBPACK_IMPORTED_MODULE_14__["BeneficiaryDetailComponent"] },
+            { path: 'transactions/all', component: _pages_layouts_simplywhite_all_transaction_list_all_transaction_list_component__WEBPACK_IMPORTED_MODULE_18__["AllTransactionListComponent"] },
+            { path: 'transactions/all-pending', component: _pages_layouts_simplywhite_tnx_pending_list_tnx_pending_list_component__WEBPACK_IMPORTED_MODULE_19__["TnxPendingListComponent"] },
+            { path: 'transactions/all-successful', component: _pages_layouts_simplywhite_tnx_approved_list_tnx_approved_list_component__WEBPACK_IMPORTED_MODULE_20__["TnxApprovedListComponent"] }
         ]
     },
 ];

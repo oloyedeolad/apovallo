@@ -105,6 +105,9 @@ import { CreateBankComponent } from './@pages/layouts/simplywhite/create-bank/cr
 import { BankListComponent } from './@pages/layouts/simplywhite/bank-list/bank-list.component';
 import { TnxPendingListComponent } from './@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component';
 import { TnxApprovedListComponent } from './@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component';
+import { DeclinedListComponent } from './@pages/layouts/simplywhite/declined-list/declined-list.component';
+import { AllTransactionListComponent } from './@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component';
+import { AllExchangeRateListComponent } from './@pages/layouts/simplywhite/all-exchange-rate-list/all-exchange-rate-list.component';
 
 
 
@@ -159,7 +162,10 @@ export class AppHammerConfig extends HammerGestureConfig  {
     CreateBankComponent,
     BankListComponent,
     TnxPendingListComponent,
-    TnxApprovedListComponent
+    TnxApprovedListComponent,
+    DeclinedListComponent,
+    AllTransactionListComponent,
+    AllExchangeRateListComponent
   ],
     imports: [
         BrowserModule,

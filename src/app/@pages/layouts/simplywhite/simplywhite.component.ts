@@ -15,6 +15,59 @@ import {IExchangeRate} from './transactions/country.model';
   encapsulation: ViewEncapsulation.None
 })
 export class SimplyWhiteLayout extends RootLayout implements OnInit {
+  menuAdminLinks = [
+    {
+      label: 'Home',
+      routerLink: '/dashboard',
+      iconType: 'fi',
+      iconName: 'home'
+    },
+    {
+      label: 'Transactions',
+      /*details: '234 New Emails',*/
+      routerLink: 'transactions',
+      iconType: 'fi',
+      iconName: 'mail',
+      toggle: 'close',
+      submenu: [
+        {
+          label: 'Successful',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/successful',
+          iconType: 'fi',
+          iconName: 'money'
+        },
+        {
+          label: 'Pending',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/pending',
+          iconType: 'fi',
+          /*iconName: 'mail'*/
+        },
+        {
+          label: 'Approved',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/approved',
+          iconType: 'fi',
+          /*iconName: 'mail'*/
+        },
+        {
+          label: 'Disapproved',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/disapproved',
+          iconType: 'fi',
+          iconName: 'dollar'
+        },
+        {
+          label: 'Failed',
+          /*details: '234 New Emails',*/
+          routerLink: 'transactions/failed',
+          iconType: 'fi',
+          iconName: 'dollar'
+        },
+      ]
+    }
+  ];
   menuLinks = [
     {
       label: 'Home',
@@ -78,6 +131,7 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
               private exchangeRateService: ExchangeRateService) {
    super(toggler, router);
     this.user = $localStorage.retrieve('user');
+    console.log(this.user);
     this.loadCountries();
 
   }

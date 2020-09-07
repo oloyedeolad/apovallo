@@ -25,7 +25,7 @@
           <a href="javascript:void(0)" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
           </a>
         </div>
-        <div class="col-xs-6 m-t-20 no-padding">
+        <div  class="col-xs-6 m-t-20 no-padding">
           <a href="javascript:void(0)" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
           </a>
         </div>
@@ -37,13 +37,16 @@
       <div class="dropdown-divider mt-10 mb-10">Hello</div>
     </ng-template>
 
-    <ng-template  #menuItems>
+    <ng-template #menuItems>
       <div class="mt-10 mb-20"></div>
-      <pg-menu-items [Items]="menuLinks">
+      <pg-menu-items *ngIf="!user.is_staff" [Items]="menuLinks">
       </pg-menu-items>
-      <a href="#" class="dropdown-item" (click)="logOut()">Logout</a>
     </ng-template>
-    <a href="#" class="dropdown-item" (click)="logOut()">Logout</a>
+    <ng-template *ngIf="user.is_staff" #menuItems>
+      <div class="mt-10 mb-20"></div>
+      <pg-menu-items [Items]="menuAdminLinks">
+      </pg-menu-items>
+    </ng-template>
   </pg-sidebar>
   <!-- PAGE CONTAINER -->
   <page-container>

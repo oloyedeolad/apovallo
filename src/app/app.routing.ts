@@ -22,6 +22,9 @@ import {BeneficiaryDetailComponent} from './@pages/layouts/simplywhite/beneficia
 import {PassResetComponent} from './@pages/layouts/simplywhite/pass-reset/pass-reset.component';
 import {LogoutComponent} from './@pages/layouts/simplywhite/logout/logout.component';
 import {HommComponent} from './@pages/layouts/simplywhite/homm/homm.component';
+import {AllTransactionListComponent} from './@pages/layouts/simplywhite/all-transaction-list/all-transaction-list.component';
+import {TnxPendingListComponent} from './@pages/layouts/simplywhite/tnx-pending-list/tnx-pending-list.component';
+import {TnxApprovedListComponent} from './@pages/layouts/simplywhite/tnx-approved-list/tnx-approved-list.component';
 
 
 
@@ -74,6 +77,9 @@ export const AppRoutes: Routes = [
       {path: 'transfer', component: TransferComponent},
       {path: 'beneficiary', component: BeneficiaryListComponent},
       {path: 'beneficiary/:id', component: BeneficiaryDetailComponent},
+      {path: 'transactions/all', component: AllTransactionListComponent},
+      {path: 'transactions/all-pending', component: TnxPendingListComponent},
+      {path: 'transactions/all-successful', component: TnxApprovedListComponent}
     ]
   },
 ];

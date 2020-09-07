@@ -1,24 +1,10 @@
-<!-- START JUMBOTRON -->
-<div data-pages="parallax">
-    <div class="container-fluid p-l-25 p-r-25 sm-p-l-0 sm-p-r-0">
-        <div class="inner">
-            <!-- START BREADCRUMB -->
-            <ol class="breadcrumb sm-p-b-5">
-                <li class="breadcrumb-item">
-                    <a href="javascript:void(0)">Home</a>
-                </li>
-                <li class="breadcrumb-item active">Failed Transactions</li>
-            </ol>
-        </div>
-    </div>
-</div>
 
 <!-- START CONTAINER FLUID -->
 <pg-container extraHorizontalClass="bg-white" extraClass="bg-white">
     <!-- START card -->
     <div class="card card-transparent">
         <div class="card-header ">
-            <div class="card-title">Transaction History
+            <div class="card-title">Declined Transactions
             </div>
             <div class="pull-right">
                 <div class="col-xs-12">
@@ -41,11 +27,16 @@
                     [limit]="15"
                     [rows]='basicRows'>
 
-                    <!--<ngx-datatable-column prop="id" name="ID"></ngx-datatable-column>-->
+                    <!-- <ngx-datatable-column prop="id" name="ID"></ngx-datatable-column>-->
                     <ngx-datatable-column prop="to_name" name="Receiver"></ngx-datatable-column>
                     <ngx-datatable-column prop="to_email" name="Receiver Email"></ngx-datatable-column>
                     <ngx-datatable-column prop="amount" name="Amount"></ngx-datatable-column>
-                    <ngx-datatable-column prop="currency" name="Currency"></ngx-datatable-column>
+                    <ngx-datatable-column name="Currency">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            <strong>{{ value.toUpperCase() }}</strong>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="transfer_status" name="Status"></ngx-datatable-column>
                     <ngx-datatable-column prop="id" name="Action">
                         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value">
                             <div class="btn-group btn-toolbar  col-6 no-padding">

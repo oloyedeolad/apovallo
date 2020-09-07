@@ -5,11 +5,11 @@ import {TransactionService} from '../transactions/transaction.service';
 import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
-  selector: 'app-tnx-pending-list',
-  templateUrl: './tnx-pending-list.component.html',
-  styleUrls: ['./tnx-pending-list.component.scss']
+  selector: 'app-declined-list',
+  templateUrl: './declined-list.component.html',
+  styleUrls: ['./declined-list.component.scss']
 })
-export class TnxPendingListComponent implements OnInit {
+export class DeclinedListComponent implements OnInit {
 
   basicRows: ITransaction[];
   basicSort: ITransaction[];
@@ -18,7 +18,7 @@ export class TnxPendingListComponent implements OnInit {
     { name: 'Status' }, {name: 'Action'}];
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService) {
-    this.transactionService.findByOnlyStatus('pending').subscribe((res) => {
+    this.transactionService.findByOnlyStatus('declined').subscribe((res) => {
       this.transactions = res.body;
 
       if (this.transactions != null) {
@@ -34,7 +34,6 @@ export class TnxPendingListComponent implements OnInit {
   // https://github.com/swimlane/ngx-datatable/issues/423
   scrollBarHorizontal = window.innerWidth < 960;
   columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
-
 
   ngOnInit() {
   }
