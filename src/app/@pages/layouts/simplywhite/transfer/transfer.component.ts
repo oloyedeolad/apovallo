@@ -51,7 +51,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   to_email: string;
   to_phone: string;
   middle = false;
-  to_bank: IBank;
+  to_bank: IBank = {};
   bankOptions: IBank[];
   total: number;
   amount = 0;
