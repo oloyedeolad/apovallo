@@ -56,13 +56,25 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="county.invalid && (county.dirty || county.touched)">
+
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
+                        <!-- <label>Destination Country</label>-->
+                        <pg-select style="width: 100%;" [(ngModel)]="bank"  PlaceHolder="Choose Beneficiary Bank" id="bank" name="bank" #toBank="ngModel"  AllowClear
+                                   ShowSearch required>
+                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
+                            <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
+                        </div>
+                    </div>
+                   <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="county.invalid && (county.dirty || county.touched)">
                         <label>Bank</label>
                         <input type="text" class="form-control" id="bank_name" name="bank_name" [(ngModel)]="bank_name"  #county="ngModel" required>
                     </div>
                     <div *ngIf="county.invalid && (county.dirty || county.touched)" >
                         <label  *ngIf="county.errors.required" class="error" >This field is required.</label>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

@@ -85,7 +85,7 @@
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useBen.invalid ">
                         <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event)" id="beneficiary" name="beneficiary" #useBen= "ngModel" PlaceHolder="Choose Beneficiary" AllowClear
                                    ShowSearch>
-                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank_name + '|' + option.account}}"  [Value]="option">
+                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank.name + '|' + option.account}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="useBen.invalid" >

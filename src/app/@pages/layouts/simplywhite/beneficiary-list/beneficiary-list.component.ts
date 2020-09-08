@@ -4,7 +4,7 @@ import {DatatableComponent} from '@swimlane/ngx-datatable';
 import {IUser} from '../../../../account/model/user.model';
 import {LocalStorageService} from 'ngx-webstorage';
 import {BeneficiaryService} from '../transactions/benefiary.service';
-import {IBeneficiary} from '../transactions/beneficiary.model';
+import {IBeneficiary, IReadBeneficiary} from '../transactions/beneficiary.model';
 
 @Component({
   selector: 'app-beneficiary-list',
@@ -13,14 +13,14 @@ import {IBeneficiary} from '../transactions/beneficiary.model';
 })
 export class BeneficiaryListComponent implements OnInit {
 
-  basicRows: IBeneficiary[];
-  basicSort: IBeneficiary[];
+  basicRows: IReadBeneficiary[];
+  basicSort: IReadBeneficiary[];
   columns = [ { name: 'Name' }, { name: 'Bank Name' }, { name: 'Account' },
     { name: 'Email' }, {name: 'Phone'}];
   @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
   user: IUser;
   transactions: ITransaction[];
-  beneficiaries: IBeneficiary[] = [];
+  beneficiaries: IReadBeneficiary[] = [];
 
   constructor(private $localStorage: LocalStorageService, private beneficiaryService: BeneficiaryService) {
     this.user = this.$localStorage.retrieve('user');

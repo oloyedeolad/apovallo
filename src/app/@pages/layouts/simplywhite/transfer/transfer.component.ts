@@ -11,7 +11,7 @@ import {ExchangeRate, ICountry, IExchangeRate} from '../transactions/country.mod
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {error} from 'util';
 import {BeneficiaryService} from '../transactions/benefiary.service';
-import {IBeneficiary} from '../transactions/beneficiary.model';
+import {IBeneficiary, IReadBeneficiary} from '../transactions/beneficiary.model';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {IBank} from '../create-bank/bank.model';
 import {BankService} from '../create-bank/bank.service';
@@ -69,7 +69,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   user: IUser;
   tnx: ITransaction;
   loadBenInitStatus = false;
-  beneficiaries: IBeneficiary[] = [];
+  beneficiaries: IReadBeneficiary[] = [];
   beneficiary: IBeneficiary = {};
 
   elementsOptions: StripeElementsOptions = {
@@ -121,7 +121,7 @@ export class TransferComponent implements OnInit, OnDestroy {
     }
   }
   confirmTransaction(form) {
-    if (form.value.amount > 2000) {
+    if (form.value.amount > 2000 || form.value.amount === 0) {
       this.toaster.error('Your amount cannot be more than 2000');
       return;
     }
@@ -282,7 +282,7 @@ export class TransferComponent implements OnInit, OnDestroy {
         name: this.to_firstname,
         email: this.to_email,
         phone: this.to_phone,
-        bank_name: this.to_bank.name,
+        bank: this.to_bank.id,
         account: this.to_account_number,
         user: this.user.id
       };
@@ -320,10 +320,10 @@ export class TransferComponent implements OnInit, OnDestroy {
     }
   }
 
-  fillBeneficiary(value: IBeneficiary) {
+  fillBeneficiary(value: IReadBeneficiary) {
     this.to_firstname = value.name;
     this.to_account_number = value.account;
-    // this.to_bank = value.bank_name;
+    this.to_bank = value.bank;
     this.to_email = value.email;
     this.to_phone = value.phone;
     this.loadBenInitStatus = true;
