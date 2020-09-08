@@ -83,11 +83,12 @@
             <div *ngIf="loadBeneficiary" class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useBen.invalid ">
-                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event)" id="beneficiary" name="beneficiary" #useBen= "ngModel" PlaceHolder="Choose Beneficiary" AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event, transferForm)" id="beneficiary" name="beneficiary" #useBen= "ngModel" PlaceHolder="Choose Beneficiary" AllowClear
                                    ShowSearch>
                             <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank.name + '|' + option.account}}"  [Value]="option">
                             </pg-option>
                         </pg-select>
+
                         <div *ngIf="useBen.invalid" >
                             <label  *ngIf="useBen.errors.required" class="error" >This field is required.</label>
                         </div>
@@ -111,11 +112,11 @@
             <div class="row">
                 <div class="col-md-6">
 
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
+                    <div *ngIf="!isSet" pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="to_bank.name"  PlaceHolder="Choose Beneficiary Bank" id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
+                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Beneficiary Bank" id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
                                    ShowSearch required>
-                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name}}"  [Value]="option">
+                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name }}"  [Value]="option">
                             </pg-option>
                         </pg-select>
                         <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
@@ -123,13 +124,10 @@
                         </div>
                     </div>
 
-                  <!--  <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
+                    <div *ngIf="isSet" pgFormGroupDefault class="form-group form-group-default">
                         <label>Name of Bank</label>
-                        <input type="text" placeholder="" class="form-control" id="to_bank" name="to_bank" [(ngModel)]="to_bank"  #toBank="ngModel" required >
+                        <input type="text" placeholder="" class="form-control"  name="to_bank" [(ngModel)]="to_bank.name"  readonly>
                     </div>
-                    <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
-                        <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
-                    </div>-->
                 </div>
                 <div class="col-md-6">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
@@ -393,3 +391,5 @@
         </button>
     </div>
 </div>
+
+

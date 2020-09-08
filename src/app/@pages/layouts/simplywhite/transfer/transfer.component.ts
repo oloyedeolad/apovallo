@@ -42,6 +42,7 @@ export class TransferComponent implements OnInit, OnDestroy {
       },
     },
   };
+  isSet = false;
   mySubscription: any;
   transferForm: NgForm;
   is_ready = false;
@@ -317,15 +318,19 @@ export class TransferComponent implements OnInit, OnDestroy {
       // this.to_bank = '';
       this.to_email = '';
       this.to_phone = '';
+      this.isSet = false;
     }
   }
 
-  fillBeneficiary(value: IReadBeneficiary) {
+  fillBeneficiary(value: IReadBeneficiary, transferForm: any) {
+    console.log(value.bank);
     this.to_firstname = value.name;
     this.to_account_number = value.account;
     this.to_bank = value.bank;
     this.to_email = value.email;
     this.to_phone = value.phone;
     this.loadBenInitStatus = true;
+    this.isSet = true;
+    console.log(transferForm.value.to_bank);
   }
 }
