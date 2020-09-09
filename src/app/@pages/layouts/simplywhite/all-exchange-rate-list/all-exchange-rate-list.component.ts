@@ -25,6 +25,7 @@ export class AllExchangeRateListComponent implements OnInit {
   rates: IExchangeRate [];
   rate = 0;
   amount = 0;
+  total = 0;
   exchangeRates: IExchangeRate[];
   basicRows: IExchangeRate[];
   basicSort: IExchangeRate[];
@@ -57,8 +58,8 @@ export class AllExchangeRateListComponent implements OnInit {
 
   changeSource(evnt: NgForm) {
     this.optionsDestination = [];
-    console.log(evnt.value);
     this.source_country = evnt.value.currency;
+    console.log(this.source_country);
     this.currency = evnt.value.currency.currency;
     const b = this.currency;
     const co: ICountry = this.source_country;
@@ -70,7 +71,7 @@ export class AllExchangeRateListComponent implements OnInit {
     rates1.forEach((pes) => {
       this.optionsDestination.push(pes.destination_country);
     });
-    // console.log(this.transferForm);
+     console.log(this.optionsDestination);
   }
 
 
@@ -97,6 +98,7 @@ export class AllExchangeRateListComponent implements OnInit {
     console.log(prate);
     this.rate = finalRate[0].rate;
     console.log(this.rate);
+    this.total = this.rate * this.amount;
   }
   ngOnInit() {
   }

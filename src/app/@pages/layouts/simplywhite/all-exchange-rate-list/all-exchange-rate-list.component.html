@@ -9,7 +9,7 @@
         <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-3 mr-0">
+                <div class="col-md-6 mr-0">
                     <!--<div class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
                         <label><span><small>Currency</small></span></label>
                         <select style="width: 100%;"  [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
@@ -28,38 +28,93 @@
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div role="separator" class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
+                            <select name="currency"  [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" class="custom-select form-control" id="inputGroupSelect01">
+                                <option *ngFor="let option of optionsSource" [ngValue]="option">{{option.currency_label.toUpperCase()}}</option>
+                            </select>
                         </div>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <input type="text" placeholder="Amount" class="form-control" id="amount" name="amount" [(ngModel)]="amount">
                     </div>
                 </div>
 
-                <div class="col-md-4 ml-0">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
+                <div class="col-md-1 ml-0">
+                    <!--<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
                         <label>Amount (max is 2000)</label>
                         <input type="number"  class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required >
                     </div>
                     <div *ngIf="(sAmount.invalid && (sAmount.dirty || sAmount.touched)) || sAmount.value > 2000" >
                         <label  *ngIf="sAmount.errors.required" class="error" >This field is required or amount is greater than 2000</label>
-                    </div>
+                    </div>-->
 
                 </div>
                 <div class="col-md-2"></div>
             </div>
 
             <div class="row">
-                <div class="col-md-12 mb-2">
-                        <i class="fas fa-minus"></i>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 mb-2">
+                        <i style="color: white" class="fas fa-minus-circle mr-2">    Cost</i><span style="color: white">Fee</span>
                 </div>
+                <div class="col-md-4"></div>
             </div>
 
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 mb-2">
+                    <i style="color: white" class="fas fa-equals mr-2">  {{amount}}</i> <span style="color: white">We will convert</span>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 mb-2">
+                    <i style="color: white" class="fas fa-times-circle mr-2">  {{rate}}</i> <span style="color: white">Current Rate</span>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 mr-0">
+                    <!--<div class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
+                        <label><span><small>Currency</small></span></label>
+                        <select style="width: 100%;"  [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
+                            <option>CHOOSE CURRENCY</option>
+                            <option *ngFor="let option of optionsSource" value="option">{{option.currency_label.toUpperCase()}}</option>
+                        </select>
+                        &lt;!&ndash;<pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
+                            <pg-option *ngFor="let option of optionsSource" Label="{{option.currency_label.toUpperCase()}}"  [Value]="option">
+                            </pg-option>
+                        </pg-select>&ndash;&gt;
+                        <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
+                            <label  *ngIf="useCurrency.errors.required" class="error" >This field is required.</label>
+                        </div>
+
+                    </div>-->
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <select name="destination_country" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  class="custom-select form-control" id="inputGroupSelect02">
+                                <option selected>Destination</option>
+                                <option *ngFor="let option of optionsDestination" [ngValue]="option">{{option.currency_label.toUpperCase()}}</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Total" class="form-control" id="total" name="total" [(ngModel)]="total" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-1 ml-0">
+                    <!--<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
+                        <label>Amount (max is 2000)</label>
+                        <input type="number"  class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required >
+                    </div>
+                    <div *ngIf="(sAmount.invalid && (sAmount.dirty || sAmount.touched)) || sAmount.value > 2000" >
+                        <label  *ngIf="sAmount.errors.required" class="error" >This field is required or amount is greater than 2000</label>
+                    </div>-->
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
         </form>
 
     </div>
