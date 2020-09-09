@@ -30,8 +30,10 @@ export class AllExchangeRateListComponent implements OnInit {
   basicRows: IExchangeRate[];
   basicSort: IExchangeRate[];
   currency: string;
-  source_country: ICountry;
-  destination_country: ICountry;
+  source_country: ICountry = {};
+  source_country1: ICountry = {currency_label: 'Source'};
+  destination_country: ICountry = {};
+  destination_country1: ICountry = {currency_label: 'Destination'};
   optionsSource: ICountry [] = [];
   optionsDestination: ICountry[] = [];
   columns = [{name: 'From Country'}, {name: 'To Country'}, {name: 'Rate'}];
@@ -54,24 +56,31 @@ export class AllExchangeRateListComponent implements OnInit {
       return !this[a.name] && (this[a.name] = true);
     }, Object.create(null));
     console.log(this.optionsSource);
+    this.source_country = this.optionsSource[0];
+    this.filterDestination();
+    this.destination_country = this.optionsDestination[0];
+    this.fixRate();
   }
 
   changeSource(evnt: NgForm) {
     this.optionsDestination = [];
     this.source_country = evnt.value.currency;
-    console.log(this.source_country);
+    // console.log(this.source_country);
     this.currency = evnt.value.currency.currency;
     const b = this.currency;
-    const co: ICountry = this.source_country;
-    console.log(evnt.controls.destination_country.reset());
+    this.filterDestination();
+    this.fixRate();
+  }
 
+  filterDestination() {
+    const co: ICountry = this.source_country;
     const rates1: IExchangeRate[] = this.rates.filter(function (des) {
       return des.source_country.name === co.name && des.destination_country.name !== co.name;
     });
     rates1.forEach((pes) => {
       this.optionsDestination.push(pes.destination_country);
     });
-     console.log(this.optionsDestination);
+    console.log(this.optionsDestination);
   }
 
 
@@ -88,8 +97,12 @@ export class AllExchangeRateListComponent implements OnInit {
       return;
     }
     const pet = this.source_country.name;
+    this.fixRate();
+  }
+
+  fixRate() {
     const prate: IExchangeRate [] = this.rates.filter((rate)  => {
-      return  rate.destination_country.name === evet.name;
+      return  rate.destination_country.name === this.destination_country.name;
     });
     const finalRate: IExchangeRate [] = prate.filter((pot) => {
       return pot.source_country.name === this.source_country.name;
