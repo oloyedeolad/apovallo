@@ -24,12 +24,21 @@ export class TnxFailedComponent implements OnInit {
               private route: ActivatedRoute) {
     console.log(this.columnModeSetting);
     this.user = $localStorage.retrieve('user');
-      this.transactions = this.$localStorage.retrieve('fTnx');
+    this.transactionService.findByStatus('failed', this.user.username).subscribe((res) => {
+      this.transactions = res.body;
+      // this.$localStorage.store('fTnx', this.failedTransactions);
+      // this.basicSort = [...this.transactions];
+      // push our inital complete list
+      // this.basicRows = this.transactions;
+      console.log(this.transactions);
       if (this.transactions != null) {
         this.basicSort = [...this.transactions];
         // push our inital complete list
         this.basicRows = this.transactions;
       }
+    }, (error) => {
+      console.log(error);
+    });
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

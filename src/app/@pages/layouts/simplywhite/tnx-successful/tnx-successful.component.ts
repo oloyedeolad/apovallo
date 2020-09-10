@@ -25,12 +25,21 @@ export class TnxSuccessfulComponent implements OnInit {
               private route: ActivatedRoute) {
     console.log(this.columnModeSetting);
     this.user = $localStorage.retrieve('user');
-    this.transactions = this.$localStorage.retrieve('sTnx');
-    if (this.transactions != null) {
-      this.basicSort = [...this.transactions];
-      // push our inital complete list
-      this.basicRows = this.transactions;
-    }
+/*    this.transactions = this.$localStorage.retrieve('sTnx');
+    */
+    this.transactionService.findByUserId(this.user.username).subscribe((res) => {
+      this.transactions = res.body;
+      console.log('All: ' + this.transactions);
+      // this.$localStorage.store('aTnx', this.transactions);
+
+      if (this.transactions != null) {
+        this.basicSort = [...this.transactions];
+        // push our inital complete list
+        this.basicRows = this.transactions;
+      }
+    }, (error) => {
+      console.log(error);
+    });
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

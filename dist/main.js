@@ -11009,12 +11009,21 @@ var TnxFailedComponent = /** @class */ (function () {
         this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
         console.log(this.columnModeSetting);
         this.user = $localStorage.retrieve('user');
-        this.transactions = this.$localStorage.retrieve('fTnx');
-        if (this.transactions != null) {
-            this.basicSort = this.transactions.slice();
+        this.transactionService.findByStatus('failed', this.user.username).subscribe(function (res) {
+            _this.transactions = res.body;
+            // this.$localStorage.store('fTnx', this.failedTransactions);
+            // this.basicSort = [...this.transactions];
             // push our inital complete list
-            this.basicRows = this.transactions;
-        }
+            // this.basicRows = this.transactions;
+            console.log(_this.transactions);
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+        }, function (error) {
+            console.log(error);
+        });
         window.onresize = function () {
             _this.scrollBarHorizontal = window.innerWidth < 960;
             _this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
@@ -11229,13 +11238,19 @@ var TnxPendingComponent = /** @class */ (function () {
         this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
         console.log(this.columnModeSetting);
         this.user = $localStorage.retrieve('user');
-        this.transactions = $localStorage.retrieve('pTnx');
-        console.log('pending: ' + this.transactions);
-        if (this.transactions != null) {
-            this.basicSort = this.transactions.slice();
-            // push our inital complete list
-            this.basicRows = this.transactions;
-        }
+        /*   this.transactions = $localStorage.retrieve('pTnx');
+           console.log('pending: ' + this.transactions);*/
+        this.transactionService.findByStatus('pending', this.user.username).subscribe(function (res) {
+            _this.transactions = res.body;
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+            console.log(_this.transactions);
+        }, function (error) {
+            console.log(error);
+        });
         window.onresize = function () {
             _this.scrollBarHorizontal = window.innerWidth < 960;
             _this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
@@ -11340,12 +11355,20 @@ var TnxSuccessfulComponent = /** @class */ (function () {
         this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
         console.log(this.columnModeSetting);
         this.user = $localStorage.retrieve('user');
-        this.transactions = this.$localStorage.retrieve('sTnx');
-        if (this.transactions != null) {
-            this.basicSort = this.transactions.slice();
-            // push our inital complete list
-            this.basicRows = this.transactions;
-        }
+        /*    this.transactions = this.$localStorage.retrieve('sTnx');
+            */
+        this.transactionService.findByUserId(this.user.username).subscribe(function (res) {
+            _this.transactions = res.body;
+            console.log('All: ' + _this.transactions);
+            // this.$localStorage.store('aTnx', this.transactions);
+            if (_this.transactions != null) {
+                _this.basicSort = _this.transactions.slice();
+                // push our inital complete list
+                _this.basicRows = _this.transactions;
+            }
+        }, function (error) {
+            console.log(error);
+        });
         window.onresize = function () {
             _this.scrollBarHorizontal = window.innerWidth < 960;
             _this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';
@@ -11448,7 +11471,7 @@ var BeneficiaryService = /** @class */ (function () {
     };
     BeneficiaryService.prototype.find = function (id) {
         return this.http
-            .get("" + this.resourceUrl + id + "/", { observe: 'response' })
+            .get(this.resourceUrl + "my/" + id + "/", { observe: 'response' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) { return res; }));
     };
     BeneficiaryService.prototype.query = function (req) {

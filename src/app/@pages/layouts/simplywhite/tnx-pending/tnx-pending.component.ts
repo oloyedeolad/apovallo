@@ -24,13 +24,19 @@ export class TnxPendingComponent implements OnInit {
               private route: ActivatedRoute) {
     console.log(this.columnModeSetting);
     this.user = $localStorage.retrieve('user');
-      this.transactions = $localStorage.retrieve('pTnx');
-      console.log('pending: ' + this.transactions);
+   /*   this.transactions = $localStorage.retrieve('pTnx');
+      console.log('pending: ' + this.transactions);*/
+    this.transactionService.findByStatus('pending', this.user.username).subscribe((res) => {
+      this.transactions = res.body;
       if (this.transactions != null) {
         this.basicSort = [...this.transactions];
         // push our inital complete list
         this.basicRows = this.transactions;
       }
+      console.log(this.transactions);
+    }, (error) => {
+      console.log(error);
+    });
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

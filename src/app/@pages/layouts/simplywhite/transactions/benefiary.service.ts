@@ -41,7 +41,7 @@ export class BeneficiaryService {
 
     find(id: number): Observable<EntityResponseTypePay> {
         return this.http
-            .get<IReadBeneficiary>(`${this.resourceUrl}${id}/`, { observe: 'response' })
+            .get<IReadBeneficiary>(`${this.resourceUrl}my/${id}/`, { observe: 'response' })
             .pipe(map((res: EntityResponseTypePay) => res));
     }
 
