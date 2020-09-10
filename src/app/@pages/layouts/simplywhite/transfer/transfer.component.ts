@@ -57,6 +57,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   total: number;
   amount = 0;
   rate = 0;
+  permit;
   is_failed = false;
   is_successful = false;
   is_goal = false;
@@ -122,6 +123,10 @@ export class TransferComponent implements OnInit, OnDestroy {
     }
   }
   confirmTransaction(form) {
+    if (form.invalid) {
+      this.toaster.error('please fill all required filled', 'Form is Valid');
+      return;
+    }
     if (form.value.amount > 2000 || form.value.amount === 0) {
       this.toaster.error('Your amount cannot be more than 2000');
       return;

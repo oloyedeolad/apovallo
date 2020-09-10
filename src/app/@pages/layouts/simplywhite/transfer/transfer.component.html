@@ -181,13 +181,14 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <!--<div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
-                        <label>Current Exchange Rate</label>
-                        <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
+                    <div class="col-md-12 mb-2">
+                        <div class="form-check complete">
+                            <input type="checkbox" id="checkColorOpt30" name="permit" [(ngModel)]="permit" required>
+                            <label for="checkColorOpt30">
+                                Yes I know and trust this person
+                            </label>
+                        </div>
                     </div>
-                    <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
-                        <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
-                    </div>-->
                 </div>
                 <div class="col-md-6">
                    <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cTotal.invalid && (cTotal.dirty || cTotal.touched)">
