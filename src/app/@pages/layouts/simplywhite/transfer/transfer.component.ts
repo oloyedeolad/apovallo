@@ -135,12 +135,13 @@ export class TransferComponent implements OnInit, OnDestroy {
       this.toaster.error('Your form is invalid, please make sure you have filled all field', 'Form is Valid');
       return;
     } else {
+      console.log(form.value);
       this.tnx = {
         to_name: form.value.to_firstname,
         to_email: form.value.to_email,
         to_account_number: form.value.to_account_number,
         to_country: form.value.destination_country.name,
-        to_bank: form.value.to_bank.id,
+        to_bank: this.to_bank.id,
         to_phone: form.value.to_phone,
         user: this.user.username,
         // from_country: form.source_country.name,
