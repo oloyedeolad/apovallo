@@ -6,24 +6,29 @@
         <!--<p>
             We accept various types of cards: Debit, Credit, Amex, Visa, and others.
         </p>-->
-        <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm" (ngSubmit)="confirmTransaction(transferForm)">
+        <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm"
+            (ngSubmit)="confirmTransaction(transferForm)">
             <div class="row">
 
                 <div class="col-md-6">
-                        <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
-                            <!--<label>Currency</label>-->
-                            <pg-select style="width: 100%;" [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
-                                <pg-option *ngFor="let option of optionsSource" Label="{{option.currency_label.toUpperCase()}}"  [Value]="option">
-                                </pg-option>
-                            </pg-select>
-                            <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)" >
-                                <label  *ngIf="useCurrency.errors.required" class="error" >This field is required.</label>
-                            </div>
-
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
+                        <!--<label>Currency</label>-->
+                        <pg-select style="width: 100%;" [(ngModel)]="currency"
+                            (ngModelChange)="changeSource(transferForm)" id="currency" name="currency"
+                            #useCurrency="ngModel" PlaceHolder="Choose currency" required>
+                            <pg-option *ngFor="let option of optionsSource"
+                                Label="{{option.currency_label.toUpperCase()}}" [Value]="option">
+                            </pg-option>
+                        </pg-select>
+                        <div *ngIf="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
+                            <label *ngIf="useCurrency.errors.required" class="error">This field is required.</label>
                         </div>
+
+                    </div>
                 </div>
 
-                   <!-- <div class="col-md-6">
+                <!-- <div class="col-md-6">
                         <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="sAmount.invalid && (sAmount.dirty || sAmount.touched || sAmount.value >2000)">
                             <label>Amount</label>
                             <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required>
@@ -33,13 +38,16 @@
                         </div>
                     </div>-->
                 <div class="col-md-6">
-                <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
-                    <label>Amount (max is 2000)</label>
-                    <input type="number"  class="form-control" id="amount" name="amount" [(ngModel)]="amount"  #sAmount="ngModel" required >
-                </div>
-                <div *ngIf="(sAmount.invalid && (sAmount.dirty || sAmount.touched)) || sAmount.value > 2000" >
-                    <label  *ngIf="fName.errors.required" class="error" >This field is required or amount is greater than 2000</label>
-                </div>
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="(sAmount.invalid && (sAmount.dirty || sAmount.touched))|| sAmount.value > 2000">
+                        <label>Amount (max is 2000)</label>
+                        <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="amount"
+                            #sAmount="ngModel" required>
+                    </div>
+                    <div *ngIf="(sAmount.invalid && (sAmount.dirty || sAmount.touched)) || sAmount.value > 2000">
+                        <label *ngIf="fName.errors.required" class="error">This field is required or amount is greater
+                            than 2000</label>
+                    </div>
 
                 </div>
 
@@ -47,32 +55,39 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
                         <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"  PlaceHolder="Choose Destination country"  (ngModelChange)="changeDestination($event)"  id="destination_country" name="destination_country" #dCountry="ngModel"  AllowClear
-                                   ShowSearch required>
-                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"  [Value]="option">
+                        <pg-select style="width: 100%;" [(ngModel)]="destination_country"
+                            PlaceHolder="Choose Destination country" (ngModelChange)="changeDestination($event)"
+                            id="destination_country" name="destination_country" #dCountry="ngModel" AllowClear
+                            ShowSearch required>
+                            <pg-option *ngFor="let option of optionsDestination" Label="{{option.name}}"
+                                [Value]="option">
                             </pg-option>
                         </pg-select>
-                        <div *ngIf="dCountry.invalid && (dCountry.dirty || dCountry.touched)" >
-                            <label  *ngIf="dCountry.errors.required" class="error" >This field is required.</label>
+                        <div *ngIf="dCountry.invalid && (dCountry.dirty || dCountry.touched)">
+                            <label *ngIf="dCountry.errors.required" class="error">This field is required.</label>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="cRate.invalid && (cRate.dirty || cRate.touched)">
                         <label>Current Exchange Rate</label>
-                        <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate" [(ngModel)]="rate"  #cRate="ngModel" required >
+                        <input readonly type="number" placeholder="" class="form-control" id="rate" name="rate"
+                            [(ngModel)]="rate" #cRate="ngModel" required>
                     </div>
-                    <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)" >
-                        <label  *ngIf="cRate.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="cRate.invalid && (cRate.dirty || cRate.touched)">
+                        <label *ngIf="cRate.errors.required" class="error">This field is required.</label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mb-2">
                     <div class="form-check complete">
-                        <input type="checkbox" id="checkColorOpt2" name="saveBeneficiary" [(ngModel)]="loadBeneficiary" (ngModelChange)="loadDataBeneficiary($event)">
+                        <input type="checkbox" id="checkColorOpt2" name="saveBeneficiary" [(ngModel)]="loadBeneficiary"
+                            (ngModelChange)="loadDataBeneficiary($event)">
                         <label for="checkColorOpt2">
                             Choose a saved beneficiary?
                         </label>
@@ -83,14 +98,17 @@
             <div *ngIf="loadBeneficiary" class="row">
                 <div class="col-md-12 mb-2">
                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="useBen.invalid ">
-                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary" (ngModelChange)="fillBeneficiary($event, transferForm)" id="beneficiary" name="beneficiary" #useBen= "ngModel" PlaceHolder="Choose Beneficiary" AllowClear
-                                   ShowSearch>
-                            <pg-option *ngFor="let option of beneficiaries" Label="{{option.name + '| ' + option.bank.name + '|' + option.account}}"  [Value]="option">
+                        <pg-select style="width: 100%;" [(ngModel)]="beneficiary"
+                            (ngModelChange)="fillBeneficiary($event, transferForm)" id="beneficiary" name="beneficiary"
+                            #useBen="ngModel" PlaceHolder="Choose Beneficiary" AllowClear ShowSearch>
+                            <pg-option *ngFor="let option of beneficiaries"
+                                Label="{{option.name + '| ' + option.bank.name + '|' + option.account}}"
+                                [Value]="option">
                             </pg-option>
                         </pg-select>
 
-                        <div *ngIf="useBen.invalid" >
-                            <label  *ngIf="useBen.errors.required" class="error" >This field is required.</label>
+                        <div *ngIf="useBen.invalid">
+                            <label *ngIf="useBen.errors.required" class="error">This field is required.</label>
                         </div>
                     </div>
                 </div>
@@ -98,12 +116,14 @@
 
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
                         <label>Receiver's Full Name</label>
-                        <input type="text"  class="form-control" id="to_firstname" name="to_firstname" [(ngModel)]="to_firstname"  #fName="ngModel" required >
+                        <input type="text" class="form-control" id="to_firstname" name="to_firstname"
+                            [(ngModel)]="to_firstname" #fName="ngModel" required>
                     </div>
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" >
-                        <label  *ngIf="fName.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)">
+                        <label *ngIf="fName.errors.required" class="error">This field is required.</label>
                     </div>
                 </div>
 
@@ -112,30 +132,34 @@
             <div class="row">
                 <div class="col-md-6">
 
-                    <div *ngIf="!isSet" pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
+                    <div *ngIf="!isSet" pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="toBank.invalid && (toBank.dirty || toBank.touched)">
                         <!-- <label>Destination Country</label>-->
-                        <pg-select style="width: 100%;" [(ngModel)]="to_bank"  PlaceHolder="Choose Beneficiary Bank" id="to_bank" name="to_bank" #toBank="ngModel"  AllowClear
-                                   ShowSearch required>
-                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name }}"  [Value]="option">
+                        <pg-select style="width: 100%;" [(ngModel)]="to_bank" PlaceHolder="Choose Beneficiary Bank"
+                            id="to_bank" name="to_bank" #toBank="ngModel" AllowClear ShowSearch required>
+                            <pg-option *ngFor="let option of bankOptions" Label="{{option.name }}" [Value]="option">
                             </pg-option>
                         </pg-select>
-                        <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)" >
-                            <label  *ngIf="toBank.errors.required" class="error" >This field is required.</label>
+                        <div *ngIf="toBank.invalid && (toBank.dirty || toBank.touched)">
+                            <label *ngIf="toBank.errors.required" class="error">This field is required.</label>
                         </div>
                     </div>
 
                     <div *ngIf="isSet" pgFormGroupDefault class="form-group form-group-default">
                         <label>Name of Bank</label>
-                        <input type="text" placeholder="" class="form-control"  name="to_bank" [(ngModel)]="to_bank.name"  readonly>
+                        <input type="text" placeholder="" class="form-control" name="to_bank" [(ngModel)]="to_bank.name"
+                            readonly>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
                         <label>Account Number</label>
-                        <input type="text" placeholder="" maxlength="18" class="form-control" id="to_account_number" name="to_account_number" [(ngModel)]="to_account_number"  #toAccount="ngModel" required>
+                        <input type="text" placeholder="" maxlength="18" class="form-control" id="to_account_number"
+                            name="to_account_number" [(ngModel)]="to_account_number" #toAccount="ngModel" required>
                     </div>
-                    <div *ngIf="toAccount.invalid && (toAccount.dirty || toAccount.touched)" >
-                        <label  *ngIf="toAccount.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toAccount.invalid && (toAccount.dirty || toAccount.touched)">
+                        <label *ngIf="toAccount.errors.required" class="error">This field is required.</label>
                     </div>
                 </div>
             </div>
@@ -143,21 +167,25 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toPhone.invalid && (toPhone.dirty || toPhone.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="toPhone.invalid && (toPhone.dirty || toPhone.touched)">
                         <label>Receiver's Phone</label>
-                        <input type="text" placeholder="" class="form-control" id="to_phone" name="to_phone" [(ngModel)]="to_phone"  #toPhone="ngModel" required >
+                        <input type="text" placeholder="" class="form-control" id="to_phone" name="to_phone"
+                            [(ngModel)]="to_phone" #toPhone="ngModel" required>
                     </div>
-                    <div *ngIf="toPhone.invalid && (toPhone.dirty || toPhone.touched)" >
-                        <label  *ngIf="toPhone.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toPhone.invalid && (toPhone.dirty || toPhone.touched)">
+                        <label *ngIf="toPhone.errors.required" class="error">This field is required.</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="toEmail.invalid && (toEmail.dirty || toEmail.touched)">
+                    <div pgFormGroupDefault class="form-group form-group-default"
+                        [class.has-error]="toEmail.invalid && (toEmail.dirty || toEmail.touched)">
                         <label>Receiver's Email</label>
-                        <input type="text" placeholder="" class="form-control" id="to_email" name="to_email" [(ngModel)]="to_email"  #toEmail="ngModel">
+                        <input type="text" placeholder="" class="form-control" id="to_email" name="to_email"
+                            [(ngModel)]="to_email" #toEmail="ngModel">
                     </div>
-                    <div *ngIf="toEmail.invalid && (toEmail.dirty || toEmail.touched)" >
-                        <label  *ngIf="toEmail.errors.required" class="error" >This field is required.</label>
+                    <div *ngIf="toEmail.invalid && (toEmail.dirty || toEmail.touched)">
+                        <label *ngIf="toEmail.errors.required" class="error">This field is required.</label>
                     </div>
                 </div>
             </div>
@@ -166,7 +194,8 @@
             <div class="row mt-2">
                 <div class="col-md-12 mb-2">
                     <div class="form-check complete">
-                        <input type="checkbox" id="checkColorOpt1" name="saveBeneficiary" [(ngModel)]="saveBeneficiary" (ngModelChange)="createBeneficiary($event)">
+                        <input type="checkbox" id="checkColorOpt1" name="saveBeneficiary" [(ngModel)]="saveBeneficiary"
+                            (ngModelChange)="createBeneficiary($event)">
                         <label for="checkColorOpt1">
                             Save Beneficiary
                         </label>
@@ -183,29 +212,31 @@
                 <div class="col-md-6">
                     <div class="col-md-12 mb-2">
                         <div class="form-check complete">
+                            <span style="font-size:14px;">Do you know and trust this beneficiary? </span>
                             <input type="checkbox" id="checkColorOpt30" name="permit" [(ngModel)]="permit" required>
                             <label for="checkColorOpt30">
-                                Do you know and trust this beneficiary? <br/>
                                 Yes I know and trust this person
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                   <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cTotal.invalid && (cTotal.dirty || cTotal.touched)">
+                    <!-- <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="cTotal.invalid && (cTotal.dirty || cTotal.touched)">
                         <label>Destination Total</label>
                         <input readonly type="text" value="{{ amount * rate}}" placeholder="{{ amount * rate }}" class="form-control" id="total" name="total" [(ngModel)]="total"  #cTotal="ngModel" required>
                     </div>
                     <div *ngIf="cTotal.invalid && (cTotal.dirty || cTotal.touched)" >
                         <label  *ngIf="cTotal.errors.required" class="error" >This field is required.</label>
                     </div>-->
-                    <h3 *ngIf="destination_country">Total : <span><small>{{ amount * rate + "" }} {{ destination_country?.currency }}</small></span></h3>
+                    <h3 *ngIf="destination_country">Total : <span><small>{{ amount * rate + "" }}
+                                {{ destination_country?.currency }}</small></span></h3>
                 </div>
             </div>
 
 
 
-            <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!transferForm.valid">Confirm Transaction</button>
+            <button class="btn btn-primary btn-lg btn-cons m-t-10" [class.disabled]="!transferForm.valid">Confirm
+                Transaction</button>
         </form>
 
     </div>
@@ -233,23 +264,53 @@
                                         <ng-template #CardTitle>Transaction Details</ng-template>
 
                                         <!--<div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>-->
-                                        <div><p><span><b>Amount : </b><small>{{ tnx.amount }}</small></span></p></div>
-                                        <div><p><span><b>Currency : </b><small>{{ tnx.currency.toUpperCase() }}</small></span></p></div>
+                                        <div>
+                                            <p><span><b>Amount : </b><small>{{ tnx.amount }}</small></span></p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Currency :
+                                                    </b><small>{{ tnx.currency.toUpperCase() }}</small></span></p>
+                                        </div>
                                         <!--<div><p><span><b>Transaction Status : </b><small>{{ tnx_status }}</small></span></p></div>-->
                                         <!--<div><p><span><b>Transfer Status: </b><small>{{ transaction.transfer_status }}</small></span></p></div>-->
-                                        <div><p><span><b>Receiver's FullName : </b><small>{{ tnx.to_name }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's Bank : </b><small>{{ to_bank.name }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's Phone: </b><small>{{ tnx.to_phone }}</small></span></p></div>
-                                        <div><p><span><b>Payment Account Number : </b><small>{{ tnx.to_account_number }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's Country : </b><small>{{ tnx.to_country}}</small></span></p></div>
-                                        <div><p><span><b>Sending Rate : </b><small>{{ tnx.rate }}</small></span></p></div>
-                                        <div><p><span><b>Receiver's Email : </b><small>{{ tnx.to_email }}</small></span></p></div>
-                                        <div><p><span><b>Total in Destination Country : </b><small>{{ tnx.total }} {{destination_country?.currency}}</small></span></p></div>
+                                        <div>
+                                            <p><span><b>Receiver's FullName :
+                                                    </b><small>{{ tnx.to_name }}</small></span></p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Receiver's Bank : </b><small>{{ to_bank.name }}</small></span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Receiver's Phone: </b><small>{{ tnx.to_phone }}</small></span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Payment Account Number :
+                                                    </b><small>{{ tnx.to_account_number }}</small></span></p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Receiver's Country :
+                                                    </b><small>{{ tnx.to_country}}</small></span></p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Sending Rate : </b><small>{{ tnx.rate }}</small></span></p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Receiver's Email : </b><small>{{ tnx.to_email }}</small></span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p><span><b>Total in Destination Country : </b><small>{{ tnx.total }}
+                                                        {{destination_country?.currency}}</small></span></p>
+                                        </div>
                                     </pgcard>
 
                                     <div>
-                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 mr-lg-5" (click)="is_ready = false; middle =false ">Edit Payments</button>
-                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 ml-lg-3" (click)="is_goal = true; middle=false;" >Make Payment</button>
+                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 mr-lg-5"
+                                            (click)="is_ready = false; middle =false ">Edit Payments</button>
+                                        <button class="btn btn-primary btn-lg btn-cons m-t-10 ml-lg-3"
+                                            (click)="is_goal = true; middle=false;">Make Payment</button>
                                     </div>
                                 </div>
                             </div>
@@ -268,25 +329,24 @@
 
 <div *ngIf="is_goal" class="register-container mt-20 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3> {{tnx.amount +"" + tnx.currency.toUpperCase()}} equivalent in local currency will be transferred  to {{" " +tnx.to_name}}.</h3>
+        <h3> {{tnx.amount +"" + tnx.currency.toUpperCase()}} equivalent in local currency will be transferred to
+            {{" " +tnx.to_name}}.</h3>
         <!-- END CONTAINER FLUID -->
         <h4>Supply your card details to make payment</h4>
         <form class="p-t-1" role="form" name="transferForm" #payForm="ngForm" (ngSubmit)="sendTransaction()">
             <div class="row">
                 <div class="col-md-10">
-                    <div pgFormGroupDefault class="form-group form-group-default" >
+                    <div pgFormGroupDefault class="form-group form-group-default">
                         <label>Credit Card Details</label>
-                        <ngx-stripe-card
-                                [options]="cardOptions"
-                                [elementsOptions]="elementsOptions"
-                        ></ngx-stripe-card>
+                        <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg btn-cons m-t-10"  [class.disabled]="!payForm.valid">Make Payment</button>
+            <button class="btn btn-primary btn-lg btn-cons m-t-10" [class.disabled]="!payForm.valid">Make
+                Payment</button>
         </form>
 
-       <!-- <ngx-stripe-card-group
+        <!-- <ngx-stripe-card-group
                 [formGroup]="stripeTest"
                 [elementsOptions]="elementsOptions"
         >
@@ -366,7 +426,8 @@
                     <span>Send Money</span>
                 </button>-->
                 <h3>Your transfer to {{ tnx.to_name + " "}} is <span style="color: #2ca02c">Successful </span></h3>
-                <button (click)="reLoad()" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+                <button (click)="reLoad()" style="background-color: #007bff" aria-label=""
+                    class="btn btn-block btn-info btn-lg" type="button">
                     <i class="pg-icon"></i>
                     <span>Initiate New Transactions</span>
                 </button>
@@ -382,16 +443,18 @@
 
 <div *ngIf="is_failed" class="register-container mt-40 pt-1 full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
-        <h3>Your transfer to {{ tnx?.to_name + " "}} <span style="color: red"><h2>Failed</h2></span>  </h3>
-        <button (click)="reLoad()" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+        <h3>Your transfer to {{ tnx?.to_name + " "}} <span style="color: red">
+                <h2>Failed</h2>
+            </span> </h3>
+        <button (click)="reLoad()" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg"
+            type="button">
             <i class="pg-icon"></i>
             <span>Initiate New Transactions</span>
         </button>
-        <button (click)="is_failed = false; is_ready = false;" style="background-color: #007bff" aria-label="" class="btn btn-block btn-info btn-lg" type="button">
+        <button (click)="is_failed = false; is_ready = false;" style="background-color: #007bff" aria-label=""
+            class="btn btn-block btn-info btn-lg" type="button">
             <i class="pg-icon"></i>
             <span>Try Again</span>
         </button>
     </div>
 </div>
-
-
