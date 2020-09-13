@@ -29,11 +29,13 @@ export class TransactionsComponent implements OnInit {
   lastSuccesful: ITransaction = {};
   lastPending: ITransaction = {};
   lastFailed: ITransaction = {};
+  transactionsPending: ITransaction[];
+  transactionSuccessful: ITransaction[];
 
   constructor(private transactionService: TransactionService, private $localStorage: LocalStorageService,
               private route: ActivatedRoute) {
     console.log(this.columnModeSetting);
-
+    this.user = $localStorage.retrieve('user');
 
         this.transactions = this.$localStorage.retrieve('aTnx');
         if (this.transactions != null) {
@@ -44,13 +46,43 @@ export class TransactionsComponent implements OnInit {
         /*this.lastFailed = this.$localStorage.retrieve('lastFailed');*/
         this.nFailed = this.$localStorage.retrieve('nFailed');
         this.nFailedSum = this.$localStorage.retrieve('nFailedSum');
-        this.npending = this.$localStorage.retrieve('npending');
-        this.nPendingSum = this.$localStorage.retrieve('mPendingSum');
-        this.nSuccessful = this.$localStorage.retrieve('nSuccessful');
+      /*  this.npending = this.$localStorage.retrieve('npending');
+        this.nPendingSum = this.$localStorage.retrieve('mPendingSum');*/
+
+    this.transactionService.findByStatus('pending', this.user.username).subscribe((res) => {
+      this.transactionsPending = res.body;
+      if (this.transactions != null) {
+        this.basicSort = [...this.transactions];
+        // push our inital complete list
+        this.basicRows = this.transactions;
+      }
+      console.log(this.transactions);
+    }, (error) => {
+      console.log(error);
+    }, () => {
+      this.nPendingSum = this.transactionsPending.reduce((a, b) => a + (b.amount || 0), 0);
+      this.npending = this.transactionsPending.length;
+    });
+      /*  this.nSuccessful = this.$localStorage.retrieve('nSuccessful');
         this.nSuccessfulSum = this.$localStorage.retrieve('nSuccessfulSum');
-       /* this.lastSuccesful = this.$localStorage.retrieve('lastSuccessful');
-        this.lastPending = this.$localStorage.retrieve('lastPending');
-        this.lastFailed = this.$localStorage.retrieve('lastFailed');*/
+*/
+    this.transactionService.findByStatus('completed', this.user.username).subscribe((res) => {
+      this.transactionSuccessful = res.body;
+      console.log('All: ' + this.transactionSuccessful);
+      // this.$localStorage.store('aTnx', this.transactions);
+
+      if (this.transactions != null) {
+        this.basicSort = [...this.transactions];
+        // push our inital complete list
+        this.basicRows = this.transactions;
+      }
+    }, (error) => {
+      console.log(error);
+    }, () => {
+      this.nSuccessful = this.transactionSuccessful.length;
+      this.lastSuccesful = this.transactionSuccessful[this.nFailed - 1];
+      this.nSuccessfulSum = this.transactionSuccessful.reduce((a, b) => a + (b.amount || 0), 0);
+    });
     window.onresize = () => {
       this.scrollBarHorizontal = window.innerWidth < 960;
       this.columnModeSetting = window.innerWidth < 960 ? 'standard' : 'force';

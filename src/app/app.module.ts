@@ -59,8 +59,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 // Sample Blank Pages - Optional
 
-import { BlankSimplywhiteComponent } from './@pages/layouts/blank-simplywhite/blank-simplywhite.component';
-import { BlankCasualComponent } from './@pages/layouts/blank-casual/blank-casual.component';
+
 import {NgxWebstorageModule} from 'ngx-webstorage';
 
 import {ToastrModule} from 'ngx-toastr';

@@ -27,7 +27,7 @@ export class TnxSuccessfulComponent implements OnInit {
     this.user = $localStorage.retrieve('user');
 /*    this.transactions = this.$localStorage.retrieve('sTnx');
     */
-    this.transactionService.findByUserId(this.user.username).subscribe((res) => {
+    this.transactionService.findByStatus('completed', this.user.username).subscribe((res) => {
       this.transactions = res.body;
       console.log('All: ' + this.transactions);
       // this.$localStorage.store('aTnx', this.transactions);
