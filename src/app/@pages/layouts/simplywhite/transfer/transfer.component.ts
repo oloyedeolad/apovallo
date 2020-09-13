@@ -124,7 +124,7 @@ export class TransferComponent implements OnInit, OnDestroy {
   }
   confirmTransaction(form) {
     if (form.invalid) {
-      this.toaster.error('please fill all required filled', 'Form is Valid');
+      this.toaster.error('please fill all required field', 'Form is invalid');
       return;
     }
     if (form.value.amount > 2000 || form.value.amount === 0) {
@@ -132,7 +132,7 @@ export class TransferComponent implements OnInit, OnDestroy {
       return;
     }
     if (form.invalid) {
-      this.toaster.error('Your form is invalid, please make sure you have filled all field', 'Form is Valid');
+      this.toaster.error('Your form is invalid, please make sure you have filled all fields', 'Form is invalid');
       return;
     } else {
       console.log(form.value);
