@@ -6,7 +6,7 @@
           <p>
             If you already have an account<a routerLink="/login" class="text-info"> click Here to sign in</a>
           </p>
-          <form class="p-t-15" novalidate role="form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+          <form class="p-t-15" role="form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
             <div class="row">
               <div class="col-md-6">
                 <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="fName.invalid && (fName.dirty || fName.touched)">
@@ -74,7 +74,7 @@
             <div class="row m-t-10">
               <div class="col-lg-6">
                 <div class="form-check ">
-							<input type="checkbox" value="1" id="checkbox1" required>
+							<input type="checkbox" [(ngModel)]="agreed" name="checkbox1" id="checkbox1" required>
 							<label for="checkbox1"><small>I agree to the <a href="javascript:void(0)" class="text-info">Apovallo Terms</a> and <a href="javascript:void(0)" class="text-info">Privacy</a>.</small></label>
 						</div>
                 <!--<p><small>I agree to the <a href="javascript:void(0)" class="text-info">Pages Terms</a> and <a href="javascript:void(0)" class="text-info">Privacy</a>.</small></p>-->

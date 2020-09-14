@@ -18,6 +18,7 @@ export class RegisterPageComponent implements OnInit {
   txtemail;
   txtphone;
   is_successful = false;
+  agreed = false;
 
   constructor(public userRegisterService: UserService, private toast: ToastrService,
               private router: Router) {}
@@ -25,7 +26,8 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {}
 
   register(register: any) {
-    if (register.invalid) {
+    console.log(this.agreed);
+    if (!this.agreed) {
       this.toast.error('please make sure the form is filled correctly');
       return;
     }

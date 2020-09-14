@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login(login: any) {
-    const credentials = new Login(true, login.userName, login.password);
+    const credentials = new Login(true, login.userName.toLocaleLowerCase(), login.password);
 
     this.loginService.login(credentials).subscribe(() => {
           const user: IUser = this.$localStorage.retrieve('user');
