@@ -28,8 +28,8 @@
 
                         </div>
                         <div class="col-lg-6">
-                            <pgcard Maximize="false" Refresh="false" Toggle="false">
-                                <ng-template #CardTitle>Transaction Details</ng-template>
+                            <div class="card p-2">
+                                <h2>Transaction Details</h2>
 
                                 <div><p><span><b>Payment Ref : </b><small>{{ transaction.pay_ref }}</small></span></p></div>
                                 <div><p><span><b>Amount : </b><small>{{ transaction.amount }}</small></span></p></div>
@@ -44,7 +44,7 @@
                                 <div><p><span><b>Sending Rate : </b><small>{{ transaction.rate }}</small></span></p></div>
                                 <div><p><span><b>Receiver's Email : </b><small>{{ transaction.to_email }}</small></span></p></div>
                                 <div><p><span><b>Total in Destination Country : </b><small>{{ transaction.rate * transaction.amount }}</small></span></p></div>
-                            </pgcard>
+                            </div>
                         </div>
                         <div class="col-lg-3">
 

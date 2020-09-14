@@ -25,13 +25,17 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {}
 
   register(register: any) {
+    if (register.invalid) {
+      this.toast.error('please make sure the form is filled correctly');
+      return;
+    }
     const user: IUser = {
-      username: register.txtusername,
-      password: register.txtpassword,
-      email: register.txtemail,
-      first_name: register.txtfname,
-      last_name: register.txtlname,
-      phone: register.txtphone
+      username: register.value.txtusername.toLocaleLowerCase(),
+      password: register.value.txtpassword,
+      email: register.value.txtemail,
+      first_name: register.value.txtfname,
+      last_name: register.value.txtlname,
+      phone: register.value.txtphone
     };
     console.log(user);
     this.userRegisterService.create(user).subscribe((res) => {
