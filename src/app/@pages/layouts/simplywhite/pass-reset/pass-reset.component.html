@@ -20,6 +20,7 @@
                         <div class="col-lg-6">
                             <pgcard Maximize="false" Refresh="false" Toggle="false">
                                 <h3>Reset Password</h3>
+                                <p>Your password must be at least 8 characters and contain a mix of numbers and letters</p>
                                 <form class="p-t-15" role="form" #loginForm="ngForm" (ngSubmit)="resetPassword(loginForm.value)">
                                     <!-- START Form Control-->
                                     <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="newPassword.invalid && (newPassword.dirty || newPassword.touched)">

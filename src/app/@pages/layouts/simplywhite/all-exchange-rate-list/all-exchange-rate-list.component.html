@@ -1,3 +1,5 @@
+<section class="section bg-light" id="rates">
+    <div class="container">
 <div class=" register-container mt-1 pt-1 full-height sm-p-t-30" style="background-color: #363795">
     <div class="d-flex justify-content-center flex-column full-height ">
 
@@ -8,8 +10,8 @@
         </p>-->
         <form class="p-t-15" role="form" name="transferForm" #transferForm="ngForm">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-7 mr-0">
+                <div class="col-md-1"></div>
+                <div class="col-md-9 mr-0">
                     <!--<div class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
                         <label><span><small>Currency</small></span></label>
                         <select style="width: 100%;"  [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
@@ -27,19 +29,19 @@
                     </div>-->
 
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend col-7 mr-1">
                             <select name="currency"  [(ngModel)]="source_country" (ngModelChange)="changeSource(transferForm)" class="custom-select form-control" id="inputGroupSelect01">
                                 <option *ngFor="let option of optionsSource" [ngValue]="option">{{option.currency_label.toUpperCase()}}</option>
                             </select>
                         </div>
-                        <div pgFormGroupDefault class="form-group form-group-default col-5">
+                        <div pgFormGroupDefault class="form-group form-group-default col-4">
                             <label>You send </label>
                         <input type="text" placeholder="Amount" class="form-control" id="amount" name="amount" [(ngModel)]="amount">
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
             </div>
 
             <div class="row">
@@ -67,8 +69,8 @@
             </div>
 
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-7 mr-0">
+                <div class="col-md-1"></div>
+                <div class="col-md-9 mr-0">
                     <!--<div class="form-group form-group-default" [class.has-error]="useCurrency.invalid && (useCurrency.dirty || useCurrency.touched)">
                         <label><span><small>Currency</small></span></label>
                         <select style="width: 100%;"  [(ngModel)]="currency" (ngModelChange)="changeSource(transferForm)" id="currency" name="currency" #useCurrency= "ngModel" PlaceHolder="Choose currency" required>
@@ -86,22 +88,24 @@
                     </div>-->
 
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend col-7 mr-1">
                             <select name="destination_country" [(ngModel)]="destination_country"  (ngModelChange)="changeDestination($event)"  class="custom-select form-control" id="inputGroupSelect02">
                                 <option *ngFor="let option of optionsDestination" [ngValue]="option">{{option.currency_label.toUpperCase()}}</option>
                             </select>
                         </div>
-                        <div pgFormGroupDefault class="form-group form-group-default col-6">
+                        <div pgFormGroupDefault class="form-group form-group-default col-4">
                             <label>Recipient gets </label>
                             <input type="text" placeholder="Total" class="form-control" id="total" name="total" [(ngModel)]="amount * rate" readonly>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
             </div>
         </form>
 
     </div>
 
 </div>
+    </div>
+</section>
