@@ -84,7 +84,7 @@ export class SimplyWhiteLayout extends RootLayout implements OnInit {
       toggle: 'close',
       submenu: [
         {
-          label: 'Successful',
+          label: 'Completed',
           /*details: '234 New Emails',*/
           routerLink: 'transactions/successful',
           iconType: 'fi',
