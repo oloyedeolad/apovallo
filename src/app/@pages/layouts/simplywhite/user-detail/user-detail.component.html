@@ -60,6 +60,17 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div pgFormGroupDefault class="form-group form-group-default" [class.has-error]="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                        <label>Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone"  #phoneno="ngModel" required>
+                    </div>
+                    <div *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)" >
+                        <label  *ngIf="phoneno.errors.required" class="error" >This field is required.</label>
+                    </div>
+                </div>
+            </div>
             <div class="row m-t-10">
                 <div class="col-lg-6">
                     <p><small> <a href="javascript:void(0)" class="text-info"></a> <a href="javascript:void(0)" class="text-info"></a>.</small></p>

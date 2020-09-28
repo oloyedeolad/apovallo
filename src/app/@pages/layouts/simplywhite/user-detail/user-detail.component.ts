@@ -18,6 +18,7 @@ export class UserDetailComponent implements OnInit {
   txtusername;
   txtpassword;
   txtemail;
+  phone;
   user: IUser;
   constructor(public userRegisterService: UserService, private toast: ToastrService,
               private router: Router, private $localStorage: LocalStorageService) {
@@ -26,6 +27,7 @@ export class UserDetailComponent implements OnInit {
     this.txtlname = this.user.last_name;
     this.txtemail = this.user.email;
     this.txtusername =  this.user.username;
+    this.phone = this.user.phone;
   }
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class UserDetailComponent implements OnInit {
       email: register.email,
       first_name: register.first_name,
       last_name: register.last_name,
+      phone: register.phone,
       id: this.user.id
     };
     this.userRegisterService.update(user, this.user.id).subscribe((res) => {
